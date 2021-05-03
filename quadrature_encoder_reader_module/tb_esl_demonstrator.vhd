@@ -23,17 +23,17 @@
 LIBRARY ieee;                                               
 USE ieee.std_logic_1164.all; 
 
-ENTITY esl_demonstrator_vhd_tst IS
-END esl_demonstrator_vhd_tst;
-ARCHITECTURE esl_demonstrator_arch OF esl_demonstrator_vhd_tst IS
+ENTITY tb_esl_demonstrator IS
+END tb_esl_demonstrator;
+ARCHITECTURE tb_esl_demonstrator_arch OF tb_esl_demonstrator IS
 -- constants                                                 
 -- signals                                                   
 SIGNAL CLOCK_50 : STD_LOGIC := '0';
-SIGNAL GPIO_0 : STD_LOGIC_VECTOR(33 DOWNTO 0);
+SIGNAL GPIO_0 : STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL GPIO_0_IN : STD_LOGIC_VECTOR(1 DOWNTO 0) := "00";
-SIGNAL GPIO_1 : STD_LOGIC_VECTOR(33 DOWNTO 0);
+SIGNAL GPIO_1 : STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL GPIO_1_IN : STD_LOGIC_VECTOR(1 DOWNTO 0);
-SIGNAL KEY : STD_LOGIC_VECTOR(1 DOWNTO 0);
+SIGNAL KEY : STD_LOGIC_VECTOR(1 DOWNTO 0) := "11";
 SIGNAL LED : STD_LOGIC_VECTOR(7 DOWNTO 0);
 SIGNAL SW : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL finished : boolean := false;
@@ -41,9 +41,9 @@ SIGNAL finished : boolean := false;
 COMPONENT esl_demonstrator
 	PORT (
 	CLOCK_50 : IN STD_LOGIC;
-	GPIO_0 : INOUT STD_LOGIC_VECTOR(33 DOWNTO 0);
+	GPIO_0 : INOUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 	GPIO_0_IN : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-	GPIO_1 : INOUT STD_LOGIC_VECTOR(33 DOWNTO 0);
+	GPIO_1 : INOUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 	GPIO_1_IN : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
 	KEY : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
 	LED : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
@@ -118,4 +118,4 @@ BEGIN
   END LOOP;          
 END PROCESS always; 
                                          
-END esl_demonstrator_arch;
+END tb_esl_demonstrator_arch;

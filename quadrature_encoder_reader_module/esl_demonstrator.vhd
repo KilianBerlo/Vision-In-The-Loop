@@ -12,11 +12,11 @@ entity esl_demonstrator is
 	SW			: in std_logic_vector(3 downto 0);
 
 	-- GPIO_0, GPIO_0 connect to GPIO Default
-	GPIO_0		: inout std_logic_vector(33 downto 0);
+	GPIO_0		: inout std_logic_vector(31 downto 0);
 	GPIO_0_IN	: in    std_logic_vector(1 downto 0);
 
 	-- GPIO_1, GPIO_1 connect to GPIO Default
-	GPIO_1		: inout std_logic_vector(33 downto 0);
+	GPIO_1		: inout std_logic_vector(31 downto 0);
 	GPIO_1_IN	: in    std_logic_vector(1 downto 0)
 	);
 end entity;
@@ -32,7 +32,7 @@ begin
 			clk 		=>	CLOCK_50,
 			n_rst 	=>	KEY(0),
 			gpio		=> GPIO_0_IN,
-			count		=> placeholder
+			count		=> GPIO_0
 		);
 		
 	
