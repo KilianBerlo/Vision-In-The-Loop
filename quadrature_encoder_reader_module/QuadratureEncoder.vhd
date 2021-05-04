@@ -111,13 +111,14 @@ architecture behaviour of QuadratureEncoder is
 					
 						-- Increment!
 						tick_counter := tick_counter + 1;
+						--tick_counter := (others => '0');
 						prev_input_state := input_state;
 						direction <= idle;
 					
 					else 
 					
-						prev_input_state := input_state;
-						direction <= idle;
+						--prev_input_state := input_state;
+						--direction <= idle;
 				
 					end if;
 				
@@ -137,13 +138,14 @@ architecture behaviour of QuadratureEncoder is
 					
 						-- Decrement!
 						tick_counter := tick_counter - 1;
+						--tick_counter := (others => '1');
 						prev_input_state := input_state;
 						direction <= idle;
 					
 					else 
 					
-						prev_input_state := input_state;
-						direction <= idle;
+						--prev_input_state := input_state;
+						--direction <= idle;
 				
 					end if;
 				
