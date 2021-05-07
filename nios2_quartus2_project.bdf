@@ -1,0 +1,113 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+*/
+(header "graphic" (version "1.4"))
+(pin
+	(input)
+	(rect 608 408 800 424)
+	(text "INPUT" (rect 157 0 186 10)(font "Arial" (font_size 6)))
+	(text "PLD_CLOCKINPUT" (rect 5 0 105 11)(font "Arial" ))
+	(pt 192 8)
+	(drawing
+		(line (pt 116 12)(pt 141 12))
+		(line (pt 116 4)(pt 141 4))
+		(line (pt 145 8)(pt 192 8))
+		(line (pt 116 12)(pt 116 4))
+		(line (pt 141 4)(pt 145 8))
+		(line (pt 141 12)(pt 145 8))
+	)
+	(text "VCC" (rect 160 7 181 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 592 344 640 360))
+)
+(symbol
+	(rect 560 448 592 464)
+	(text "VCC" (rect 7 0 28 10)(font "Arial" (font_size 6)))
+	(text "inst2" (rect 3 5 27 16)(font "Arial" )(invisible))
+	(port
+		(pt 16 16)
+		(output)
+		(text "1" (rect 19 7 27 18)(font "Courier New" (bold))(invisible))
+		(text "1" (rect 19 7 27 18)(font "Courier New" (bold))(invisible))
+		(line (pt 16 16)(pt 16 8))
+	)
+	(drawing
+		(line (pt 8 8)(pt 24 8))
+	)
+)
+(symbol
+	(rect 848 368 1072 512)
+	(text "first_nios2_system" (rect 56 -1 188 15)(font "Arial" (font_size 10)))
+	(text "inst1" (rect 8 128 32 141)(font "Intel Clear" ))
+	(port
+		(pt 0 72)
+		(input)
+		(text "clk_clk" (rect 0 0 40 13)(font "Arial" (font_size 8)))
+		(text "clk_clk" (rect 4 61 44 74)(font "Arial" (font_size 8)))
+		(line (pt 0 72)(pt 80 72))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "reset_reset_n" (rect 0 0 79 13)(font "Arial" (font_size 8)))
+		(text "reset_reset_n" (rect 4 101 83 114)(font "Arial" (font_size 8)))
+		(line (pt 0 112)(pt 80 112))
+	)
+	(drawing
+		(text "clk" (rect 65 43 85 57)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "clk" (rect 85 67 100 78)(font "Arial" (color 0 0 0)))
+		(text "reset" (rect 51 83 85 97)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "reset_n" (rect 85 107 123 118)(font "Arial" (color 0 0 0)))
+		(text " first_nios2_system " (rect 137 128 234 139)(font "Arial" ))
+		(line (pt 80 32)(pt 144 32))
+		(line (pt 144 32)(pt 144 128))
+		(line (pt 80 128)(pt 144 128))
+		(line (pt 80 32)(pt 80 128))
+		(line (pt 81 52)(pt 81 76))
+		(line (pt 82 52)(pt 82 76))
+		(line (pt 81 92)(pt 81 116))
+		(line (pt 82 92)(pt 82 116))
+		(line (pt 0 0)(pt 224 0))
+		(line (pt 224 0)(pt 224 144))
+		(line (pt 0 144)(pt 224 144))
+		(line (pt 0 0)(pt 0 144))
+	)
+)
+(connector
+	(pt 576 496)
+	(pt 576 464)
+)
+(connector
+	(pt 848 416)
+	(pt 800 416)
+)
+(connector
+	(pt 848 416)
+	(pt 848 440)
+)
+(connector
+	(pt 848 496)
+	(pt 576 496)
+)
+(connector
+	(pt 848 496)
+	(pt 848 480)
+)
+(text "This is the top level for the HW tutorial" (rect 768 264 981 277)(font "Arial" (color 0 0 0)(font_size 8)))
+(text "NiosII QuartusII Project" (rect 768 232 1061 260)(font "Arial" (color 0 0 0)(font_size 18)))

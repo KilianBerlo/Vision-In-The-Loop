@@ -1,0 +1,135 @@
+Flow report for nios2_quartus2_project
+Fri May  7 15:30:08 2021
+Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Flow Summary                                                                     ;
++------------------------------------+---------------------------------------------+
+; Flow Status                        ; Successful - Fri May  7 15:30:05 2021       ;
+; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
+; Revision Name                      ; nios2_quartus2_project                      ;
+; Top-level Entity Name              ; nios2_quartus2_project                      ;
+; Family                             ; Cyclone IV E                                ;
+; Device                             ; EP4CE22F17C6                                ;
+; Timing Models                      ; Final                                       ;
+; Total logic elements               ; 3,380 / 22,320 ( 15 % )                     ;
+;     Total combinational functions  ; 2,991 / 22,320 ( 13 % )                     ;
+;     Dedicated logic registers      ; 2,056 / 22,320 ( 9 % )                      ;
+; Total registers                    ; 2056                                        ;
+; Total pins                         ; 1 / 154 ( < 1 % )                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 210,048 / 608,256 ( 35 % )                  ;
+; Embedded Multiplier 9-bit elements ; 0 / 132 ( 0 % )                             ;
+; Total PLLs                         ; 0 / 4 ( 0 % )                               ;
++------------------------------------+---------------------------------------------+
+
+
++--------------------------------------------+
+; Flow Settings                              ;
++-------------------+------------------------+
+; Option            ; Setting                ;
++-------------------+------------------------+
+; Start date & time ; 05/07/2021 15:28:55    ;
+; Main task         ; Compilation            ;
+; Revision Name     ; nios2_quartus2_project ;
++-------------------+------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                             ;
++-------------------------------------+----------------------------------------------------------------------+---------------+--------------------+------------+
+; Assignment Name                     ; Value                                                                ; Default Value ; Entity Name        ; Section Id ;
++-------------------------------------+----------------------------------------------------------------------+---------------+--------------------+------------+
+; COMPILER_SIGNATURE_ID               ; 17912116248785.162039413460167                                       ; --            ; --                 ; --         ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                                                   ; --            ; --                 ; --         ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                                                    ; --            ; --                 ; --         ;
+; MISC_FILE                           ; first_nios2_system/synthesis/../first_nios2_system.cmp               ; --            ; --                 ; --         ;
+; MISC_FILE                           ; first_nios2_system/synthesis/../../first_nios2_system.qsys           ; --            ; --                 ; --         ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                                    ; --            ; --                 ; --         ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                                    ; --            ; --                 ; --         ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                           ; --            ; --                 ; --         ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                           ; --            ; --                 ; --         ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family)                               ; --            ; --                 ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                               ; --            ; --                 ; Top        ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                               ; --            ; --                 ; Top        ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                                  ; --            ; --                 ; --         ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                ; --            ; --                 ; --         ;
+; SLD_FILE                            ; first_nios2_system/synthesis/first_nios2_system.regmap               ; --            ; --                 ; --         ;
+; SLD_FILE                            ; first_nios2_system/synthesis/first_nios2_system.debuginfo            ; --            ; --                 ; --         ;
+; SLD_INFO                            ; QSYS_NAME first_nios2_system HAS_SOPCINFO 1 GENERATION_ID 1620157664 ; --            ; first_nios2_system ; --         ;
+; SMART_RECOMPILE                     ; On                                                                   ; Off           ; --                 ; --         ;
+; SOPCINFO_FILE                       ; first_nios2_system/synthesis/../../first_nios2_system.sopcinfo       ; --            ; --                 ; --         ;
+; SYNTHESIS_ONLY_QIP                  ; On                                                                   ; --            ; --                 ; --         ;
++-------------------------------------+----------------------------------------------------------------------+---------------+--------------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:44     ; 1.0                     ; 1094 MB             ; 00:01:20                           ;
+; Fitter               ; 00:00:17     ; 1.1                     ; 1570 MB             ; 00:00:23                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 804 MB              ; 00:00:02                           ;
+; Timing Analyzer      ; 00:00:03     ; 1.2                     ; 879 MB              ; 00:00:03                           ;
+; Total                ; 00:01:06     ; --                      ; --                  ; 00:01:48                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++----------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                        ;
++----------------------+------------------+----------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name        ; OS Version ; Processor type ;
++----------------------+------------------+----------------+------------+----------------+
+; Analysis & Synthesis ; ThinkPad-W541    ; Ubuntu 20.04.2 ; 20         ; x86_64         ;
+; Fitter               ; ThinkPad-W541    ; Ubuntu 20.04.2 ; 20         ; x86_64         ;
+; Assembler            ; ThinkPad-W541    ; Ubuntu 20.04.2 ; 20         ; x86_64         ;
+; Timing Analyzer      ; ThinkPad-W541    ; Ubuntu 20.04.2 ; 20         ; x86_64         ;
++----------------------+------------------+----------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off nios2_quartus2_project -c nios2_quartus2_project
+quartus_fit --read_settings_files=off --write_settings_files=off nios2_quartus2_project -c nios2_quartus2_project
+quartus_asm --read_settings_files=off --write_settings_files=off nios2_quartus2_project -c nios2_quartus2_project
+quartus_sta nios2_quartus2_project -c nios2_quartus2_project
+
+
+
