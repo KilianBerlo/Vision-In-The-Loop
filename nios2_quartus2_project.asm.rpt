@@ -1,5 +1,5 @@
 Assembler report for nios2_quartus2_project
-Fri May  7 15:30:05 2021
+Tue May 11 14:59:43 2021
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri May  7 15:30:05 2021 ;
+; Assembler Status      ; Successful - Tue May 11 14:59:43 2021 ;
 ; Revision Name         ; nios2_quartus2_project                ;
 ; Top-level Entity Name ; nios2_quartus2_project                ;
 ; Family                ; Cyclone IV E                          ;
@@ -64,13 +64,13 @@ refer to the applicable agreement for further details.
 +--------+-------------------------------+---------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Assembler Generated Files                                                                                                                      ;
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; File Name                                                                                                                                      ;
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; /home/kilian/Documents/201000168_embedded_systems_laboratory/project/assignment/niosII_hw_dev_tutorial/nios2_quartus2_project_time_limited.sof ;
-+------------------------------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                                                                                ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; File Name                                                                                                                                                ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; /home/kilian/Documents/201000168_embedded_systems_laboratory/project/practical_work_files/niosII_hw_dev_tutorial/nios2_quartus2_project_time_limited.sof ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------+
@@ -79,7 +79,7 @@ refer to the applicable agreement for further details.
 ; Option         ; Setting                                          ;
 +----------------+--------------------------------------------------+
 ; JTAG usercode  ; 0xFFFFFFFF                                       ;
-; Checksum       ; 0x0037ED4D                                       ;
+; Checksum       ; 0x0030DF90                                       ;
 +----------------+--------------------------------------------------+
 
 
@@ -89,7 +89,7 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Fri May  7 15:30:03 2021
+    Info: Processing started: Tue May 11 14:59:41 2021
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off nios2_quartus2_project -c nios2_quartus2_project
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
@@ -97,8 +97,8 @@ Info (115030): Assembler is generating device programming files
 Info (115017): Design contains a time-limited core -- only a single, time-limited programming file can be generated
 Warning (210042): Can't convert time-limited SOF into POF, HEX File, TTF, or RBF
 Info: Quartus Prime Assembler was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 804 megabytes
-    Info: Processing ended: Fri May  7 15:30:05 2021
+    Info: Peak virtual memory: 801 megabytes
+    Info: Processing ended: Tue May 11 14:59:43 2021
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 

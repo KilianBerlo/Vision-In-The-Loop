@@ -1,5 +1,5 @@
 Flow report for nios2_quartus2_project
-Fri May  7 15:30:08 2021
+Tue May 11 14:59:46 2021
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -40,20 +40,20 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Fri May  7 15:30:05 2021       ;
+; Flow Status                        ; Successful - Tue May 11 14:59:43 2021       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; nios2_quartus2_project                      ;
 ; Top-level Entity Name              ; nios2_quartus2_project                      ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE22F17C6                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 3,380 / 22,320 ( 15 % )                     ;
-;     Total combinational functions  ; 2,991 / 22,320 ( 13 % )                     ;
-;     Dedicated logic registers      ; 2,056 / 22,320 ( 9 % )                      ;
-; Total registers                    ; 2056                                        ;
-; Total pins                         ; 1 / 154 ( < 1 % )                           ;
+; Total logic elements               ; 2,494 / 22,320 ( 11 % )                     ;
+;     Total combinational functions  ; 2,265 / 22,320 ( 10 % )                     ;
+;     Dedicated logic registers      ; 1,419 / 22,320 ( 6 % )                      ;
+; Total registers                    ; 1419                                        ;
+; Total pins                         ; 11 / 154 ( 7 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 210,048 / 608,256 ( 35 % )                  ;
+; Total memory bits                  ; 192,384 / 608,256 ( 32 % )                  ;
 ; Embedded Multiplier 9-bit elements ; 0 / 132 ( 0 % )                             ;
 ; Total PLLs                         ; 0 / 4 ( 0 % )                               ;
 +------------------------------------+---------------------------------------------+
@@ -64,38 +64,38 @@ refer to the applicable agreement for further details.
 +-------------------+------------------------+
 ; Option            ; Setting                ;
 +-------------------+------------------------+
-; Start date & time ; 05/07/2021 15:28:55    ;
+; Start date & time ; 05/11/2021 14:58:47    ;
 ; Main task         ; Compilation            ;
 ; Revision Name     ; nios2_quartus2_project ;
 +-------------------+------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                             ;
-+-------------------------------------+----------------------------------------------------------------------+---------------+--------------------+------------+
-; Assignment Name                     ; Value                                                                ; Default Value ; Entity Name        ; Section Id ;
-+-------------------------------------+----------------------------------------------------------------------+---------------+--------------------+------------+
-; COMPILER_SIGNATURE_ID               ; 17912116248785.162039413460167                                       ; --            ; --                 ; --         ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                                                   ; --            ; --                 ; --         ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                                                    ; --            ; --                 ; --         ;
-; MISC_FILE                           ; first_nios2_system/synthesis/../first_nios2_system.cmp               ; --            ; --                 ; --         ;
-; MISC_FILE                           ; first_nios2_system/synthesis/../../first_nios2_system.qsys           ; --            ; --                 ; --         ;
-; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                                    ; --            ; --                 ; --         ;
-; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                                    ; --            ; --                 ; --         ;
-; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                           ; --            ; --                 ; --         ;
-; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                           ; --            ; --                 ; --         ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family)                               ; --            ; --                 ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                               ; --            ; --                 ; Top        ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                               ; --            ; --                 ; Top        ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                                  ; --            ; --                 ; --         ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                ; --            ; --                 ; --         ;
-; SLD_FILE                            ; first_nios2_system/synthesis/first_nios2_system.regmap               ; --            ; --                 ; --         ;
-; SLD_FILE                            ; first_nios2_system/synthesis/first_nios2_system.debuginfo            ; --            ; --                 ; --         ;
-; SLD_INFO                            ; QSYS_NAME first_nios2_system HAS_SOPCINFO 1 GENERATION_ID 1620157664 ; --            ; first_nios2_system ; --         ;
-; SMART_RECOMPILE                     ; On                                                                   ; Off           ; --                 ; --         ;
-; SOPCINFO_FILE                       ; first_nios2_system/synthesis/../../first_nios2_system.sopcinfo       ; --            ; --                 ; --         ;
-; SYNTHESIS_ONLY_QIP                  ; On                                                                   ; --            ; --                 ; --         ;
-+-------------------------------------+----------------------------------------------------------------------+---------------+--------------------+------------+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                           ;
++-------------------------------------+-----------------------------------------------------------+---------------+-------------+------------+
+; Assignment Name                     ; Value                                                     ; Default Value ; Entity Name ; Section Id ;
++-------------------------------------+-----------------------------------------------------------+---------------+-------------+------------+
+; COMPILER_SIGNATURE_ID               ; 17912116248785.162073792756868                            ; --            ; --          ; --         ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                                        ; --            ; --          ; --         ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                                         ; --            ; --          ; --         ;
+; MISC_FILE                           ; decoder/synthesis/../decoder.cmp                          ; --            ; --          ; --         ;
+; MISC_FILE                           ; decoder/synthesis/../../decoder.qsys                      ; --            ; --          ; --         ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                         ; --            ; --          ; --         ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                         ; --            ; --          ; --         ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                ; --            ; --          ; --         ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                ; --            ; --          ; --         ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family)                    ; --            ; --          ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                    ; --            ; --          ; Top        ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                    ; --            ; --          ; Top        ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                       ; --            ; --          ; --         ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                     ; --            ; --          ; --         ;
+; SLD_FILE                            ; decoder/synthesis/decoder.regmap                          ; --            ; --          ; --         ;
+; SLD_FILE                            ; decoder/synthesis/decoder.debuginfo                       ; --            ; --          ; --         ;
+; SLD_INFO                            ; QSYS_NAME decoder HAS_SOPCINFO 1 GENERATION_ID 1620737866 ; --            ; decoder     ; --         ;
+; SMART_RECOMPILE                     ; On                                                        ; Off           ; --          ; --         ;
+; SOPCINFO_FILE                       ; decoder/synthesis/../../decoder.sopcinfo                  ; --            ; --          ; --         ;
+; SYNTHESIS_ONLY_QIP                  ; On                                                        ; --            ; --          ; --         ;
++-------------------------------------+-----------------------------------------------------------+---------------+-------------+------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -103,11 +103,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:44     ; 1.0                     ; 1094 MB             ; 00:01:20                           ;
-; Fitter               ; 00:00:17     ; 1.1                     ; 1570 MB             ; 00:00:23                           ;
-; Assembler            ; 00:00:02     ; 1.0                     ; 804 MB              ; 00:00:02                           ;
-; Timing Analyzer      ; 00:00:03     ; 1.2                     ; 879 MB              ; 00:00:03                           ;
-; Total                ; 00:01:06     ; --                      ; --                  ; 00:01:48                           ;
+; Analysis & Synthesis ; 00:00:37     ; 1.0                     ; 1078 MB             ; 00:01:12                           ;
+; Fitter               ; 00:00:11     ; 1.1                     ; 1560 MB             ; 00:00:15                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 801 MB              ; 00:00:02                           ;
+; Timing Analyzer      ; 00:00:03     ; 1.2                     ; 867 MB              ; 00:00:03                           ;
+; Total                ; 00:00:53     ; --                      ; --                  ; 00:01:32                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
