@@ -8,7 +8,7 @@ entity quadrature_encoder is
 		clk	:  in std_logic;
 		n_rst	:	in std_logic;
 		enc_in:	in std_logic_vector(1 downto 0);
-		count	:	inout std_logic_vector(31 downto 0) := (others => '0')
+		count	:	inout std_logic_vector(31 downto 0)
 	);
 end quadrature_encoder;
 

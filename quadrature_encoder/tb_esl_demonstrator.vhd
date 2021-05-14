@@ -85,11 +85,11 @@ BEGIN
         -- code executes for every event on sensitivity list  
   FOR i IN 0 TO 10 LOOP -- 0 to -11
     WAIT FOR 20 ns;   
-    GPIO_0_IN <= "00";     
+    GPIO_0_IN <= "11";     
     WAIT FOR 40 ns;  
     GPIO_0_IN <= "01";   
     WAIT FOR 40 ns;  
-    GPIO_0_IN <= "11";   
+    GPIO_0_IN <= "00";   
     WAIT FOR 40 ns;  
     GPIO_0_IN <= "10";   
     WAIT FOR 20 ns;  

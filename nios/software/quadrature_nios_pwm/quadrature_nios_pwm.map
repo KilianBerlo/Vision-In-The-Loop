@@ -1,0 +1,1092 @@
+Archive member included to satisfy reference by file (symbol)
+
+c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
+                              obj/default/hello_world.o (printf)
+c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
+                              obj/default/hello_world.o (puts)
+c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-strlen.o)
+                              c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o) (strlen)
+c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
+                              c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o) (___vfprintf_internal_r)
+c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o)
+                              c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o) (__sfvwrite_small_dev)
+c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
+                              c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o) (_impure_ptr)
+c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o)
+                              c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o) (_write_r)
+c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+                              c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o) (errno)
+c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-divmod.o)
+                              c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o) (__udivsi3)
+c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-mul.o)
+                              c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o) (__mulsi3)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_load.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp//obj/HAL/src/crt0.o (alt_load)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_main.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp//obj/HAL/src/crt0.o (alt_main)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_usleep.o)
+                              obj/default/hello_world.o (usleep)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_write.o)
+                              c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o) (write)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_sys_init.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_main.o) (alt_irq_init)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_sys_init.o) (altera_avalon_jtag_uart_read_fd)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o) (altera_avalon_jtag_uart_read)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o) (altera_avalon_jtag_uart_write)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_sys_init.o) (alt_avalon_timer_sc_init)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_usleep.o) (alt_busy_sleep)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_close.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_main.o) (close)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_load.o) (alt_dcache_flush_all)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_sys_init.o) (alt_dev_list)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_sys_init.o) (alt_dev_llist_insert)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_errno.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_write.o) (alt_errno)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_load.o) (alt_icache_flush_all)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o) (alt_ic_isr_register)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic.o) (alt_iic_isr_register)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_io_redirect.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_main.o) (alt_io_redirect)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_entry.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic_isr_register.o) (alt_irq_entry)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_handler.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic_isr_register.o) (alt_irq)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_vars.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic.o) (alt_irq_active)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_open.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_io_redirect.o) (open)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_release_fd.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_close.o) (alt_release_fd)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_tick.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o) (_alt_tick_rate)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_sys_init.o) (altera_nios2_gen2_irq_init)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exception_entry.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_entry.o) (alt_exception)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_dev.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_open.o) (alt_find_dev)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_file.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_open.o) (alt_find_file)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_get_fd.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_open.o) (alt_get_fd)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exception_entry.o) (alt_instruction_exception_entry)
+c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_main.o) (exit)
+c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcmp.o)
+                              c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_dev.o) (memcmp)
+c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__call_atexit.o)
+                              c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o) (__call_exitprocs)
+c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exit.o)
+                              c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o) (_exit)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+reset            0x0000000000008000 0x0000000000000020
+onchip_mem       0x0000000000008020 0x0000000000004fe0
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp//obj/HAL/src/crt0.o
+LOAD obj/default/hello_world.o
+LOAD c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libstdc++.a
+LOAD c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libm.a
+LOAD c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a
+START GROUP
+LOAD c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a
+LOAD c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a
+LOAD c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a
+LOAD c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libm.a
+END GROUP
+LOAD c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a
+                0x0000000000008000                __alt_mem_onchip_mem = 0x8000
+
+.entry          0x0000000000008000       0x20
+ *(.entry)
+ .entry         0x0000000000008000       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp//obj/HAL/src/crt0.o
+                0x0000000000008000                __reset
+
+.exceptions     0x0000000000008020      0x204
+                0x0000000000008020                PROVIDE (__ram_exceptions_start = ABSOLUTE (.))
+                0x0000000000008020                . = ALIGN (0x20)
+ *(.irq)
+ *(.exceptions.entry.label)
+ .exceptions.entry.label
+                0x0000000000008020        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_entry.o)
+                0x0000000000008020                alt_irq_entry
+ .exceptions.entry.label
+                0x0000000000008020        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exception_entry.o)
+                0x0000000000008020                alt_exception
+ *(.exceptions.entry.user)
+ *(.exceptions.entry.ecc_fatal)
+ *(.exceptions.entry)
+ .exceptions.entry
+                0x0000000000008020       0x54 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ *(.exceptions.irqtest.user)
+ *(.exceptions.irqtest)
+ .exceptions.irqtest
+                0x0000000000008074       0x10 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ *(.exceptions.irqhandler.user)
+ *(.exceptions.irqhandler)
+ .exceptions.irqhandler
+                0x0000000000008084        0x4 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ *(.exceptions.irqreturn.user)
+ *(.exceptions.irqreturn)
+ .exceptions.irqreturn
+                0x0000000000008088        0x4 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ *(.exceptions.notirq.label)
+ .exceptions.notirq.label
+                0x000000000000808c        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ *(.exceptions.notirq.user)
+ *(.exceptions.notirq)
+ .exceptions.notirq
+                0x000000000000808c        0x8 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ *(.exceptions.soft.user)
+ *(.exceptions.soft)
+ *(.exceptions.unknown.user)
+ *(.exceptions.unknown)
+ .exceptions.unknown
+                0x0000000000008094       0x14 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ *(.exceptions.exit.label)
+ .exceptions.exit.label
+                0x00000000000080a8        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ .exceptions.exit.label
+                0x00000000000080a8        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ *(.exceptions.exit.user)
+ *(.exceptions.exit)
+ .exceptions.exit
+                0x00000000000080a8       0x54 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ *(.exceptions)
+ .exceptions    0x00000000000080fc       0xc8 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_handler.o)
+                0x00000000000080fc                alt_irq_handler
+ .exceptions    0x00000000000081c4       0x60 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+                0x00000000000081c4                alt_instruction_exception_entry
+                0x0000000000008224                PROVIDE (__ram_exceptions_end = ABSOLUTE (.))
+                0x0000000000008020                PROVIDE (__flash_exceptions_start = LOADADDR (.exceptions))
+
+.text           0x0000000000008224     0x21dc
+                [!provide]                        PROVIDE (stext = ABSOLUTE (.))
+ *(.interp)
+ *(.hash)
+ *(.dynsym)
+ *(.dynstr)
+ *(.gnu.version)
+ *(.gnu.version_d)
+ *(.gnu.version_r)
+ *(.rel.init)
+ *(.rela.init)
+ *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ *(.rel.fini)
+ *(.rela.fini)
+ *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ *(.rel.tdata .rel.tdata.* .rel.gnu.linkonce.td.*)
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rel.tbss .rel.tbss.* .rel.gnu.linkonce.tb.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rel.ctors)
+ *(.rela.ctors)
+ *(.rel.dtors)
+ *(.rela.dtors)
+ *(.rel.got)
+ *(.rela.got)
+ *(.rel.sdata .rel.sdata.* .rel.gnu.linkonce.s.*)
+ *(.rela.sdata .rela.sdata.* .rela.gnu.linkonce.s.*)
+ *(.rel.sbss .rel.sbss.* .rel.gnu.linkonce.sb.*)
+ *(.rela.sbss .rela.sbss.* .rela.gnu.linkonce.sb.*)
+ *(.rel.sdata2 .rel.sdata2.* .rel.gnu.linkonce.s2.*)
+ *(.rela.sdata2 .rela.sdata2.* .rela.gnu.linkonce.s2.*)
+ *(.rel.sbss2 .rel.sbss2.* .rel.gnu.linkonce.sb2.*)
+ *(.rela.sbss2 .rela.sbss2.* .rela.gnu.linkonce.sb2.*)
+ *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+ *(.rel.plt)
+ *(.rela.plt)
+ *(.rel.dyn)
+ *(.init)
+ *(.plt)
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x0000000000008224       0x3c c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp//obj/HAL/src/crt0.o
+                0x0000000000008224                _start
+ .text          0x0000000000008260       0x48 obj/default/hello_world.o
+                0x0000000000008260                main
+ .text          0x00000000000082a8        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
+ .text._printf_r
+                0x00000000000082a8       0x3c c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
+                0x00000000000082a8                _printf_r
+ .text.printf   0x00000000000082e4       0x48 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
+                0x00000000000082e4                printf
+ .text          0x000000000000832c        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
+ .text._puts_r  0x000000000000832c       0x80 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
+                0x000000000000832c                _puts_r
+ .text.puts     0x00000000000083ac       0x10 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
+                0x00000000000083ac                puts
+ .text          0x00000000000083bc        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-strlen.o)
+ .text.strlen   0x00000000000083bc       0x1c c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-strlen.o)
+                0x00000000000083bc                strlen
+ .text          0x00000000000083d8        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
+ .text.print_repeat
+                0x00000000000083d8       0x6c c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
+ .text.___vfprintf_internal_r
+                0x0000000000008444      0x50c c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
+                0x0000000000008444                ___vfprintf_internal_r
+ .text.__vfprintf_internal
+                0x0000000000008950       0x18 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
+                0x0000000000008950                __vfprintf_internal
+ .text          0x0000000000008968        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .text.__sfvwrite_small_dev
+                0x0000000000008968       0xa8 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o)
+                0x0000000000008968                __sfvwrite_small_dev
+ .text          0x0000000000008a10        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
+ .text          0x0000000000008a10        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o)
+ .text._write_r
+                0x0000000000008a10       0x50 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o)
+                0x0000000000008a10                _write_r
+ .text          0x0000000000008a60        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+ .text          0x0000000000008a60      0x1b4 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-divmod.o)
+                0x0000000000008a60                __divsi3
+                0x0000000000008ae0                __modsi3
+                0x0000000000008b54                __udivsi3
+                0x0000000000008bb8                __umodsi3
+ .text          0x0000000000008c14       0x28 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-mul.o)
+                0x0000000000008c14                __mulsi3
+ .text          0x0000000000008c3c       0xec c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_load.o)
+                0x0000000000008ca4                alt_load
+ .text          0x0000000000008d28       0x6c c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_main.o)
+                0x0000000000008d28                alt_main
+ .text          0x0000000000008d94       0x30 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_usleep.o)
+                0x0000000000008d94                usleep
+ .text          0x0000000000008dc4      0x140 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_write.o)
+                0x0000000000008e00                write
+ .text          0x0000000000008f04       0xc0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_sys_init.o)
+                0x0000000000008f38                alt_irq_init
+                0x0000000000008f74                alt_sys_init
+ .text          0x0000000000008fc4       0xc0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+                0x0000000000008fc4                altera_avalon_jtag_uart_read_fd
+                0x0000000000009024                altera_avalon_jtag_uart_write_fd
+ .text          0x0000000000009084       0xec c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+                0x0000000000009084                altera_avalon_jtag_uart_read
+ .text          0x0000000000009170       0x94 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+                0x0000000000009170                altera_avalon_jtag_uart_write
+ .text          0x0000000000009204      0x100 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
+                0x0000000000009280                alt_avalon_timer_sc_init
+ .text          0x0000000000009304      0x158 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+                0x0000000000009304                alt_busy_sleep
+ .text          0x000000000000945c      0x118 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_close.o)
+                0x0000000000009498                close
+ .text          0x0000000000009574       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+                0x0000000000009574                alt_dcache_flush_all
+ .text          0x0000000000009594       0x2c c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev.o)
+ .text          0x00000000000095c0       0xe4 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+                0x00000000000095fc                alt_dev_llist_insert
+ .text          0x00000000000096a4        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_errno.o)
+ .text          0x00000000000096a4       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+                0x00000000000096a4                alt_icache_flush_all
+ .text          0x00000000000096c4      0x1b0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic.o)
+                0x00000000000096c4                alt_ic_isr_register
+                0x0000000000009714                alt_ic_irq_enable
+                0x000000000000979c                alt_ic_irq_disable
+                0x0000000000009828                alt_ic_irq_enabled
+ .text          0x0000000000009874       0xe8 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+                0x0000000000009874                alt_iic_isr_register
+ .text          0x000000000000995c      0x150 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_io_redirect.o)
+                0x0000000000009a30                alt_io_redirect
+ .text          0x0000000000009aac        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ .text          0x0000000000009aac        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .text          0x0000000000009aac        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_vars.o)
+ .text          0x0000000000009aac      0x278 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_open.o)
+                0x0000000000009bc4                open
+ .text          0x0000000000009d24       0x70 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_release_fd.o)
+                0x0000000000009d24                alt_release_fd
+ .text          0x0000000000009d94      0x1ac c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_tick.o)
+                0x0000000000009d94                alt_alarm_stop
+                0x0000000000009e38                alt_tick
+ .text          0x0000000000009f40       0x24 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+                0x0000000000009f40                altera_nios2_gen2_irq_init
+ .text          0x0000000000009f64        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ .text          0x0000000000009f64       0x90 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_dev.o)
+                0x0000000000009f64                alt_find_dev
+ .text          0x0000000000009ff4      0x108 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_file.o)
+                0x0000000000009ff4                alt_find_file
+ .text          0x000000000000a0fc       0xb8 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_get_fd.o)
+                0x000000000000a0fc                alt_get_fd
+ .text          0x000000000000a1b4       0x98 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+                0x000000000000a1b4                alt_exception_cause_generated_bad_addr
+ .text          0x000000000000a24c        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o)
+ .text.exit     0x000000000000a24c       0x20 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o)
+                0x000000000000a24c                exit
+ .text          0x000000000000a26c        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcmp.o)
+ .text.memcmp   0x000000000000a26c       0x30 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcmp.o)
+                0x000000000000a26c                memcmp
+ .text          0x000000000000a29c        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__call_atexit.o)
+ .text.__call_exitprocs
+                0x000000000000a29c      0x12c c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__call_atexit.o)
+                0x000000000000a29c                __call_exitprocs
+ .text          0x000000000000a3c8       0x38 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exit.o)
+                0x000000000000a3c8                _exit
+ *(.gnu.warning.*)
+ *(.fini)
+                [!provide]                        PROVIDE (__etext = ABSOLUTE (.))
+                [!provide]                        PROVIDE (_etext = ABSOLUTE (.))
+                [!provide]                        PROVIDE (etext = ABSOLUTE (.))
+ *(.eh_frame_hdr)
+                0x000000000000a400                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__preinit_array_start = ABSOLUTE (.))
+ *(.preinit_array)
+                [!provide]                        PROVIDE (__preinit_array_end = ABSOLUTE (.))
+                [!provide]                        PROVIDE (__init_array_start = ABSOLUTE (.))
+ *(.init_array)
+                [!provide]                        PROVIDE (__init_array_end = ABSOLUTE (.))
+                [!provide]                        PROVIDE (__fini_array_start = ABSOLUTE (.))
+ *(.fini_array)
+                [!provide]                        PROVIDE (__fini_array_end = ABSOLUTE (.))
+ *(.eh_frame)
+ *(.gcc_except_table .gcc_except_table.*)
+ *(.dynamic)
+                [!provide]                        PROVIDE (__CTOR_LIST__ = ABSOLUTE (.))
+ *(.ctors)
+ *(SORT_BY_NAME(.ctors.*))
+                [!provide]                        PROVIDE (__CTOR_END__ = ABSOLUTE (.))
+                [!provide]                        PROVIDE (__DTOR_LIST__ = ABSOLUTE (.))
+ *(.dtors)
+ *(SORT_BY_NAME(.dtors.*))
+                [!provide]                        PROVIDE (__DTOR_END__ = ABSOLUTE (.))
+ *(.jcr)
+                0x000000000000a400                . = ALIGN (0x4)
+
+.rodata         0x000000000000a400       0x58
+                0x000000000000a400                PROVIDE (__ram_rodata_start = ABSOLUTE (.))
+                0x000000000000a400                . = ALIGN (0x4)
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata        0x000000000000a400       0x27 obj/default/hello_world.o
+ *fill*         0x000000000000a427        0x1 
+ .rodata._puts_r.str1.4
+                0x000000000000a428        0x2 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
+ *fill*         0x000000000000a42a        0x2 
+ .rodata        0x000000000000a42c        0xf c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_main.o)
+ *fill*         0x000000000000a43b        0x1 
+ .rodata        0x000000000000a43c        0xf c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_sys_init.o)
+ *fill*         0x000000000000a44b        0x1 
+ .rodata        0x000000000000a44c        0xa c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev.o)
+ *(.rodata1)
+                0x000000000000a458                . = ALIGN (0x4)
+ *fill*         0x000000000000a456        0x2 
+                0x000000000000a458                PROVIDE (__ram_rodata_end = ABSOLUTE (.))
+                0x000000000000a400                PROVIDE (__flash_rodata_start = LOADADDR (.rodata))
+
+.rwdata         0x000000000000a458      0x2e4 load address 0x000000000000a73c
+                0x000000000000a458                PROVIDE (__ram_rwdata_start = ABSOLUTE (.))
+                0x000000000000a458                . = ALIGN (0x4)
+ *(.got.plt)
+ *(.got)
+ *(.data1)
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x000000000000a458        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp//obj/HAL/src/crt0.o
+ .data          0x000000000000a458        0x0 obj/default/hello_world.o
+ .data          0x000000000000a458        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
+ .data          0x000000000000a458        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
+ .data          0x000000000000a458        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-strlen.o)
+ .data          0x000000000000a458        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
+ .data          0x000000000000a458        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .data          0x000000000000a458        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
+ .data.impure_data
+                0x000000000000a458       0xe4 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
+ .data          0x000000000000a53c        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o)
+ .data          0x000000000000a53c        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+ .data          0x000000000000a53c        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ .data          0x000000000000a53c        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .data          0x000000000000a53c        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_load.o)
+ .data          0x000000000000a53c        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_main.o)
+ .data          0x000000000000a53c        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_usleep.o)
+ .data          0x000000000000a53c        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_write.o)
+ .data          0x000000000000a53c       0x2c c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .data          0x000000000000a568        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .data          0x000000000000a568        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .data          0x000000000000a568        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .data          0x000000000000a568        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
+ .data          0x000000000000a568        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .data          0x000000000000a568        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_close.o)
+ .data          0x000000000000a568        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .data          0x000000000000a568      0x1a8 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev.o)
+                0x000000000000a568                alt_dev_null
+                0x000000000000a590                alt_fd_list
+ .data          0x000000000000a710        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+ .data          0x000000000000a710        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_errno.o)
+ .data          0x000000000000a710        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .data          0x000000000000a710        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic.o)
+ .data          0x000000000000a710        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+ .data          0x000000000000a710        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_io_redirect.o)
+ .data          0x000000000000a710        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ .data          0x000000000000a710        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .data          0x000000000000a710        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_vars.o)
+ .data          0x000000000000a710        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_open.o)
+ .data          0x000000000000a710        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_release_fd.o)
+ .data          0x000000000000a710        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_tick.o)
+ .data          0x000000000000a710        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .data          0x000000000000a710        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ .data          0x000000000000a710        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_dev.o)
+ .data          0x000000000000a710        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_file.o)
+ .data          0x000000000000a710        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_get_fd.o)
+ .data          0x000000000000a710        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+ .data          0x000000000000a710        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o)
+ .data          0x000000000000a710        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcmp.o)
+ .data          0x000000000000a710        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__call_atexit.o)
+ .data          0x000000000000a710        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exit.o)
+                0x0000000000012710                _gp = ABSOLUTE ((. + 0x8000))
+                [!provide]                        PROVIDE (gp = _gp)
+ *(.rwdata .rwdata.*)
+ *(.sdata .sdata.* .gnu.linkonce.s.*)
+ .sdata._global_impure_ptr
+                0x000000000000a710        0x4 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
+                0x000000000000a710                _global_impure_ptr
+ .sdata._impure_ptr
+                0x000000000000a714        0x4 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
+                0x000000000000a714                _impure_ptr
+ .sdata         0x000000000000a718       0x14 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev.o)
+                0x000000000000a718                alt_fs_list
+                0x000000000000a720                alt_dev_list
+                0x000000000000a728                alt_max_fd
+ .sdata         0x000000000000a72c        0x4 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_errno.o)
+                0x000000000000a72c                alt_errno
+ .sdata         0x000000000000a730        0x4 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_vars.o)
+                0x000000000000a730                alt_priority_mask
+ .sdata         0x000000000000a734        0x8 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_tick.o)
+                0x000000000000a734                alt_alarm_list
+ *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
+                0x000000000000a73c                . = ALIGN (0x4)
+                0x000000000000a73c                _edata = ABSOLUTE (.)
+                [!provide]                        PROVIDE (edata = ABSOLUTE (.))
+                0x000000000000a73c                PROVIDE (__ram_rwdata_end = ABSOLUTE (.))
+                0x000000000000a73c                PROVIDE (__flash_rwdata_start = LOADADDR (.rwdata))
+
+.bss            0x000000000000aa20      0x120
+                0x000000000000aa20                __bss_start = ABSOLUTE (.)
+                [!provide]                        PROVIDE (__sbss_start = ABSOLUTE (.))
+                [!provide]                        PROVIDE (___sbss_start = ABSOLUTE (.))
+ *(.dynsbss)
+ *(.sbss .sbss.* .gnu.linkonce.sb.*)
+ .sbss.errno    0x000000000000aa20        0x4 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+                0x000000000000aa20                errno
+ .sbss          0x000000000000aa24        0xc c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_main.o)
+                0x000000000000aa24                alt_argc
+                0x000000000000aa28                alt_argv
+                0x000000000000aa2c                alt_envp
+ .sbss          0x000000000000aa30        0x4 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_vars.o)
+                0x000000000000aa30                alt_irq_active
+ .sbss          0x000000000000aa34        0x8 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_tick.o)
+                0x000000000000aa34                _alt_tick_rate
+                0x000000000000aa38                _alt_nticks
+ .sbss          0x000000000000aa3c        0x4 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+                0x000000000000aa3c                alt_instruction_exception_handler
+ *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
+ *(.scommon)
+                [!provide]                        PROVIDE (__sbss_end = ABSOLUTE (.))
+                [!provide]                        PROVIDE (___sbss_end = ABSOLUTE (.))
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x000000000000aa40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp//obj/HAL/src/crt0.o
+ .bss           0x000000000000aa40        0x0 obj/default/hello_world.o
+ .bss           0x000000000000aa40        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
+ .bss           0x000000000000aa40        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
+ .bss           0x000000000000aa40        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-strlen.o)
+ .bss           0x000000000000aa40        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
+ .bss           0x000000000000aa40        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .bss           0x000000000000aa40        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
+ .bss           0x000000000000aa40        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o)
+ .bss           0x000000000000aa40        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+ .bss           0x000000000000aa40        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ .bss           0x000000000000aa40        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .bss           0x000000000000aa40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_load.o)
+ .bss           0x000000000000aa40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_main.o)
+ .bss           0x000000000000aa40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_usleep.o)
+ .bss           0x000000000000aa40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_write.o)
+ .bss           0x000000000000aa40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .bss           0x000000000000aa40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .bss           0x000000000000aa40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .bss           0x000000000000aa40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .bss           0x000000000000aa40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
+ .bss           0x000000000000aa40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .bss           0x000000000000aa40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_close.o)
+ .bss           0x000000000000aa40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .bss           0x000000000000aa40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev.o)
+ .bss           0x000000000000aa40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+ .bss           0x000000000000aa40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_errno.o)
+ .bss           0x000000000000aa40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .bss           0x000000000000aa40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic.o)
+ .bss           0x000000000000aa40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+ .bss           0x000000000000aa40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_io_redirect.o)
+ .bss           0x000000000000aa40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ .bss           0x000000000000aa40      0x100 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_handler.o)
+                0x000000000000aa40                alt_irq
+ .bss           0x000000000000ab40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_vars.o)
+ .bss           0x000000000000ab40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_open.o)
+ .bss           0x000000000000ab40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_release_fd.o)
+ .bss           0x000000000000ab40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_tick.o)
+ .bss           0x000000000000ab40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .bss           0x000000000000ab40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ .bss           0x000000000000ab40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_dev.o)
+ .bss           0x000000000000ab40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_file.o)
+ .bss           0x000000000000ab40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_get_fd.o)
+ .bss           0x000000000000ab40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+ .bss           0x000000000000ab40        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o)
+ .bss           0x000000000000ab40        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcmp.o)
+ .bss           0x000000000000ab40        0x0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__call_atexit.o)
+ .bss           0x000000000000ab40        0x0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exit.o)
+ *(COMMON)
+                0x000000000000ab40                . = ALIGN (0x4)
+                0x000000000000ab40                __bss_end = ABSOLUTE (.)
+
+.onchip_mem     0x000000000000ab40        0x0
+                [!provide]                        PROVIDE (_alt_partition_onchip_mem_start = ABSOLUTE (.))
+ *(.onchip_mem .onchip_mem. onchip_mem.*)
+                0x000000000000ab40                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (_alt_partition_onchip_mem_end = ABSOLUTE (.))
+                0x000000000000ab40                _end = ABSOLUTE (.)
+                0x000000000000ab40                end = ABSOLUTE (.)
+                0x000000000000ab40                __alt_stack_base = ABSOLUTE (.)
+                [!provide]                        PROVIDE (_alt_partition_onchip_mem_load_addr = LOADADDR (.onchip_mem))
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x2d
+ *(.comment)
+ .comment       0x0000000000000000       0x2d obj/default/hello_world.o
+                                         0x2e (size before relaxing)
+ .comment       0x000000000000002d       0x2e c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
+ .comment       0x000000000000002d       0x2e c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
+ .comment       0x000000000000002d       0x2e c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-strlen.o)
+ .comment       0x000000000000002d       0x2e c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
+ .comment       0x000000000000002d       0x2e c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .comment       0x000000000000002d       0x2e c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
+ .comment       0x000000000000002d       0x2e c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o)
+ .comment       0x000000000000002d       0x2e c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+ .comment       0x000000000000002d       0x2e c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ .comment       0x000000000000002d       0x2e c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_load.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_main.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_usleep.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_write.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_close.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_errno.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_io_redirect.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_vars.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_open.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_release_fd.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_tick.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_dev.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_file.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_get_fd.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+ .comment       0x000000000000002d       0x2e c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o)
+ .comment       0x000000000000002d       0x2e c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcmp.o)
+ .comment       0x000000000000002d       0x2e c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__call_atexit.o)
+ .comment       0x000000000000002d       0x2e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exit.o)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000      0x618
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000       0x28 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp//obj/HAL/src/crt0.o
+ .debug_aranges
+                0x0000000000000028       0x20 obj/default/hello_world.o
+ .debug_aranges
+                0x0000000000000048       0x28 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
+ .debug_aranges
+                0x0000000000000070       0x28 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
+ .debug_aranges
+                0x0000000000000098       0x20 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-strlen.o)
+ .debug_aranges
+                0x00000000000000b8       0x30 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
+ .debug_aranges
+                0x00000000000000e8       0x20 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .debug_aranges
+                0x0000000000000108       0x18 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
+ .debug_aranges
+                0x0000000000000120       0x20 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o)
+ .debug_aranges
+                0x0000000000000140       0x18 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+ .debug_aranges
+                0x0000000000000158       0x20 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ .debug_aranges
+                0x0000000000000178       0x20 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .debug_aranges
+                0x0000000000000198       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_aranges
+                0x00000000000001b8       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_aranges
+                0x00000000000001d8       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_usleep.o)
+ .debug_aranges
+                0x00000000000001f8       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_write.o)
+ .debug_aranges
+                0x0000000000000218       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_aranges
+                0x0000000000000238       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_aranges
+                0x0000000000000258       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_aranges
+                0x0000000000000278       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_aranges
+                0x0000000000000298       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
+ .debug_aranges
+                0x00000000000002b8       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .debug_aranges
+                0x00000000000002d8       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_close.o)
+ .debug_aranges
+                0x00000000000002f8       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_aranges
+                0x0000000000000318       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev.o)
+ .debug_aranges
+                0x0000000000000338       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_aranges
+                0x0000000000000358       0x18 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_errno.o)
+ .debug_aranges
+                0x0000000000000370       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_aranges
+                0x0000000000000390       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic.o)
+ .debug_aranges
+                0x00000000000003b0       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+ .debug_aranges
+                0x00000000000003d0       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_io_redirect.o)
+ .debug_aranges
+                0x00000000000003f0       0x30 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ .debug_aranges
+                0x0000000000000420       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .debug_aranges
+                0x0000000000000440       0x18 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_vars.o)
+ .debug_aranges
+                0x0000000000000458       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_open.o)
+ .debug_aranges
+                0x0000000000000478       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_release_fd.o)
+ .debug_aranges
+                0x0000000000000498       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_tick.o)
+ .debug_aranges
+                0x00000000000004b8       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_aranges
+                0x00000000000004d8       0x38 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ .debug_aranges
+                0x0000000000000510       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_dev.o)
+ .debug_aranges
+                0x0000000000000530       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_file.o)
+ .debug_aranges
+                0x0000000000000550       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_get_fd.o)
+ .debug_aranges
+                0x0000000000000570       0x28 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+ .debug_aranges
+                0x0000000000000598       0x20 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o)
+ .debug_aranges
+                0x00000000000005b8       0x20 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcmp.o)
+ .debug_aranges
+                0x00000000000005d8       0x20 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__call_atexit.o)
+ .debug_aranges
+                0x00000000000005f8       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exit.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000     0x82aa
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x0000000000000000       0x22 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp//obj/HAL/src/crt0.o
+ .debug_info    0x0000000000000022       0xc4 obj/default/hello_world.o
+ .debug_info    0x00000000000000e6      0x72b c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
+ .debug_info    0x0000000000000811      0x6ea c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
+ .debug_info    0x0000000000000efb       0xd0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-strlen.o)
+ .debug_info    0x0000000000000fcb      0xeb5 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
+ .debug_info    0x0000000000001e80      0x6b3 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .debug_info    0x0000000000002533      0x61e c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
+ .debug_info    0x0000000000002b51      0x6b3 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o)
+ .debug_info    0x0000000000003204       0x84 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+ .debug_info    0x0000000000003288      0x368 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ .debug_info    0x00000000000035f0       0xcb c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .debug_info    0x00000000000036bb      0x14d c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_info    0x0000000000003808       0xef c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_info    0x00000000000038f7       0xb7 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_usleep.o)
+ .debug_info    0x00000000000039ae      0x55c c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_write.o)
+ .debug_info    0x0000000000003f0a      0x3ba c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_info    0x00000000000042c4      0x398 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_info    0x000000000000465c      0x151 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_info    0x00000000000047ad      0x132 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_info    0x00000000000048df      0x1d5 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
+ .debug_info    0x0000000000004ab4       0xd6 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .debug_info    0x0000000000004b8a      0x32c c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_close.o)
+ .debug_info    0x0000000000004eb6       0x8c c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_info    0x0000000000004f42      0x57d c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev.o)
+ .debug_info    0x00000000000054bf      0x1b0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_info    0x000000000000566f       0x9d c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_errno.o)
+ .debug_info    0x000000000000570c       0x8c c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_info    0x0000000000005798      0x32c c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic.o)
+ .debug_info    0x0000000000005ac4      0x1f0 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+ .debug_info    0x0000000000005cb4      0x546 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_io_redirect.o)
+ .debug_info    0x00000000000061fa       0x22 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ .debug_info    0x000000000000621c      0x175 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .debug_info    0x0000000000006391       0x8b c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_vars.o)
+ .debug_info    0x000000000000641c      0x3dd c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_open.o)
+ .debug_info    0x00000000000067f9      0x2b9 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_release_fd.o)
+ .debug_info    0x0000000000006ab2      0x2bd c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_tick.o)
+ .debug_info    0x0000000000006d6f       0x8c c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_info    0x0000000000006dfb       0x22 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ .debug_info    0x0000000000006e1d      0x2ee c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_dev.o)
+ .debug_info    0x000000000000710b      0x2eb c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_file.o)
+ .debug_info    0x00000000000073f6      0x31c c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_get_fd.o)
+ .debug_info    0x0000000000007712      0x1f1 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+ .debug_info    0x0000000000007903       0xe6 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o)
+ .debug_info    0x00000000000079e9      0x100 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcmp.o)
+ .debug_info    0x0000000000007ae9      0x6e0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__call_atexit.o)
+ .debug_info    0x00000000000081c9       0xe1 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exit.o)
+
+.debug_abbrev   0x0000000000000000     0x2df7
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000       0x12 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp//obj/HAL/src/crt0.o
+ .debug_abbrev  0x0000000000000012       0x85 obj/default/hello_world.o
+ .debug_abbrev  0x0000000000000097      0x216 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
+ .debug_abbrev  0x00000000000002ad      0x20b c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
+ .debug_abbrev  0x00000000000004b8       0x8d c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-strlen.o)
+ .debug_abbrev  0x0000000000000545      0x2f7 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
+ .debug_abbrev  0x000000000000083c      0x1ed c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .debug_abbrev  0x0000000000000a29      0x17a c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
+ .debug_abbrev  0x0000000000000ba3      0x1d9 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o)
+ .debug_abbrev  0x0000000000000d7c       0x39 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+ .debug_abbrev  0x0000000000000db5      0x103 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ .debug_abbrev  0x0000000000000eb8       0x7d c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .debug_abbrev  0x0000000000000f35       0xab c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_abbrev  0x0000000000000fe0       0x86 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_abbrev  0x0000000000001066       0x66 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_usleep.o)
+ .debug_abbrev  0x00000000000010cc      0x149 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_write.o)
+ .debug_abbrev  0x0000000000001215      0x16c c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_abbrev  0x0000000000001381      0x10b c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_abbrev  0x000000000000148c       0xcd c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_abbrev  0x0000000000001559       0xcd c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_abbrev  0x0000000000001626      0x14b c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
+ .debug_abbrev  0x0000000000001771       0x88 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .debug_abbrev  0x00000000000017f9      0x133 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_close.o)
+ .debug_abbrev  0x000000000000192c       0x44 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_abbrev  0x0000000000001970      0x117 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev.o)
+ .debug_abbrev  0x0000000000001a87      0x12a c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_abbrev  0x0000000000001bb1       0x5a c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_errno.o)
+ .debug_abbrev  0x0000000000001c0b       0x44 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_abbrev  0x0000000000001c4f      0x189 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic.o)
+ .debug_abbrev  0x0000000000001dd8      0x17c c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+ .debug_abbrev  0x0000000000001f54      0x126 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_io_redirect.o)
+ .debug_abbrev  0x000000000000207a       0x12 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ .debug_abbrev  0x000000000000208c      0x12d c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .debug_abbrev  0x00000000000021b9       0x44 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_vars.o)
+ .debug_abbrev  0x00000000000021fd      0x160 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_open.o)
+ .debug_abbrev  0x000000000000235d       0xea c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_release_fd.o)
+ .debug_abbrev  0x0000000000002447      0x17a c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_tick.o)
+ .debug_abbrev  0x00000000000025c1       0x44 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_abbrev  0x0000000000002605       0x12 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ .debug_abbrev  0x0000000000002617       0xed c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_dev.o)
+ .debug_abbrev  0x0000000000002704      0x100 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_file.o)
+ .debug_abbrev  0x0000000000002804      0x121 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_get_fd.o)
+ .debug_abbrev  0x0000000000002925       0xea c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+ .debug_abbrev  0x0000000000002a0f       0x94 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o)
+ .debug_abbrev  0x0000000000002aa3       0x9e c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcmp.o)
+ .debug_abbrev  0x0000000000002b41      0x20a c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__call_atexit.o)
+ .debug_abbrev  0x0000000000002d4b       0xac c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exit.o)
+
+.debug_line     0x0000000000000000     0x3bd4
+ *(.debug_line)
+ .debug_line    0x0000000000000000       0x66 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp//obj/HAL/src/crt0.o
+ .debug_line    0x0000000000000066       0xbf obj/default/hello_world.o
+ .debug_line    0x0000000000000125      0x24c c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
+ .debug_line    0x0000000000000371      0x240 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
+ .debug_line    0x00000000000005b1      0x17d c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-strlen.o)
+ .debug_line    0x000000000000072e      0x73c c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
+ .debug_line    0x0000000000000e6a      0x253 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .debug_line    0x00000000000010bd      0x15d c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
+ .debug_line    0x000000000000121a      0x226 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o)
+ .debug_line    0x0000000000001440       0x61 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+ .debug_line    0x00000000000014a1      0x306 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ .debug_line    0x00000000000017a7       0xb7 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .debug_line    0x000000000000185e       0xa6 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_line    0x0000000000001904       0x7d c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_line    0x0000000000001981       0xbf c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_usleep.o)
+ .debug_line    0x0000000000001a40      0x2af c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_write.o)
+ .debug_line    0x0000000000001cef      0x129 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_line    0x0000000000001e18      0x102 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_line    0x0000000000001f1a       0xe8 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_line    0x0000000000002002       0xc6 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_line    0x00000000000020c8       0xfd c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
+ .debug_line    0x00000000000021c5       0xe1 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .debug_line    0x00000000000022a6      0x1ad c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_close.o)
+ .debug_line    0x0000000000002453       0x53 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_line    0x00000000000024a6      0x19f c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev.o)
+ .debug_line    0x0000000000002645      0x106 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_line    0x000000000000274b       0x51 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_errno.o)
+ .debug_line    0x000000000000279c       0x51 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_line    0x00000000000027ed      0x123 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic.o)
+ .debug_line    0x0000000000002910       0xfc c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+ .debug_line    0x0000000000002a0c      0x1d2 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_io_redirect.o)
+ .debug_line    0x0000000000002bde       0x6b c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ .debug_line    0x0000000000002c49       0xd4 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .debug_line    0x0000000000002d1d       0x50 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_vars.o)
+ .debug_line    0x0000000000002d6d      0x1a1 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_open.o)
+ .debug_line    0x0000000000002f0e       0xb6 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_release_fd.o)
+ .debug_line    0x0000000000002fc4      0x160 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_tick.o)
+ .debug_line    0x0000000000003124       0x57 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_line    0x000000000000317b       0xb3 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ .debug_line    0x000000000000322e       0xb8 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_dev.o)
+ .debug_line    0x00000000000032e6      0x103 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_file.o)
+ .debug_line    0x00000000000033e9       0xfb c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_get_fd.o)
+ .debug_line    0x00000000000034e4       0xd3 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+ .debug_line    0x00000000000035b7      0x175 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o)
+ .debug_line    0x000000000000372c      0x192 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcmp.o)
+ .debug_line    0x00000000000038be      0x291 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__call_atexit.o)
+ .debug_line    0x0000000000003b4f       0x85 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exit.o)
+
+.debug_frame    0x0000000000000000      0xb30
+ *(.debug_frame)
+ .debug_frame   0x0000000000000000       0x2c obj/default/hello_world.o
+ .debug_frame   0x000000000000002c       0x48 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
+ .debug_frame   0x0000000000000074       0x48 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
+ .debug_frame   0x00000000000000bc       0x20 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-strlen.o)
+ .debug_frame   0x00000000000000dc       0x90 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
+ .debug_frame   0x000000000000016c       0x3c c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .debug_frame   0x00000000000001a8       0x30 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o)
+ .debug_frame   0x00000000000001d8       0x50 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ .debug_frame   0x0000000000000228       0x20 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .debug_frame   0x0000000000000248       0x5c c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_frame   0x00000000000002a4       0x2c c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_frame   0x00000000000002d0       0x38 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_usleep.o)
+ .debug_frame   0x0000000000000308       0x60 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_write.o)
+ .debug_frame   0x0000000000000368       0x88 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_frame   0x00000000000003f0       0x60 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_frame   0x0000000000000450       0x34 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_frame   0x0000000000000484       0x34 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_frame   0x00000000000004b8       0x60 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
+ .debug_frame   0x0000000000000518       0x38 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .debug_frame   0x0000000000000550       0x60 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_close.o)
+ .debug_frame   0x00000000000005b0       0x34 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_frame   0x00000000000005e4       0x34 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev.o)
+ .debug_frame   0x0000000000000618       0x60 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_frame   0x0000000000000678       0x34 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_frame   0x00000000000006ac       0xa4 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic.o)
+ .debug_frame   0x0000000000000750       0x38 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+ .debug_frame   0x0000000000000788       0x60 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_io_redirect.o)
+ .debug_frame   0x00000000000007e8       0x38 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .debug_frame   0x0000000000000820       0x84 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_open.o)
+ .debug_frame   0x00000000000008a4       0x34 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_release_fd.o)
+ .debug_frame   0x00000000000008d8       0x5c c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_tick.o)
+ .debug_frame   0x0000000000000934       0x34 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_frame   0x0000000000000968       0x38 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_dev.o)
+ .debug_frame   0x00000000000009a0       0x38 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_file.o)
+ .debug_frame   0x00000000000009d8       0x34 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_get_fd.o)
+ .debug_frame   0x0000000000000a0c       0x5c c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+ .debug_frame   0x0000000000000a68       0x28 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o)
+ .debug_frame   0x0000000000000a90       0x20 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcmp.o)
+ .debug_frame   0x0000000000000ab0       0x54 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__call_atexit.o)
+ .debug_frame   0x0000000000000b04       0x2c c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exit.o)
+
+.debug_str      0x0000000000000000     0x1e7e
+ *(.debug_str)
+ .debug_str     0x0000000000000000       0x6a c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp//obj/HAL/src/crt0.o
+ .debug_str     0x000000000000006a      0x11c obj/default/hello_world.o
+                                        0x15a (size before relaxing)
+ .debug_str     0x0000000000000186      0x436 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
+                                        0x50e (size before relaxing)
+ .debug_str     0x00000000000005bc       0x65 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
+                                        0x4d7 (size before relaxing)
+ .debug_str     0x0000000000000621       0xd5 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-strlen.o)
+                                        0x1dc (size before relaxing)
+ .debug_str     0x00000000000006f6      0x2e1 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
+                                        0x871 (size before relaxing)
+ .debug_str     0x00000000000009d7       0x65 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o)
+                                        0x4de (size before relaxing)
+ .debug_str     0x0000000000000a3c       0xf2 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
+                                        0x4c8 (size before relaxing)
+ .debug_str     0x0000000000000b2e       0x47 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o)
+                                        0x4c2 (size before relaxing)
+ .debug_str     0x0000000000000b75       0x41 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+                                        0x1cf (size before relaxing)
+ .debug_str     0x0000000000000bb6      0x18b c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-divmod.o)
+                                        0x1e0 (size before relaxing)
+ .debug_str     0x0000000000000d41       0x3a c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-mul.o)
+                                        0x1a1 (size before relaxing)
+ .debug_str     0x0000000000000d7b       0xf1 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_load.o)
+                                        0x225 (size before relaxing)
+ .debug_str     0x0000000000000e6c       0x44 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_main.o)
+                                        0x17f (size before relaxing)
+ .debug_str     0x0000000000000eb0       0x22 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_usleep.o)
+                                        0x168 (size before relaxing)
+ .debug_str     0x0000000000000ed2      0x1ae c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_write.o)
+                                        0x35d (size before relaxing)
+ .debug_str     0x0000000000001080       0xf5 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_sys_init.o)
+                                        0x2c2 (size before relaxing)
+ .debug_str     0x0000000000001175       0x71 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+                                        0x2c1 (size before relaxing)
+ .debug_str     0x00000000000011e6       0x48 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+                                        0x1de (size before relaxing)
+ .debug_str     0x000000000000122e       0x4a c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+                                        0x1d4 (size before relaxing)
+ .debug_str     0x0000000000001278       0xca c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
+                                        0x221 (size before relaxing)
+ .debug_str     0x0000000000001342       0x42 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+                                        0x17e (size before relaxing)
+ .debug_str     0x0000000000001384       0x1b c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_close.o)
+                                        0x211 (size before relaxing)
+ .debug_str     0x000000000000139f       0x34 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+                                        0x168 (size before relaxing)
+ .debug_str     0x00000000000013d3       0x50 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev.o)
+                                        0x377 (size before relaxing)
+ .debug_str     0x0000000000001423       0x45 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+                                        0x1df (size before relaxing)
+ .debug_str     0x0000000000001468       0x14 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_errno.o)
+                                        0x152 (size before relaxing)
+ .debug_str     0x000000000000147c       0x34 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+                                        0x168 (size before relaxing)
+ .debug_str     0x00000000000014b0       0xb2 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic.o)
+                                        0x23f (size before relaxing)
+ .debug_str     0x0000000000001562       0x4c c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+                                        0x1fb (size before relaxing)
+ .debug_str     0x00000000000015ae       0x56 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_io_redirect.o)
+                                        0x37b (size before relaxing)
+ .debug_str     0x0000000000001604       0x18 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_entry.o)
+                                         0x73 (size before relaxing)
+ .debug_str     0x000000000000161c       0x3a c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_handler.o)
+                                        0x1aa (size before relaxing)
+ .debug_str     0x0000000000001656       0x29 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_vars.o)
+                                        0x156 (size before relaxing)
+ .debug_str     0x000000000000167f       0x2f c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_open.o)
+                                        0x25e (size before relaxing)
+ .debug_str     0x00000000000016ae       0x28 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_release_fd.o)
+                                        0x1e2 (size before relaxing)
+ .debug_str     0x00000000000016d6       0x89 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_tick.o)
+                                        0x265 (size before relaxing)
+ .debug_str     0x000000000000175f       0x3b c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+                                        0x16f (size before relaxing)
+ .debug_str     0x000000000000179a       0x1e c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exception_entry.o)
+                                         0x79 (size before relaxing)
+ .debug_str     0x00000000000017b8       0x24 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_dev.o)
+                                        0x1f2 (size before relaxing)
+ .debug_str     0x00000000000017dc       0x26 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_find_file.o)
+                                        0x200 (size before relaxing)
+ .debug_str     0x0000000000001802       0x30 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_get_fd.o)
+                                        0x222 (size before relaxing)
+ .debug_str     0x0000000000001832      0x48b c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+                                        0x5bc (size before relaxing)
+ .debug_str     0x0000000000001cbd       0xe4 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o)
+                                        0x1e7 (size before relaxing)
+ .debug_str     0x0000000000001da1       0x46 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcmp.o)
+                                        0x1d6 (size before relaxing)
+ .debug_str     0x0000000000001de7       0x6d c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__call_atexit.o)
+                                        0x4fb (size before relaxing)
+ .debug_str     0x0000000000001e54       0x2a c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exit.o)
+                                        0x164 (size before relaxing)
+
+.debug_loc      0x0000000000000000     0x17da
+ *(.debug_loc)
+ .debug_loc     0x0000000000000000       0xe1 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
+ .debug_loc     0x00000000000000e1       0xab c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
+ .debug_loc     0x000000000000018c       0x44 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-strlen.o)
+ .debug_loc     0x00000000000001d0      0xb26 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
+ .debug_loc     0x0000000000000cf6      0x123 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .debug_loc     0x0000000000000e19       0xd0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o)
+ .debug_loc     0x0000000000000ee9      0x5d0 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ .debug_loc     0x00000000000014b9       0xa7 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .debug_loc     0x0000000000001560       0x22 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o)
+ .debug_loc     0x0000000000001582       0xc2 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcmp.o)
+ .debug_loc     0x0000000000001644      0x196 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__call_atexit.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_alt_sim_info
+                0x0000000000000000       0x40
+ *(.debug_alt_sim_info)
+ .debug_alt_sim_info
+                0x0000000000000000       0x10 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp//obj/HAL/src/crt0.o
+ .debug_alt_sim_info
+                0x0000000000000010       0x30 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+                0x000000000000d000                __alt_data_end = 0xd000
+                0x000000000000d000                PROVIDE (__alt_stack_pointer = __alt_data_end)
+                [!provide]                        PROVIDE (__alt_stack_limit = __alt_stack_base)
+                [!provide]                        PROVIDE (__alt_heap_start = end)
+                [!provide]                        PROVIDE (__alt_heap_limit = 0xd000)
+OUTPUT(quadrature_nios_pwm.elf elf32-littlenios2)
+LOAD linker stubs
+
+.debug_ranges   0x0000000000000000      0x2c8
+ .debug_ranges  0x0000000000000000       0x20 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp//obj/HAL/src/crt0.o
+ .debug_ranges  0x0000000000000020       0x18 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
+ .debug_ranges  0x0000000000000038       0x18 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
+ .debug_ranges  0x0000000000000050       0x10 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-strlen.o)
+ .debug_ranges  0x0000000000000060       0xf8 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
+ .debug_ranges  0x0000000000000158       0x10 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .debug_ranges  0x0000000000000168       0x10 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o)
+ .debug_ranges  0x0000000000000178       0x70 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ .debug_ranges  0x00000000000001e8       0x18 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_ranges  0x0000000000000200       0x28 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ .debug_ranges  0x0000000000000228       0x10 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .debug_ranges  0x0000000000000238       0x30 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ .debug_ranges  0x0000000000000268       0x18 c:/Users/gteho/Repositories/EMSYS-LAB/nios/software/quadrature_nios_pwm_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+ .debug_ranges  0x0000000000000280       0x10 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o)
+ .debug_ranges  0x0000000000000290       0x10 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcmp.o)
+ .debug_ranges  0x00000000000002a0       0x28 c:/development/quartus/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/10.1.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__call_atexit.o)
