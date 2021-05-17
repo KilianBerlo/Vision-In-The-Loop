@@ -12,11 +12,11 @@ entity pwm_module is
 		clk	:  in std_logic;
 		n_rst	:	in std_logic;
 		period_cc:	in std_logic_vector(DATA_WIDTH-1 downto 0); -- in clock cycles
-    duty_cycle : in std_logic_vector(DUTY-1 downto 0); -- in clock cycles
-    direction_given : in std_logic_vector(1 downto 0);
-    enable : in std_logic;
-    dir : out std_logic_vector(1 downto 0);
-    pwm_out : out std_logic
+		duty_cycle : in std_logic_vector(DUTY-1 downto 0); -- in clock cycles
+		direction_given : in std_logic_vector(1 downto 0);
+		enable : in std_logic;
+		dir : out std_logic_vector(1 downto 0);
+		pwm_out : out std_logic
 	);
 end pwm_module;
 
@@ -26,9 +26,9 @@ begin
 	-- PWM module.
 	process (clk, n_rst)
 
-  variable cc_count : signed(DATA_WIDTH-1 downto 0) := (others => '0');
-  variable signed_period_cc : signed(DATA_WIDTH-1 downto 0);
-  variable signed_duty_cycle : signed(DUTY-1 downto 0);
+  variable cc_count : unsigned(DATA_WIDTH-1 downto 0) := (others => '0');
+  variable signed_period_cc : unsigned(DATA_WIDTH-1 downto 0);
+  variable signed_duty_cycle : unsigned(DUTY-1 downto 0);
 
 	begin
 
@@ -41,8 +41,8 @@ begin
 
   	elsif(rising_edge(clk)) then
 
-      signed_period_cc := signed(period_cc);
-      signed_duty_cycle := signed(duty_cycle);
+      signed_period_cc := unsigned(period_cc);--x"000186a0";
+      signed_duty_cycle := unsigned(duty_cycle);--x"C350";
 
       if(enable = '1') then
 

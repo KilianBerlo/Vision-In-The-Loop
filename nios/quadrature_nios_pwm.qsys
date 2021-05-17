@@ -45,7 +45,7 @@
    {
       datum baseAddress
       {
-         value = "70696";
+         value = "72744";
          type = "String";
       }
    }
@@ -54,6 +54,30 @@
       datum _tags
       {
          value = "";
+         type = "String";
+      }
+   }
+   element motor_pwm_0
+   {
+      datum _sortIndex
+      {
+         value = "7";
+         type = "int";
+      }
+   }
+   element motor_pwm_0.slave_1
+   {
+      datum baseAddress
+      {
+         value = "69632";
+         type = "String";
+      }
+   }
+   element motor_pwm_0.slave_2
+   {
+      datum baseAddress
+      {
+         value = "70656";
          type = "String";
       }
    }
@@ -85,7 +109,7 @@
    {
       datum baseAddress
       {
-         value = "69632";
+         value = "71680";
          type = "String";
       }
    }
@@ -101,7 +125,7 @@
    {
       datum baseAddress
       {
-         value = "70656";
+         value = "72704";
          type = "String";
       }
    }
@@ -117,7 +141,7 @@
    {
       datum baseAddress
       {
-         value = "70688";
+         value = "72736";
          type = "String";
       }
    }
@@ -143,6 +167,11 @@
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_50.clk_in" type="clock" dir="end" />
+ <interface
+   name="motor_pwm_0_motor_pwm"
+   internal="motor_pwm_0.motor_pwm"
+   type="conduit"
+   dir="end" />
  <interface
    name="quadrature_encoder_0_input"
    internal="quadrature_encoder_0.input"
@@ -175,7 +204,7 @@
   <parameter name="dataAddrWidth" value="17" />
   <parameter name="dataMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="dataMasterHighPerformanceMapParam" value="" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='onchip_mem.s1' start='0x8000' end='0xD000' type='altera_avalon_onchip_memory2.s1' /><slave name='cpu.debug_mem_slave' start='0x10800' end='0x11000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='quadrature_encoder_0.slave' start='0x11000' end='0x11400' type='quadrature_encoder.slave' /><slave name='sys_clk_timer.s1' start='0x11400' end='0x11420' type='altera_avalon_timer.s1' /><slave name='sysid.control_slave' start='0x11420' end='0x11428' type='altera_avalon_sysid_qsys.control_slave' /><slave name='jtag_uart.avalon_jtag_slave' start='0x11428' end='0x11430' type='altera_avalon_jtag_uart.avalon_jtag_slave' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='onchip_mem.s1' start='0x8000' end='0xD000' type='altera_avalon_onchip_memory2.s1' /><slave name='cpu.debug_mem_slave' start='0x10800' end='0x11000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='motor_pwm_0.slave_1' start='0x11000' end='0x11400' type='motor_pwm.slave_1' /><slave name='motor_pwm_0.slave_2' start='0x11400' end='0x11800' type='motor_pwm.slave_2' /><slave name='quadrature_encoder_0.slave' start='0x11800' end='0x11C00' type='quadrature_encoder.slave' /><slave name='sys_clk_timer.s1' start='0x11C00' end='0x11C20' type='altera_avalon_timer.s1' /><slave name='sysid.control_slave' start='0x11C20' end='0x11C28' type='altera_avalon_sysid_qsys.control_slave' /><slave name='jtag_uart.avalon_jtag_slave' start='0x11C28' end='0x11C30' type='altera_avalon_jtag_uart.avalon_jtag_slave' /></address-map>]]></parameter>
   <parameter name="data_master_high_performance_paddr_base" value="0" />
   <parameter name="data_master_high_performance_paddr_size" value="0" />
   <parameter name="data_master_paddr_base" value="0" />
@@ -352,6 +381,10 @@
   <parameter name="writeBufferDepth" value="64" />
   <parameter name="writeIRQThreshold" value="8" />
  </module>
+ <module name="motor_pwm_0" kind="motor_pwm" version="1.0" enabled="1">
+  <parameter name="DATA_WIDTH" value="32" />
+  <parameter name="DUTY" value="16" />
+ </module>
  <module
    name="onchip_mem"
    kind="altera_avalon_onchip_memory2"
@@ -420,7 +453,7 @@
    start="cpu.data_master"
    end="jtag_uart.avalon_jtag_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00011428" />
+  <parameter name="baseAddress" value="0x00011c28" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -429,7 +462,7 @@
    start="cpu.data_master"
    end="sysid.control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00011420" />
+  <parameter name="baseAddress" value="0x00011c20" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -456,7 +489,7 @@
    start="cpu.data_master"
    end="sys_clk_timer.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00011400" />
+  <parameter name="baseAddress" value="0x00011c00" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -465,7 +498,25 @@
    start="cpu.data_master"
    end="quadrature_encoder_0.slave">
   <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00011800" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="20.1"
+   start="cpu.data_master"
+   end="motor_pwm_0.slave_1">
+  <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x00011000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="20.1"
+   start="cpu.data_master"
+   end="motor_pwm_0.slave_2">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00011400" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -500,6 +551,11 @@
    version="20.1"
    start="clk_50.clk"
    end="quadrature_encoder_0.clock" />
+ <connection
+   kind="clock"
+   version="20.1"
+   start="clk_50.clk"
+   end="motor_pwm_0.clock" />
  <connection kind="interrupt" version="20.1" start="cpu.irq" end="jtag_uart.irq">
   <parameter name="irqNumber" value="2" />
  </connection>
@@ -531,6 +587,11 @@
    version="20.1"
    start="clk_50.clk_reset"
    end="quadrature_encoder_0.reset" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk_50.clk_reset"
+   end="motor_pwm_0.reset" />
  <connection
    kind="reset"
    version="20.1"
