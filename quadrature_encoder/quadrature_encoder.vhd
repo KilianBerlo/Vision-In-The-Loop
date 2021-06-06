@@ -92,7 +92,7 @@ begin
 						end if;
 					when others => 
 						
-						ASSERT false REPORT "illegal state reached" SEVERITY note;
+						ASSERT false REPORT "previous state not known" SEVERITY note;
 				end case;
 			
 				
