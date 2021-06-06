@@ -90,7 +90,9 @@ begin
 							counter := counter + 1;
 						
 						end if;
-				
+					when others => 
+						
+						ASSERT false REPORT "illegal state reached" SEVERITY note;
 				end case;
 			
 				
