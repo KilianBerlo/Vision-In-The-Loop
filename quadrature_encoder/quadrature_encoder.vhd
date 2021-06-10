@@ -90,7 +90,9 @@ begin
 							counter := counter + 1;
 						
 						end if;
-				
+					when others => 
+						
+						ASSERT false REPORT "previous state not known" SEVERITY note;
 				end case;
 			
 				
