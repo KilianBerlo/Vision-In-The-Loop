@@ -1,0 +1,9 @@
+*.bak
+nios/software/quadrature_nios_pwm_bsp/
+
+nios/.qsys_edit/
+nios/quadrature_nios_pwm/synthesis/submodules/
+*.debuginfo
+*.regmap
+*.v
+nios/software/quadrature_nios_pwm/obj/
