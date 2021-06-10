@@ -22,8 +22,6 @@ end entity;
 
 architecture behaviour of quadrature_encoder_avalon is
 
-	--signal mem        : std_logic_vector(31 downto 0);
-
 	component quadrature_encoder 
 		port
 		(
@@ -43,21 +41,5 @@ begin
 		enc_in  	=> quadrature_encoder_input,
 		count 	=> slave_readdata
 	);
-	
---		-- Communication with the bus
---	p_avalon : process(clk, reset)
---	begin
---		
---		if (reset = '1') then
---			
---			mem <= (others => '0');
---		
---		elsif (rising_edge(clk) and slave_read = '1') then
---				
---			slave_readdata <= mem;
---			
---		end if;
---	
---	end process;
 	
 end architecture;
