@@ -1,0 +1,62 @@
+PositionControllerPan
+=============================================================
+
+INPUTS & OUTPUTS INDICES
+------------------------
+ 
+*** INPUTS ***
+
+	m_V[7] = u[0];		/* in */
+	m_V[8] = u[1];		/* position */
+
+ 
+*** OUTPUTS ***
+
+	y[0] = 	m_V[6];		/* corr */
+	y[1] = 	m_V[9];		/* out */
+
+ 
+
+
+
+
+NAMES
+-----
+
+[CONSTANTS]
+	NULL
+[PARAMETERS]
+	"corrGain\\K",
+	"PID1\\kp",
+	"PID1\\tauD",
+	"PID1\\beta",
+	"PID1\\tauI",
+	"SignalLimiter2\\minimum",
+	"SignalLimiter2\\maximum"
+
+[VARIABLES]
+	"corrGain\\corr",
+	"PID1\\output",
+	"",
+	"PlusMinus1\\plus1",
+	"SignalLimiter2\\output",
+	"Splitter1\\input",
+	"corr",
+	"in",
+	"position",
+	"out"
+
+[STATES]
+	"PID1\\uD_previous",
+	"PID1\\error_previous",
+	"PID1\\uI_previous"
+
+[RATES]
+	"",
+	"PID1\\error",
+	""
+
+[MATRICES]
+	NULL
+
+
