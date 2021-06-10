@@ -8,9 +8,17 @@ use IEEE.numeric_std.all;
 
 entity quadrature_nios_pwm is
 	port (
-		clk_clk                                      : in std_logic                    := '0';             --                        clk.clk
-		quadrature_encoder_0_input_writebyteenable_n : in std_logic_vector(1 downto 0) := (others => '0'); -- quadrature_encoder_0_input.writebyteenable_n
-		reset_reset_n                                : in std_logic                    := '0'              --                      reset.reset_n
+		clk_clk                                 : in  std_logic                    := '0';             --                        clk.clk
+		motor_pwm_0_motor_control_direction_out : out std_logic_vector(1 downto 0);                    --  motor_pwm_0_motor_control.direction_out
+		motor_pwm_0_motor_control_pwm_out       : out std_logic;                                       --                           .pwm_out
+		motor_pwm_1_motor_control_direction_out : out std_logic_vector(1 downto 0);                    --  motor_pwm_1_motor_control.direction_out
+		motor_pwm_1_motor_control_pwm_out       : out std_logic;                                       --                           .pwm_out
+		pio_0_external_connection_export        : out std_logic_vector(7 downto 0);                    --  pio_0_external_connection.export
+		quadrature_encoder_0_input_in           : in  std_logic_vector(1 downto 0) := (others => '0'); -- quadrature_encoder_0_input.in
+		quadrature_encoder_1_input_in           : in  std_logic_vector(1 downto 0) := (others => '0'); -- quadrature_encoder_1_input.in
+		reset_reset_n                           : in  std_logic                    := '0';             --                      reset.reset_n
+		uart_0_external_connection_rxd          : in  std_logic                    := '0';             -- uart_0_external_connection.rxd
+		uart_0_external_connection_txd          : out std_logic                                        --                           .txd
 	);
 end entity quadrature_nios_pwm;
 
@@ -61,6 +69,25 @@ architecture rtl of quadrature_nios_pwm is
 		);
 	end component quadrature_nios_pwm_jtag_uart;
 
+	component pwm_module_avalon is
+		generic (
+			DATA_WIDTH : natural := 32;
+			DUTY       : natural := 16
+		);
+		port (
+			clk               : in  std_logic                     := 'X';             -- clk
+			reset             : in  std_logic                     := 'X';             -- reset_n
+			slave_address_2   : in  std_logic_vector(7 downto 0)  := (others => 'X'); -- address
+			slave_write_2     : in  std_logic                     := 'X';             -- write
+			slave_writedata_2 : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
+			slave_address_1   : in  std_logic_vector(7 downto 0)  := (others => 'X'); -- address
+			slave_write_1     : in  std_logic                     := 'X';             -- write
+			slave_writedata_1 : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
+			pwm_direction     : out std_logic_vector(1 downto 0);                     -- direction_out
+			pwm_out           : out std_logic                                         -- pwm_out
+		);
+	end component pwm_module_avalon;
+
 	component quadrature_nios_pwm_onchip_mem is
 		port (
 			clk        : in  std_logic                     := 'X';             -- clk
@@ -77,6 +104,19 @@ architecture rtl of quadrature_nios_pwm is
 		);
 	end component quadrature_nios_pwm_onchip_mem;
 
+	component quadrature_nios_pwm_pio_0 is
+		port (
+			clk        : in  std_logic                     := 'X';             -- clk
+			reset_n    : in  std_logic                     := 'X';             -- reset_n
+			address    : in  std_logic_vector(1 downto 0)  := (others => 'X'); -- address
+			write_n    : in  std_logic                     := 'X';             -- write_n
+			writedata  : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
+			chipselect : in  std_logic                     := 'X';             -- chipselect
+			readdata   : out std_logic_vector(31 downto 0);                    -- readdata
+			out_port   : out std_logic_vector(7 downto 0)                      -- export
+		);
+	end component quadrature_nios_pwm_pio_0;
+
 	component quadrature_encoder_avalon is
 		generic (
 			DATA_WIDTH : natural := 32
@@ -87,7 +127,7 @@ architecture rtl of quadrature_nios_pwm is
 			slave_address            : in  std_logic_vector(7 downto 0)  := (others => 'X'); -- address
 			slave_read               : in  std_logic                     := 'X';             -- read
 			slave_readdata           : out std_logic_vector(31 downto 0);                    -- readdata
-			quadrature_encoder_input : in  std_logic_vector(1 downto 0)  := (others => 'X')  -- writebyteenable_n
+			quadrature_encoder_input : in  std_logic_vector(1 downto 0)  := (others => 'X')  -- in
 		);
 	end component quadrature_encoder_avalon;
 
@@ -112,6 +152,23 @@ architecture rtl of quadrature_nios_pwm is
 			address  : in  std_logic                     := 'X'  -- address
 		);
 	end component quadrature_nios_pwm_sysid;
+
+	component quadrature_nios_pwm_uart_0 is
+		port (
+			clk           : in  std_logic                     := 'X';             -- clk
+			reset_n       : in  std_logic                     := 'X';             -- reset_n
+			address       : in  std_logic_vector(2 downto 0)  := (others => 'X'); -- address
+			begintransfer : in  std_logic                     := 'X';             -- begintransfer
+			chipselect    : in  std_logic                     := 'X';             -- chipselect
+			read_n        : in  std_logic                     := 'X';             -- read_n
+			write_n       : in  std_logic                     := 'X';             -- write_n
+			writedata     : in  std_logic_vector(15 downto 0) := (others => 'X'); -- writedata
+			readdata      : out std_logic_vector(15 downto 0);                    -- readdata
+			rxd           : in  std_logic                     := 'X';             -- export
+			txd           : out std_logic;                                        -- export
+			irq           : out std_logic                                         -- irq
+		);
+	end component quadrature_nios_pwm_uart_0;
 
 	component quadrature_nios_pwm_mm_interconnect_0 is
 		port (
@@ -144,6 +201,18 @@ architecture rtl of quadrature_nios_pwm is
 			jtag_uart_avalon_jtag_slave_writedata   : out std_logic_vector(31 downto 0);                    -- writedata
 			jtag_uart_avalon_jtag_slave_waitrequest : in  std_logic                     := 'X';             -- waitrequest
 			jtag_uart_avalon_jtag_slave_chipselect  : out std_logic;                                        -- chipselect
+			motor_pwm_0_slave_1_address             : out std_logic_vector(7 downto 0);                     -- address
+			motor_pwm_0_slave_1_write               : out std_logic;                                        -- write
+			motor_pwm_0_slave_1_writedata           : out std_logic_vector(31 downto 0);                    -- writedata
+			motor_pwm_0_slave_2_address             : out std_logic_vector(7 downto 0);                     -- address
+			motor_pwm_0_slave_2_write               : out std_logic;                                        -- write
+			motor_pwm_0_slave_2_writedata           : out std_logic_vector(31 downto 0);                    -- writedata
+			motor_pwm_1_slave_1_address             : out std_logic_vector(7 downto 0);                     -- address
+			motor_pwm_1_slave_1_write               : out std_logic;                                        -- write
+			motor_pwm_1_slave_1_writedata           : out std_logic_vector(31 downto 0);                    -- writedata
+			motor_pwm_1_slave_2_address             : out std_logic_vector(7 downto 0);                     -- address
+			motor_pwm_1_slave_2_write               : out std_logic;                                        -- write
+			motor_pwm_1_slave_2_writedata           : out std_logic_vector(31 downto 0);                    -- writedata
 			onchip_mem_s1_address                   : out std_logic_vector(12 downto 0);                    -- address
 			onchip_mem_s1_write                     : out std_logic;                                        -- write
 			onchip_mem_s1_readdata                  : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
@@ -151,16 +220,31 @@ architecture rtl of quadrature_nios_pwm is
 			onchip_mem_s1_byteenable                : out std_logic_vector(3 downto 0);                     -- byteenable
 			onchip_mem_s1_chipselect                : out std_logic;                                        -- chipselect
 			onchip_mem_s1_clken                     : out std_logic;                                        -- clken
+			pio_0_s1_address                        : out std_logic_vector(1 downto 0);                     -- address
+			pio_0_s1_write                          : out std_logic;                                        -- write
+			pio_0_s1_readdata                       : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			pio_0_s1_writedata                      : out std_logic_vector(31 downto 0);                    -- writedata
+			pio_0_s1_chipselect                     : out std_logic;                                        -- chipselect
 			quadrature_encoder_0_slave_address      : out std_logic_vector(7 downto 0);                     -- address
 			quadrature_encoder_0_slave_read         : out std_logic;                                        -- read
 			quadrature_encoder_0_slave_readdata     : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			quadrature_encoder_1_slave_address      : out std_logic_vector(7 downto 0);                     -- address
+			quadrature_encoder_1_slave_read         : out std_logic;                                        -- read
+			quadrature_encoder_1_slave_readdata     : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
 			sys_clk_timer_s1_address                : out std_logic_vector(2 downto 0);                     -- address
 			sys_clk_timer_s1_write                  : out std_logic;                                        -- write
 			sys_clk_timer_s1_readdata               : in  std_logic_vector(15 downto 0) := (others => 'X'); -- readdata
 			sys_clk_timer_s1_writedata              : out std_logic_vector(15 downto 0);                    -- writedata
 			sys_clk_timer_s1_chipselect             : out std_logic;                                        -- chipselect
 			sysid_control_slave_address             : out std_logic_vector(0 downto 0);                     -- address
-			sysid_control_slave_readdata            : in  std_logic_vector(31 downto 0) := (others => 'X')  -- readdata
+			sysid_control_slave_readdata            : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			uart_0_s1_address                       : out std_logic_vector(2 downto 0);                     -- address
+			uart_0_s1_write                         : out std_logic;                                        -- write
+			uart_0_s1_read                          : out std_logic;                                        -- read
+			uart_0_s1_readdata                      : in  std_logic_vector(15 downto 0) := (others => 'X'); -- readdata
+			uart_0_s1_writedata                     : out std_logic_vector(15 downto 0);                    -- writedata
+			uart_0_s1_begintransfer                 : out std_logic;                                        -- begintransfer
+			uart_0_s1_chipselect                    : out std_logic                                         -- chipselect
 		);
 	end component quadrature_nios_pwm_mm_interconnect_0;
 
@@ -170,6 +254,7 @@ architecture rtl of quadrature_nios_pwm is
 			reset         : in  std_logic                     := 'X'; -- reset
 			receiver0_irq : in  std_logic                     := 'X'; -- irq
 			receiver1_irq : in  std_logic                     := 'X'; -- irq
+			receiver2_irq : in  std_logic                     := 'X'; -- irq
 			sender_irq    : out std_logic_vector(31 downto 0)         -- irq
 		);
 	end component quadrature_nios_pwm_irq_mapper;
@@ -281,11 +366,39 @@ architecture rtl of quadrature_nios_pwm is
 	signal mm_interconnect_0_sys_clk_timer_s1_address                    : std_logic_vector(2 downto 0);  -- mm_interconnect_0:sys_clk_timer_s1_address -> sys_clk_timer:address
 	signal mm_interconnect_0_sys_clk_timer_s1_write                      : std_logic;                     -- mm_interconnect_0:sys_clk_timer_s1_write -> mm_interconnect_0_sys_clk_timer_s1_write:in
 	signal mm_interconnect_0_sys_clk_timer_s1_writedata                  : std_logic_vector(15 downto 0); -- mm_interconnect_0:sys_clk_timer_s1_writedata -> sys_clk_timer:writedata
+	signal mm_interconnect_0_uart_0_s1_chipselect                        : std_logic;                     -- mm_interconnect_0:uart_0_s1_chipselect -> uart_0:chipselect
+	signal mm_interconnect_0_uart_0_s1_readdata                          : std_logic_vector(15 downto 0); -- uart_0:readdata -> mm_interconnect_0:uart_0_s1_readdata
+	signal mm_interconnect_0_uart_0_s1_address                           : std_logic_vector(2 downto 0);  -- mm_interconnect_0:uart_0_s1_address -> uart_0:address
+	signal mm_interconnect_0_uart_0_s1_read                              : std_logic;                     -- mm_interconnect_0:uart_0_s1_read -> mm_interconnect_0_uart_0_s1_read:in
+	signal mm_interconnect_0_uart_0_s1_begintransfer                     : std_logic;                     -- mm_interconnect_0:uart_0_s1_begintransfer -> uart_0:begintransfer
+	signal mm_interconnect_0_uart_0_s1_write                             : std_logic;                     -- mm_interconnect_0:uart_0_s1_write -> mm_interconnect_0_uart_0_s1_write:in
+	signal mm_interconnect_0_uart_0_s1_writedata                         : std_logic_vector(15 downto 0); -- mm_interconnect_0:uart_0_s1_writedata -> uart_0:writedata
+	signal mm_interconnect_0_pio_0_s1_chipselect                         : std_logic;                     -- mm_interconnect_0:pio_0_s1_chipselect -> pio_0:chipselect
+	signal mm_interconnect_0_pio_0_s1_readdata                           : std_logic_vector(31 downto 0); -- pio_0:readdata -> mm_interconnect_0:pio_0_s1_readdata
+	signal mm_interconnect_0_pio_0_s1_address                            : std_logic_vector(1 downto 0);  -- mm_interconnect_0:pio_0_s1_address -> pio_0:address
+	signal mm_interconnect_0_pio_0_s1_write                              : std_logic;                     -- mm_interconnect_0:pio_0_s1_write -> mm_interconnect_0_pio_0_s1_write:in
+	signal mm_interconnect_0_pio_0_s1_writedata                          : std_logic_vector(31 downto 0); -- mm_interconnect_0:pio_0_s1_writedata -> pio_0:writedata
 	signal mm_interconnect_0_quadrature_encoder_0_slave_readdata         : std_logic_vector(31 downto 0); -- quadrature_encoder_0:slave_readdata -> mm_interconnect_0:quadrature_encoder_0_slave_readdata
 	signal mm_interconnect_0_quadrature_encoder_0_slave_address          : std_logic_vector(7 downto 0);  -- mm_interconnect_0:quadrature_encoder_0_slave_address -> quadrature_encoder_0:slave_address
 	signal mm_interconnect_0_quadrature_encoder_0_slave_read             : std_logic;                     -- mm_interconnect_0:quadrature_encoder_0_slave_read -> quadrature_encoder_0:slave_read
+	signal mm_interconnect_0_quadrature_encoder_1_slave_readdata         : std_logic_vector(31 downto 0); -- quadrature_encoder_1:slave_readdata -> mm_interconnect_0:quadrature_encoder_1_slave_readdata
+	signal mm_interconnect_0_quadrature_encoder_1_slave_address          : std_logic_vector(7 downto 0);  -- mm_interconnect_0:quadrature_encoder_1_slave_address -> quadrature_encoder_1:slave_address
+	signal mm_interconnect_0_quadrature_encoder_1_slave_read             : std_logic;                     -- mm_interconnect_0:quadrature_encoder_1_slave_read -> quadrature_encoder_1:slave_read
+	signal mm_interconnect_0_motor_pwm_0_slave_1_address                 : std_logic_vector(7 downto 0);  -- mm_interconnect_0:motor_pwm_0_slave_1_address -> motor_pwm_0:slave_address_1
+	signal mm_interconnect_0_motor_pwm_0_slave_1_write                   : std_logic;                     -- mm_interconnect_0:motor_pwm_0_slave_1_write -> motor_pwm_0:slave_write_1
+	signal mm_interconnect_0_motor_pwm_0_slave_1_writedata               : std_logic_vector(31 downto 0); -- mm_interconnect_0:motor_pwm_0_slave_1_writedata -> motor_pwm_0:slave_writedata_1
+	signal mm_interconnect_0_motor_pwm_1_slave_1_address                 : std_logic_vector(7 downto 0);  -- mm_interconnect_0:motor_pwm_1_slave_1_address -> motor_pwm_1:slave_address_1
+	signal mm_interconnect_0_motor_pwm_1_slave_1_write                   : std_logic;                     -- mm_interconnect_0:motor_pwm_1_slave_1_write -> motor_pwm_1:slave_write_1
+	signal mm_interconnect_0_motor_pwm_1_slave_1_writedata               : std_logic_vector(31 downto 0); -- mm_interconnect_0:motor_pwm_1_slave_1_writedata -> motor_pwm_1:slave_writedata_1
+	signal mm_interconnect_0_motor_pwm_0_slave_2_address                 : std_logic_vector(7 downto 0);  -- mm_interconnect_0:motor_pwm_0_slave_2_address -> motor_pwm_0:slave_address_2
+	signal mm_interconnect_0_motor_pwm_0_slave_2_write                   : std_logic;                     -- mm_interconnect_0:motor_pwm_0_slave_2_write -> motor_pwm_0:slave_write_2
+	signal mm_interconnect_0_motor_pwm_0_slave_2_writedata               : std_logic_vector(31 downto 0); -- mm_interconnect_0:motor_pwm_0_slave_2_writedata -> motor_pwm_0:slave_writedata_2
+	signal mm_interconnect_0_motor_pwm_1_slave_2_address                 : std_logic_vector(7 downto 0);  -- mm_interconnect_0:motor_pwm_1_slave_2_address -> motor_pwm_1:slave_address_2
+	signal mm_interconnect_0_motor_pwm_1_slave_2_write                   : std_logic;                     -- mm_interconnect_0:motor_pwm_1_slave_2_write -> motor_pwm_1:slave_write_2
+	signal mm_interconnect_0_motor_pwm_1_slave_2_writedata               : std_logic_vector(31 downto 0); -- mm_interconnect_0:motor_pwm_1_slave_2_writedata -> motor_pwm_1:slave_writedata_2
 	signal irq_mapper_receiver0_irq                                      : std_logic;                     -- jtag_uart:av_irq -> irq_mapper:receiver0_irq
 	signal irq_mapper_receiver1_irq                                      : std_logic;                     -- sys_clk_timer:irq -> irq_mapper:receiver1_irq
+	signal irq_mapper_receiver2_irq                                      : std_logic;                     -- uart_0:irq -> irq_mapper:receiver2_irq
 	signal cpu_irq_irq                                                   : std_logic_vector(31 downto 0); -- irq_mapper:sender_irq -> cpu:irq
 	signal rst_controller_reset_out_reset                                : std_logic;                     -- rst_controller:reset_out -> [irq_mapper:reset, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, onchip_mem:reset, rst_controller_reset_out_reset:in, rst_translator:in_reset]
 	signal rst_controller_reset_out_reset_req                            : std_logic;                     -- rst_controller:reset_req -> [cpu:reset_req, onchip_mem:reset_req, rst_translator:reset_req_in]
@@ -293,7 +406,10 @@ architecture rtl of quadrature_nios_pwm is
 	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_read_ports_inv  : std_logic;                     -- mm_interconnect_0_jtag_uart_avalon_jtag_slave_read:inv -> jtag_uart:av_read_n
 	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_write_ports_inv : std_logic;                     -- mm_interconnect_0_jtag_uart_avalon_jtag_slave_write:inv -> jtag_uart:av_write_n
 	signal mm_interconnect_0_sys_clk_timer_s1_write_ports_inv            : std_logic;                     -- mm_interconnect_0_sys_clk_timer_s1_write:inv -> sys_clk_timer:write_n
-	signal rst_controller_reset_out_reset_ports_inv                      : std_logic;                     -- rst_controller_reset_out_reset:inv -> [cpu:reset_n, jtag_uart:rst_n, quadrature_encoder_0:reset, sys_clk_timer:reset_n, sysid:reset_n]
+	signal mm_interconnect_0_uart_0_s1_read_ports_inv                    : std_logic;                     -- mm_interconnect_0_uart_0_s1_read:inv -> uart_0:read_n
+	signal mm_interconnect_0_uart_0_s1_write_ports_inv                   : std_logic;                     -- mm_interconnect_0_uart_0_s1_write:inv -> uart_0:write_n
+	signal mm_interconnect_0_pio_0_s1_write_ports_inv                    : std_logic;                     -- mm_interconnect_0_pio_0_s1_write:inv -> pio_0:write_n
+	signal rst_controller_reset_out_reset_ports_inv                      : std_logic;                     -- rst_controller_reset_out_reset:inv -> [cpu:reset_n, jtag_uart:rst_n, motor_pwm_0:reset, motor_pwm_1:reset, pio_0:reset_n, quadrature_encoder_0:reset, quadrature_encoder_1:reset, sys_clk_timer:reset_n, sysid:reset_n, uart_0:reset_n]
 
 begin
 
@@ -341,6 +457,42 @@ begin
 			av_irq         => irq_mapper_receiver0_irq                                       --               irq.irq
 		);
 
+	motor_pwm_0 : component pwm_module_avalon
+		generic map (
+			DATA_WIDTH => 32,
+			DUTY       => 16
+		)
+		port map (
+			clk               => clk_clk,                                         --         clock.clk
+			reset             => rst_controller_reset_out_reset_ports_inv,        --         reset.reset_n
+			slave_address_2   => mm_interconnect_0_motor_pwm_0_slave_2_address,   --       slave_2.address
+			slave_write_2     => mm_interconnect_0_motor_pwm_0_slave_2_write,     --              .write
+			slave_writedata_2 => mm_interconnect_0_motor_pwm_0_slave_2_writedata, --              .writedata
+			slave_address_1   => mm_interconnect_0_motor_pwm_0_slave_1_address,   --       slave_1.address
+			slave_write_1     => mm_interconnect_0_motor_pwm_0_slave_1_write,     --              .write
+			slave_writedata_1 => mm_interconnect_0_motor_pwm_0_slave_1_writedata, --              .writedata
+			pwm_direction     => motor_pwm_0_motor_control_direction_out,         -- motor_control.direction_out
+			pwm_out           => motor_pwm_0_motor_control_pwm_out                --              .pwm_out
+		);
+
+	motor_pwm_1 : component pwm_module_avalon
+		generic map (
+			DATA_WIDTH => 32,
+			DUTY       => 16
+		)
+		port map (
+			clk               => clk_clk,                                         --         clock.clk
+			reset             => rst_controller_reset_out_reset_ports_inv,        --         reset.reset_n
+			slave_address_2   => mm_interconnect_0_motor_pwm_1_slave_2_address,   --       slave_2.address
+			slave_write_2     => mm_interconnect_0_motor_pwm_1_slave_2_write,     --              .write
+			slave_writedata_2 => mm_interconnect_0_motor_pwm_1_slave_2_writedata, --              .writedata
+			slave_address_1   => mm_interconnect_0_motor_pwm_1_slave_1_address,   --       slave_1.address
+			slave_write_1     => mm_interconnect_0_motor_pwm_1_slave_1_write,     --              .write
+			slave_writedata_1 => mm_interconnect_0_motor_pwm_1_slave_1_writedata, --              .writedata
+			pwm_direction     => motor_pwm_1_motor_control_direction_out,         -- motor_control.direction_out
+			pwm_out           => motor_pwm_1_motor_control_pwm_out                --              .pwm_out
+		);
+
 	onchip_mem : component quadrature_nios_pwm_onchip_mem
 		port map (
 			clk        => clk_clk,                                    --   clk1.clk
@@ -356,6 +508,18 @@ begin
 			freeze     => '0'                                         -- (terminated)
 		);
 
+	pio_0 : component quadrature_nios_pwm_pio_0
+		port map (
+			clk        => clk_clk,                                    --                 clk.clk
+			reset_n    => rst_controller_reset_out_reset_ports_inv,   --               reset.reset_n
+			address    => mm_interconnect_0_pio_0_s1_address,         --                  s1.address
+			write_n    => mm_interconnect_0_pio_0_s1_write_ports_inv, --                    .write_n
+			writedata  => mm_interconnect_0_pio_0_s1_writedata,       --                    .writedata
+			chipselect => mm_interconnect_0_pio_0_s1_chipselect,      --                    .chipselect
+			readdata   => mm_interconnect_0_pio_0_s1_readdata,        --                    .readdata
+			out_port   => pio_0_external_connection_export            -- external_connection.export
+		);
+
 	quadrature_encoder_0 : component quadrature_encoder_avalon
 		generic map (
 			DATA_WIDTH => 32
@@ -366,7 +530,20 @@ begin
 			slave_address            => mm_interconnect_0_quadrature_encoder_0_slave_address,  -- slave.address
 			slave_read               => mm_interconnect_0_quadrature_encoder_0_slave_read,     --      .read
 			slave_readdata           => mm_interconnect_0_quadrature_encoder_0_slave_readdata, --      .readdata
-			quadrature_encoder_input => quadrature_encoder_0_input_writebyteenable_n           -- input.writebyteenable_n
+			quadrature_encoder_input => quadrature_encoder_0_input_in                          -- input.in
+		);
+
+	quadrature_encoder_1 : component quadrature_encoder_avalon
+		generic map (
+			DATA_WIDTH => 32
+		)
+		port map (
+			clk                      => clk_clk,                                               -- clock.clk
+			reset                    => rst_controller_reset_out_reset_ports_inv,              -- reset.reset_n
+			slave_address            => mm_interconnect_0_quadrature_encoder_1_slave_address,  -- slave.address
+			slave_read               => mm_interconnect_0_quadrature_encoder_1_slave_read,     --      .read
+			slave_readdata           => mm_interconnect_0_quadrature_encoder_1_slave_readdata, --      .readdata
+			quadrature_encoder_input => quadrature_encoder_1_input_in                          -- input.in
 		);
 
 	sys_clk_timer : component quadrature_nios_pwm_sys_clk_timer
@@ -387,6 +564,22 @@ begin
 			reset_n  => rst_controller_reset_out_reset_ports_inv,         --         reset.reset_n
 			readdata => mm_interconnect_0_sysid_control_slave_readdata,   -- control_slave.readdata
 			address  => mm_interconnect_0_sysid_control_slave_address(0)  --              .address
+		);
+
+	uart_0 : component quadrature_nios_pwm_uart_0
+		port map (
+			clk           => clk_clk,                                     --                 clk.clk
+			reset_n       => rst_controller_reset_out_reset_ports_inv,    --               reset.reset_n
+			address       => mm_interconnect_0_uart_0_s1_address,         --                  s1.address
+			begintransfer => mm_interconnect_0_uart_0_s1_begintransfer,   --                    .begintransfer
+			chipselect    => mm_interconnect_0_uart_0_s1_chipselect,      --                    .chipselect
+			read_n        => mm_interconnect_0_uart_0_s1_read_ports_inv,  --                    .read_n
+			write_n       => mm_interconnect_0_uart_0_s1_write_ports_inv, --                    .write_n
+			writedata     => mm_interconnect_0_uart_0_s1_writedata,       --                    .writedata
+			readdata      => mm_interconnect_0_uart_0_s1_readdata,        --                    .readdata
+			rxd           => uart_0_external_connection_rxd,              -- external_connection.export
+			txd           => uart_0_external_connection_txd,              --                    .export
+			irq           => irq_mapper_receiver2_irq                     --                 irq.irq
 		);
 
 	mm_interconnect_0 : component quadrature_nios_pwm_mm_interconnect_0
@@ -420,6 +613,18 @@ begin
 			jtag_uart_avalon_jtag_slave_writedata   => mm_interconnect_0_jtag_uart_avalon_jtag_slave_writedata,   --                                .writedata
 			jtag_uart_avalon_jtag_slave_waitrequest => mm_interconnect_0_jtag_uart_avalon_jtag_slave_waitrequest, --                                .waitrequest
 			jtag_uart_avalon_jtag_slave_chipselect  => mm_interconnect_0_jtag_uart_avalon_jtag_slave_chipselect,  --                                .chipselect
+			motor_pwm_0_slave_1_address             => mm_interconnect_0_motor_pwm_0_slave_1_address,             --             motor_pwm_0_slave_1.address
+			motor_pwm_0_slave_1_write               => mm_interconnect_0_motor_pwm_0_slave_1_write,               --                                .write
+			motor_pwm_0_slave_1_writedata           => mm_interconnect_0_motor_pwm_0_slave_1_writedata,           --                                .writedata
+			motor_pwm_0_slave_2_address             => mm_interconnect_0_motor_pwm_0_slave_2_address,             --             motor_pwm_0_slave_2.address
+			motor_pwm_0_slave_2_write               => mm_interconnect_0_motor_pwm_0_slave_2_write,               --                                .write
+			motor_pwm_0_slave_2_writedata           => mm_interconnect_0_motor_pwm_0_slave_2_writedata,           --                                .writedata
+			motor_pwm_1_slave_1_address             => mm_interconnect_0_motor_pwm_1_slave_1_address,             --             motor_pwm_1_slave_1.address
+			motor_pwm_1_slave_1_write               => mm_interconnect_0_motor_pwm_1_slave_1_write,               --                                .write
+			motor_pwm_1_slave_1_writedata           => mm_interconnect_0_motor_pwm_1_slave_1_writedata,           --                                .writedata
+			motor_pwm_1_slave_2_address             => mm_interconnect_0_motor_pwm_1_slave_2_address,             --             motor_pwm_1_slave_2.address
+			motor_pwm_1_slave_2_write               => mm_interconnect_0_motor_pwm_1_slave_2_write,               --                                .write
+			motor_pwm_1_slave_2_writedata           => mm_interconnect_0_motor_pwm_1_slave_2_writedata,           --                                .writedata
 			onchip_mem_s1_address                   => mm_interconnect_0_onchip_mem_s1_address,                   --                   onchip_mem_s1.address
 			onchip_mem_s1_write                     => mm_interconnect_0_onchip_mem_s1_write,                     --                                .write
 			onchip_mem_s1_readdata                  => mm_interconnect_0_onchip_mem_s1_readdata,                  --                                .readdata
@@ -427,16 +632,31 @@ begin
 			onchip_mem_s1_byteenable                => mm_interconnect_0_onchip_mem_s1_byteenable,                --                                .byteenable
 			onchip_mem_s1_chipselect                => mm_interconnect_0_onchip_mem_s1_chipselect,                --                                .chipselect
 			onchip_mem_s1_clken                     => mm_interconnect_0_onchip_mem_s1_clken,                     --                                .clken
+			pio_0_s1_address                        => mm_interconnect_0_pio_0_s1_address,                        --                        pio_0_s1.address
+			pio_0_s1_write                          => mm_interconnect_0_pio_0_s1_write,                          --                                .write
+			pio_0_s1_readdata                       => mm_interconnect_0_pio_0_s1_readdata,                       --                                .readdata
+			pio_0_s1_writedata                      => mm_interconnect_0_pio_0_s1_writedata,                      --                                .writedata
+			pio_0_s1_chipselect                     => mm_interconnect_0_pio_0_s1_chipselect,                     --                                .chipselect
 			quadrature_encoder_0_slave_address      => mm_interconnect_0_quadrature_encoder_0_slave_address,      --      quadrature_encoder_0_slave.address
 			quadrature_encoder_0_slave_read         => mm_interconnect_0_quadrature_encoder_0_slave_read,         --                                .read
 			quadrature_encoder_0_slave_readdata     => mm_interconnect_0_quadrature_encoder_0_slave_readdata,     --                                .readdata
+			quadrature_encoder_1_slave_address      => mm_interconnect_0_quadrature_encoder_1_slave_address,      --      quadrature_encoder_1_slave.address
+			quadrature_encoder_1_slave_read         => mm_interconnect_0_quadrature_encoder_1_slave_read,         --                                .read
+			quadrature_encoder_1_slave_readdata     => mm_interconnect_0_quadrature_encoder_1_slave_readdata,     --                                .readdata
 			sys_clk_timer_s1_address                => mm_interconnect_0_sys_clk_timer_s1_address,                --                sys_clk_timer_s1.address
 			sys_clk_timer_s1_write                  => mm_interconnect_0_sys_clk_timer_s1_write,                  --                                .write
 			sys_clk_timer_s1_readdata               => mm_interconnect_0_sys_clk_timer_s1_readdata,               --                                .readdata
 			sys_clk_timer_s1_writedata              => mm_interconnect_0_sys_clk_timer_s1_writedata,              --                                .writedata
 			sys_clk_timer_s1_chipselect             => mm_interconnect_0_sys_clk_timer_s1_chipselect,             --                                .chipselect
 			sysid_control_slave_address             => mm_interconnect_0_sysid_control_slave_address,             --             sysid_control_slave.address
-			sysid_control_slave_readdata            => mm_interconnect_0_sysid_control_slave_readdata             --                                .readdata
+			sysid_control_slave_readdata            => mm_interconnect_0_sysid_control_slave_readdata,            --                                .readdata
+			uart_0_s1_address                       => mm_interconnect_0_uart_0_s1_address,                       --                       uart_0_s1.address
+			uart_0_s1_write                         => mm_interconnect_0_uart_0_s1_write,                         --                                .write
+			uart_0_s1_read                          => mm_interconnect_0_uart_0_s1_read,                          --                                .read
+			uart_0_s1_readdata                      => mm_interconnect_0_uart_0_s1_readdata,                      --                                .readdata
+			uart_0_s1_writedata                     => mm_interconnect_0_uart_0_s1_writedata,                     --                                .writedata
+			uart_0_s1_begintransfer                 => mm_interconnect_0_uart_0_s1_begintransfer,                 --                                .begintransfer
+			uart_0_s1_chipselect                    => mm_interconnect_0_uart_0_s1_chipselect                     --                                .chipselect
 		);
 
 	irq_mapper : component quadrature_nios_pwm_irq_mapper
@@ -445,6 +665,7 @@ begin
 			reset         => rst_controller_reset_out_reset, -- clk_reset.reset
 			receiver0_irq => irq_mapper_receiver0_irq,       -- receiver0.irq
 			receiver1_irq => irq_mapper_receiver1_irq,       -- receiver1.irq
+			receiver2_irq => irq_mapper_receiver2_irq,       -- receiver2.irq
 			sender_irq    => cpu_irq_irq                     --    sender.irq
 		);
 
@@ -520,6 +741,12 @@ begin
 	mm_interconnect_0_jtag_uart_avalon_jtag_slave_write_ports_inv <= not mm_interconnect_0_jtag_uart_avalon_jtag_slave_write;
 
 	mm_interconnect_0_sys_clk_timer_s1_write_ports_inv <= not mm_interconnect_0_sys_clk_timer_s1_write;
+
+	mm_interconnect_0_uart_0_s1_read_ports_inv <= not mm_interconnect_0_uart_0_s1_read;
+
+	mm_interconnect_0_uart_0_s1_write_ports_inv <= not mm_interconnect_0_uart_0_s1_write;
+
+	mm_interconnect_0_pio_0_s1_write_ports_inv <= not mm_interconnect_0_pio_0_s1_write;
 
 	rst_controller_reset_out_reset_ports_inv <= not rst_controller_reset_out_reset;
 

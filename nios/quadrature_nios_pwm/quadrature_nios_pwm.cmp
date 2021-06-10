@@ -1,8 +1,16 @@
 	component quadrature_nios_pwm is
 		port (
-			clk_clk                                      : in std_logic                    := 'X';             -- clk
-			quadrature_encoder_0_input_writebyteenable_n : in std_logic_vector(1 downto 0) := (others => 'X'); -- writebyteenable_n
-			reset_reset_n                                : in std_logic                    := 'X'              -- reset_n
+			clk_clk                                 : in  std_logic                    := 'X';             -- clk
+			motor_pwm_0_motor_control_direction_out : out std_logic_vector(1 downto 0);                    -- direction_out
+			motor_pwm_0_motor_control_pwm_out       : out std_logic;                                       -- pwm_out
+			motor_pwm_1_motor_control_direction_out : out std_logic_vector(1 downto 0);                    -- direction_out
+			motor_pwm_1_motor_control_pwm_out       : out std_logic;                                       -- pwm_out
+			pio_0_external_connection_export        : out std_logic_vector(7 downto 0);                    -- export
+			quadrature_encoder_0_input_in           : in  std_logic_vector(1 downto 0) := (others => 'X'); -- in
+			quadrature_encoder_1_input_in           : in  std_logic_vector(1 downto 0) := (others => 'X'); -- in
+			reset_reset_n                           : in  std_logic                    := 'X';             -- reset_n
+			uart_0_external_connection_rxd          : in  std_logic                    := 'X';             -- rxd
+			uart_0_external_connection_txd          : out std_logic                                        -- txd
 		);
 	end component quadrature_nios_pwm;
 
