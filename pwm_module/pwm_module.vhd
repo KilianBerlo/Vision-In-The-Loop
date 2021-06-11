@@ -37,7 +37,7 @@ begin
       cc_count := (others => '0');
       signed_period_cc := (others => '0');
       signed_duty_cycle := (others => '0');
-
+		pwm_out <= '0';
 
   	elsif(rising_edge(clk)) then
 
@@ -68,7 +68,11 @@ begin
           ASSERT false  REPORT "No such operation exists" SEVERITY failure; -- not synthesized, just for debugging
         end if;
 
-      end if;
+      else 
+			
+			pwm_out <= '0';
+		
+		end if;
       dir <= direction_given;
 
     end if;
