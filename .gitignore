@@ -7,3 +7,8 @@ nios/quadrature_nios_pwm/synthesis/submodules/
 *.regmap
 *.v
 nios/software/quadrature_nios_pwm/obj/
+JIWY_control/.idea/
+JIWY_control/20_sim/pan/project/
+JIWY_control/cmake-build-debug/
+JIWY_control/20_sim/tilt/project/
+JIWY_control/cmake-build-debug-wsl/

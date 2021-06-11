@@ -1,13 +1,14 @@
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "EndlessLoop"
-#define TERMINAL    "/dev/ttyUSB0"
+#define TERMINAL    "/dev/ttyS6"
 
 #include <string.h>
 #include <unistd.h>
 #include <vector>
 #include <array>
 #include <iostream>
-#include <evdns.h>
+//#include <evdns.h>
+#include <netinet/in.h>
 #include "serial_com/Serial.h"
 
 struct message
@@ -21,19 +22,18 @@ struct message
     {
         duty = uint32_t ((float)freq * ((float)duty_cycle / 100));
     }
-
-    uint32_t getFullField()
-    {
-        return (freq << 18) | (duty << 4) | (direction << 2) | enable;
-    }
-
-    std::array<uint8_t,4> getAsArray()
-    {
-        std::array<uint8_t ,4 > array;
-        (uint32_t&)*array.data() = htonl(getFullField());
-        return array;
-    }
 };
+
+std::array<uint8_t, 4> convertToArray(message msg)
+{
+    std::array<uint8_t, 4> temp{};
+    std::copy(
+            reinterpret_cast<uint8_t *>(&msg),
+            reinterpret_cast<uint8_t *>(&msg) + 4,
+            &temp[0]
+    );
+    return temp;
+}
 
 int main()
 {
@@ -43,36 +43,12 @@ int main()
     msg.freq = 2500;
     msg.direction = 0b01; // Clockwise (positive)
     msg.enable = 0b10;
-    msg.setDutyCycle(2);
+    msg.setDutyCycle(60);
 
-    port.write_array(msg.getAsArray());
+    port.write_array(convertToArray(msg));
 
     while(true)
     {
-        //std::cout << "sending bytes..." << std::endl;
-
-
-
-        //sleep(2);
-        //msg.direction = 0b10;
-
-        /*for (int i = 40; i < 100; i++)
-        {
-            msg.setDutyCycle(i);
-
-            usleep(100000);
-        }*/
-
-        //port.write_array(msg.getAsArray());
-        //sleep(2);
-        //msg.direction = 0b01;
-
-
-
-
-        //uint32_t full_data = msg.getFullField();
-
-
         auto copy = port.read_array(4);
 
         if (!copy.empty())
@@ -83,23 +59,16 @@ int main()
             if (count >= 100)
             {
                 msg.direction = 0b10; // Counterclockwise (negative count)
-                port.write_array(msg.getAsArray());
+                port.write_array(convertToArray(msg));
             }
 
             if (count < 0)
             {
                 msg.direction = 0b01; // Clockwise (positive)
-                port.write_array(msg.getAsArray());
+                port.write_array(convertToArray(msg));
             }
 
             std::cout << count << std::endl;
-
-            // loop through the array elements
-            /*for (auto i: copy)
-            {
-                std::cout << +i << ' ';
-            }
-            std::cout << std::endl;*/
         }
 
     }
