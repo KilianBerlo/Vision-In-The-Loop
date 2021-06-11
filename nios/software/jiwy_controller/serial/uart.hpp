@@ -18,7 +18,8 @@ namespace Serial
 		uint32_t freq : 14;
 		uint32_t duty : 14;
 		uint32_t direction : 2;
-		uint32_t enable : 2;
+	    uint32_t enable : 1;
+	    uint32_t motor : 1;
 
 		void setDutyCycle (uint8_t duty_cycle)
 		{
@@ -27,7 +28,7 @@ namespace Serial
 
 		uint32_t getFullField()
 		{
-			return (freq << 18) | (duty << 4) | (direction << 2) | enable;
+			return (freq << 18) | (duty << 4) | (direction << 2) | (enable << 1) | motor;
 		}
 
 		uint32_t getFirstWord()
@@ -37,7 +38,7 @@ namespace Serial
 
 		uint32_t getSecondWord()
 		{
-			return (duty << 16) | (direction << 14) | enable << 12;
+			return (duty << 16) | (direction << 14) | enable << 13;
 		}
 	};
 

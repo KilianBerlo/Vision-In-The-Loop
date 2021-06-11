@@ -4,9 +4,18 @@
 #include <algorithm>
 #include "system.h"
 
+#include "motor_driver/motor.hpp"
 #include "serial/uart.hpp"
 
-uint16_t frequency = 0;
+// Function prototype.
+void handleUartMessage(Serial::rx_message &received_message);
+
+// Setup UART.
+Serial::UART uart = Serial::UART(handleUartMessage);
+
+// Setup Motors.
+Plant::Motor motor_tilt = Plant::Motor(MOTOR_PWM_0_SLAVE_1_BASE, MOTOR_PWM_0_SLAVE_2_BASE);
+Plant::Motor motor_pan = Plant::Motor(MOTOR_PWM_1_SLAVE_1_BASE, MOTOR_PWM_1_SLAVE_2_BASE);
 
 int update_encoder_value(Serial::UART uart, uint32_t target, int previous_value)
 {
@@ -33,26 +42,27 @@ int update_encoder_value(Serial::UART uart, uint32_t target, int previous_value)
 
 void handleUartMessage(Serial::rx_message &received_message)
 {
-	if (frequency != received_message.freq)
+	// Determine for which motor this message is intended.
+	switch (received_message.motor)
 	{
-		IOWR_32DIRECT(MOTOR_PWM_0_SLAVE_1_BASE, 0x00, received_message.freq);
-		frequency = received_message.freq;
+		case 0:
+		{
+			motor_tilt.setFrequency(received_message.getFirstWord());
+			motor_tilt.setSecondWord(received_message.getSecondWord());
+		}
+
+		case 1:
+		{
+			motor_pan.setFrequency(received_message.getFirstWord());
+			motor_pan.setSecondWord(received_message.getSecondWord());
+		}
 	}
-
-	uint32_t combined = received_message.getSecondWord();
-
-	IOWR_32DIRECT(MOTOR_PWM_0_SLAVE_2_BASE, 0x00, combined);
-
-	//printf("rx data: %.4s\n", rx_data);
 }
 
 int main()
 {
 	// Print startup message.
-	printf("Starting JIWY motor controller..\n");
-
-	// Setup UART.
-	Serial::UART uart = Serial::UART(handleUartMessage);
+	printf("JIWY motor controller running..\n");
 
 	int prev_encoder_tilt = 0;
 	int prev_encoder_pan = 0;
@@ -61,7 +71,6 @@ int main()
 	{
 		prev_encoder_tilt = update_encoder_value(uart, QUADRATURE_ENCODER_0_BASE, prev_encoder_tilt);
 		//prev_encoder_pan = update_encoder_value(QUADRATURE_ENCODER_1_BASE, prev_encoder_pan);
-
 		//usleep(delay);
 	}
 

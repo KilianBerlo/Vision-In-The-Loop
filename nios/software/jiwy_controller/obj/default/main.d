@@ -1,4 +1,4 @@
-obj/default/hello_world.o: hello_world.cpp \
+obj/default/main.o: main.cpp \
  c\:\users\gteho\repositories\emsys-lab\nios\software\jiwy_controller_bsp\hal\inc\io.h \
  c\:\users\gteho\repositories\emsys-lab\nios\software\jiwy_controller_bsp\hal\inc\alt_types.h \
  c\:/Users/gteho/Repositories/EMSYS-LAB/nios/software/jiwy_controller_bsp/system.h \

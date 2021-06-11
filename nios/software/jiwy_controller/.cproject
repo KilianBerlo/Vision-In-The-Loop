@@ -15,6 +15,10 @@
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1111502764" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="altera.tool.gnu.cpp.compiler.mingw.73799011" name="Nios II GCC C++ Compiler" superClass="altera.tool.gnu.cpp.compiler.mingw">
+								<option id="gnu.cpp.compiler.option.include.paths.1882152110" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/jiwy_controller/motor_driver}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/jiwy_controller/serial}&quot;"/>
+								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1063387866" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="altera.tool.gnu.archiver.mingw.596849598" name="Nios II GCC Archiver" superClass="altera.tool.gnu.archiver.mingw"/>
@@ -79,5 +83,10 @@
 				<runAllBuilders>false</runAllBuilders>
 			</target>
 		</buildTargets>
+	</storageModule>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Nios II">
+			<resource resourceType="PROJECT" workspacePath="/jiwy_controller"/>
+		</configuration>
 	</storageModule>
 </cproject>

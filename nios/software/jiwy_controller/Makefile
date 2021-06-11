@@ -90,8 +90,9 @@ ELF := jiwy_controller.elf
 
 # Paths to C, C++, and assembly source files.
 C_SRCS :=
+CXX_SRCS += motor_driver/motor.cpp
 CXX_SRCS += serial/uart.cpp
-CXX_SRCS += hello_world.cpp
+CXX_SRCS += main.cpp
 ASM_SRCS :=
 
 
