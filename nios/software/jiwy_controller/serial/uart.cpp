@@ -70,3 +70,14 @@ void Serial::UART::sendData(std::array<uint8_t, 4> data)
 		IOWR_ALTERA_AVALON_UART_TXDATA(UART_0_BASE, data_byte);
 	}
 }
+
+std::array<uint8_t, 4> Serial::UART::convertToArray(tx_message msg)
+{
+    std::array<uint8_t, 4> temp{};
+    std::copy(
+            reinterpret_cast<uint8_t *>(&msg),
+            reinterpret_cast<uint8_t *>(&msg) + 4,
+            &temp[0]
+    );
+    return temp;
+}

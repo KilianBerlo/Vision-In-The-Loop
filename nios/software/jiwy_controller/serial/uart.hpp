@@ -44,22 +44,13 @@ namespace Serial
 
 	struct tx_message
 	{
-		uint32_t encoder_value;
+		int32_t encoder_value : 31;
+		int32_t motor : 1;
 
-		tx_message(uint32_t value) :
-				encoder_value(value)
+		tx_message(int32_t encoder_value, int32_t motor_value) :
+				encoder_value(encoder_value),
+				motor (motor_value)
 		{}
-
-		std::array<uint8_t, MESSAGE_SIZE> getAsArray()
-		{
-			std::array<uint8_t, MESSAGE_SIZE> temp{};
-		    std::copy(
-		            reinterpret_cast<uint8_t *>(&encoder_value),
-		            reinterpret_cast<uint8_t *>(&encoder_value) + MESSAGE_SIZE,
-		            &temp[0]
-		    );
-		    return temp;
-		}
 	};
 
 	class UART
@@ -69,6 +60,8 @@ namespace Serial
 		UART(std::function<void(Serial::rx_message &received_message)> callback);
 
 		void sendData(std::array<uint8_t, MESSAGE_SIZE> data);
+
+		std::array<uint8_t, 4> convertToArray(tx_message msg);
 
 	private:
 

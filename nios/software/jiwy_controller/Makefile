@@ -93,6 +93,7 @@ C_SRCS :=
 CXX_SRCS += motor_driver/motor.cpp
 CXX_SRCS += serial/uart.cpp
 CXX_SRCS += main.cpp
+CXX_SRCS += motor_driver/encoder.cpp
 ASM_SRCS :=
 
 
