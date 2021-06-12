@@ -9,6 +9,7 @@
 #include <iostream>
 #include <termio.h>
 #include <vector>
+#include <cstring>
 
 #include "Serial.h"
 
@@ -45,18 +46,21 @@ void Serial::write_array(std::array<uint8_t, 4> data)
     }
 }
 
-std::vector<uint8_t> Serial::read_array(int lenght, bool await_response)
+std::optional<Serial::rx_message> Serial::readMessage(bool await_response)
 {
     // Temporary data array.
-    //temp.reserve(lenght);
+    std::array<uint8_t ,MESSAGE_SIZE> temp{};
 
     if (await_response)
     {
         if (file != -1)
         {
-            std::vector<uint8_t> temp(lenght, 0);
-            read(file, temp.data(), lenght);
-            return temp;
+            read(file, temp.data(), MESSAGE_SIZE);
+
+            Serial::rx_message received_message{};
+            std::memcpy(&received_message, &temp, MESSAGE_SIZE);
+
+            return received_message;
         }
     }
     else
@@ -68,11 +72,14 @@ std::vector<uint8_t> Serial::read_array(int lenght, bool await_response)
 
         if (file != -1 && available > 0)
         {
-            std::vector<uint8_t> temp(lenght, 0);
-            read(file, temp.data(), lenght);
-            return temp;
+            read(file, temp.data(), MESSAGE_SIZE);
+
+            Serial::rx_message received_message{};
+            std::memcpy(&received_message, &temp, MESSAGE_SIZE);
+
+            return received_message;
         }
     }
 
-    return std::vector<uint8_t>();
+    return std::nullopt;
 }

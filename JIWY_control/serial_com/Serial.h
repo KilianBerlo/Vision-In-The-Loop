@@ -8,13 +8,23 @@
 
 #include <string>
 #include <array>
+#include <optional>
 
 class Serial
 {
+    static constexpr uint8_t MESSAGE_SIZE = 4;
+
+    struct rx_message
+    {
+        int32_t encoder_value : 31;
+        uint32_t motor : 1;
+    };
+
+
     public:
         Serial(std::string com_port);
 
-    std::vector<uint8_t> read_array(int lenght, bool await_response = false);
+    std::optional<rx_message> readMessage(bool await_response = false);
         void write_array(std::array<uint8_t, 4> data);
 
     private:
