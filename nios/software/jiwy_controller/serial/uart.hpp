@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <array>
-#include <functional>
+//#include <functional>
 #include <cstring>
 
 #include "altera_avalon_uart_regs.h"

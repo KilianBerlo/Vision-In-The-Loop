@@ -33,9 +33,9 @@ void Serial::UART::uart_0_isr(void *)
 	}
 }
 
-Serial::UART::UART(std::function<void(Serial::rx_message &received_message)> func)
+Serial::UART::UART()
 {
-	callback = func;
+	//callback = func;
 
 	// Clear status flag.
 	IOWR_ALTERA_AVALON_UART_STATUS(UART_0_BASE, 0x00);
@@ -48,7 +48,7 @@ Serial::UART::UART(std::function<void(Serial::rx_message &received_message)> fun
 	IOWR_ALTERA_AVALON_UART_CONTROL (UART_0_BASE, control);
 
 	// Install IRQ service routine.
-    alt_ic_isr_register(UART_0_IRQ_INTERRUPT_CONTROLLER_ID, UART_0_IRQ, uart_0_isr, NULL, NULL);
+    //alt_ic_isr_register(UART_0_IRQ_INTERRUPT_CONTROLLER_ID, UART_0_IRQ, uart_0_isr, NULL, NULL);
 
     // Enable interrupt.
 	IOWR_ALTERA_AVALON_UART_CONTROL(UART_0_BASE, ALTERA_AVALON_UART_CONTROL_RRDY_MSK);

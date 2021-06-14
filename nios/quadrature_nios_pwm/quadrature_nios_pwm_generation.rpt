@@ -12,6 +12,8 @@ Progress: Adding motor_pwm_0 [motor_pwm 1.2]
 Progress: Parameterizing module motor_pwm_0
 Progress: Adding motor_pwm_1 [motor_pwm 1.2]
 Progress: Parameterizing module motor_pwm_1
+Progress: Adding nios_custom_instr_floating_point_2_0 [altera_nios_custom_instr_floating_point_2 20.1]
+Progress: Parameterizing module nios_custom_instr_floating_point_2_0
 Progress: Adding onchip_mem [altera_avalon_onchip_memory2 20.1]
 Progress: Parameterizing module onchip_mem
 Progress: Adding pio_0 [altera_avalon_pio 20.1]
@@ -24,6 +26,8 @@ Progress: Adding sys_clk_timer [altera_avalon_timer 20.1]
 Progress: Parameterizing module sys_clk_timer
 Progress: Adding sysid [altera_avalon_sysid_qsys 20.1]
 Progress: Parameterizing module sysid
+Progress: Adding timer_0 [altera_avalon_timer 20.1]
+Progress: Parameterizing module timer_0
 Progress: Adding uart_0 [altera_avalon_uart 20.1]
 Progress: Parameterizing module uart_0
 Progress: Building connections
@@ -50,6 +54,8 @@ Progress: Adding motor_pwm_0 [motor_pwm 1.2]
 Progress: Parameterizing module motor_pwm_0
 Progress: Adding motor_pwm_1 [motor_pwm 1.2]
 Progress: Parameterizing module motor_pwm_1
+Progress: Adding nios_custom_instr_floating_point_2_0 [altera_nios_custom_instr_floating_point_2 20.1]
+Progress: Parameterizing module nios_custom_instr_floating_point_2_0
 Progress: Adding onchip_mem [altera_avalon_onchip_memory2 20.1]
 Progress: Parameterizing module onchip_mem
 Progress: Adding pio_0 [altera_avalon_pio 20.1]
@@ -62,6 +68,8 @@ Progress: Adding sys_clk_timer [altera_avalon_timer 20.1]
 Progress: Parameterizing module sys_clk_timer
 Progress: Adding sysid [altera_avalon_sysid_qsys 20.1]
 Progress: Parameterizing module sysid
+Progress: Adding timer_0 [altera_avalon_timer 20.1]
+Progress: Parameterizing module timer_0
 Progress: Adding uart_0 [altera_avalon_uart 20.1]
 Progress: Parameterizing module uart_0
 Progress: Building connections
@@ -72,30 +80,41 @@ Info: quadrature_nios_pwm.jtag_uart: JTAG UART IP input clock need to be at leas
 Info: quadrature_nios_pwm.sysid: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
 Info: quadrature_nios_pwm.sysid: Time stamp will be automatically updated when this component is generated.
 Info: quadrature_nios_pwm: Generating quadrature_nios_pwm "quadrature_nios_pwm" for QUARTUS_SYNTH
+Warning: quadrature_nios_pwm: "No matching role found for cpu_custom_instruction_master_multi_xconnect:ci_slave:ci_slave_ipending (ipending)"
+Warning: quadrature_nios_pwm: "No matching role found for cpu_custom_instruction_master_multi_xconnect:ci_slave:ci_slave_estatus (estatus)"
 Info: cpu: "quadrature_nios_pwm" instantiated altera_nios2_gen2 "cpu"
 Info: jtag_uart: Starting RTL generation for module 'quadrature_nios_pwm_jtag_uart'
-Info: jtag_uart:   Generation command is [exec C:/development/quartus/quartus/bin64/perl/bin/perl.exe -I C:/development/quartus/quartus/bin64/perl/lib -I C:/development/quartus/quartus/sopc_builder/bin/europa -I C:/development/quartus/quartus/sopc_builder/bin -I C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/common -I C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=quadrature_nios_pwm_jtag_uart --dir=C:/Users/gteho/AppData/Local/Temp/alt8789_1616182820774988436.dir/0002_jtag_uart_gen/ --quartus_dir=C:/development/quartus/quartus --verilog --config=C:/Users/gteho/AppData/Local/Temp/alt8789_1616182820774988436.dir/0002_jtag_uart_gen//quadrature_nios_pwm_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart:   Generation command is [exec C:/development/quartus/quartus/bin64/perl/bin/perl.exe -I C:/development/quartus/quartus/bin64/perl/lib -I C:/development/quartus/quartus/sopc_builder/bin/europa -I C:/development/quartus/quartus/sopc_builder/bin -I C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/common -I C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=quadrature_nios_pwm_jtag_uart --dir=C:/Users/gteho/AppData/Local/Temp/alt8792_4012084472557408112.dir/0002_jtag_uart_gen/ --quartus_dir=C:/development/quartus/quartus --verilog --config=C:/Users/gteho/AppData/Local/Temp/alt8792_4012084472557408112.dir/0002_jtag_uart_gen//quadrature_nios_pwm_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
 Info: jtag_uart: Done RTL generation for module 'quadrature_nios_pwm_jtag_uart'
 Info: jtag_uart: "quadrature_nios_pwm" instantiated altera_avalon_jtag_uart "jtag_uart"
 Info: motor_pwm_0: "quadrature_nios_pwm" instantiated motor_pwm "motor_pwm_0"
+Info: nios_custom_instr_floating_point_2_0: "quadrature_nios_pwm" instantiated altera_nios_custom_instr_floating_point_2 "nios_custom_instr_floating_point_2_0"
 Info: onchip_mem: Starting RTL generation for module 'quadrature_nios_pwm_onchip_mem'
-Info: onchip_mem:   Generation command is [exec C:/development/quartus/quartus/bin64/perl/bin/perl.exe -I C:/development/quartus/quartus/bin64/perl/lib -I C:/development/quartus/quartus/sopc_builder/bin/europa -I C:/development/quartus/quartus/sopc_builder/bin -I C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/common -I C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=quadrature_nios_pwm_onchip_mem --dir=C:/Users/gteho/AppData/Local/Temp/alt8789_1616182820774988436.dir/0004_onchip_mem_gen/ --quartus_dir=C:/development/quartus/quartus --verilog --config=C:/Users/gteho/AppData/Local/Temp/alt8789_1616182820774988436.dir/0004_onchip_mem_gen//quadrature_nios_pwm_onchip_mem_component_configuration.pl  --do_build_sim=0  ]
+Info: onchip_mem:   Generation command is [exec C:/development/quartus/quartus/bin64/perl/bin/perl.exe -I C:/development/quartus/quartus/bin64/perl/lib -I C:/development/quartus/quartus/sopc_builder/bin/europa -I C:/development/quartus/quartus/sopc_builder/bin -I C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/common -I C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=quadrature_nios_pwm_onchip_mem --dir=C:/Users/gteho/AppData/Local/Temp/alt8792_4012084472557408112.dir/0004_onchip_mem_gen/ --quartus_dir=C:/development/quartus/quartus --verilog --config=C:/Users/gteho/AppData/Local/Temp/alt8792_4012084472557408112.dir/0004_onchip_mem_gen//quadrature_nios_pwm_onchip_mem_component_configuration.pl  --do_build_sim=0  ]
 Info: onchip_mem: Done RTL generation for module 'quadrature_nios_pwm_onchip_mem'
 Info: onchip_mem: "quadrature_nios_pwm" instantiated altera_avalon_onchip_memory2 "onchip_mem"
 Info: pio_0: Starting RTL generation for module 'quadrature_nios_pwm_pio_0'
-Info: pio_0:   Generation command is [exec C:/development/quartus/quartus/bin64/perl/bin/perl.exe -I C:/development/quartus/quartus/bin64/perl/lib -I C:/development/quartus/quartus/sopc_builder/bin/europa -I C:/development/quartus/quartus/sopc_builder/bin -I C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/common -I C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=quadrature_nios_pwm_pio_0 --dir=C:/Users/gteho/AppData/Local/Temp/alt8789_1616182820774988436.dir/0005_pio_0_gen/ --quartus_dir=C:/development/quartus/quartus --verilog --config=C:/Users/gteho/AppData/Local/Temp/alt8789_1616182820774988436.dir/0005_pio_0_gen//quadrature_nios_pwm_pio_0_component_configuration.pl  --do_build_sim=0  ]
+Info: pio_0:   Generation command is [exec C:/development/quartus/quartus/bin64/perl/bin/perl.exe -I C:/development/quartus/quartus/bin64/perl/lib -I C:/development/quartus/quartus/sopc_builder/bin/europa -I C:/development/quartus/quartus/sopc_builder/bin -I C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/common -I C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=quadrature_nios_pwm_pio_0 --dir=C:/Users/gteho/AppData/Local/Temp/alt8792_4012084472557408112.dir/0005_pio_0_gen/ --quartus_dir=C:/development/quartus/quartus --verilog --config=C:/Users/gteho/AppData/Local/Temp/alt8792_4012084472557408112.dir/0005_pio_0_gen//quadrature_nios_pwm_pio_0_component_configuration.pl  --do_build_sim=0  ]
 Info: pio_0: Done RTL generation for module 'quadrature_nios_pwm_pio_0'
 Info: pio_0: "quadrature_nios_pwm" instantiated altera_avalon_pio "pio_0"
 Info: quadrature_encoder_0: "quadrature_nios_pwm" instantiated quadrature_encoder "quadrature_encoder_0"
 Info: sys_clk_timer: Starting RTL generation for module 'quadrature_nios_pwm_sys_clk_timer'
-Info: sys_clk_timer:   Generation command is [exec C:/development/Quartus/quartus/bin64//perl/bin/perl.exe -I C:/development/Quartus/quartus/bin64//perl/lib -I C:/development/quartus/quartus/sopc_builder/bin/europa -I C:/development/quartus/quartus/sopc_builder/bin -I C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/common -I C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=quadrature_nios_pwm_sys_clk_timer --dir=C:/Users/gteho/AppData/Local/Temp/alt8789_1616182820774988436.dir/0007_sys_clk_timer_gen/ --quartus_dir=C:/development/quartus/quartus --verilog --config=C:/Users/gteho/AppData/Local/Temp/alt8789_1616182820774988436.dir/0007_sys_clk_timer_gen//quadrature_nios_pwm_sys_clk_timer_component_configuration.pl  --do_build_sim=0  ]
+Info: sys_clk_timer:   Generation command is [exec C:/development/Quartus/quartus/bin64//perl/bin/perl.exe -I C:/development/Quartus/quartus/bin64//perl/lib -I C:/development/quartus/quartus/sopc_builder/bin/europa -I C:/development/quartus/quartus/sopc_builder/bin -I C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/common -I C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=quadrature_nios_pwm_sys_clk_timer --dir=C:/Users/gteho/AppData/Local/Temp/alt8792_4012084472557408112.dir/0007_sys_clk_timer_gen/ --quartus_dir=C:/development/quartus/quartus --verilog --config=C:/Users/gteho/AppData/Local/Temp/alt8792_4012084472557408112.dir/0007_sys_clk_timer_gen//quadrature_nios_pwm_sys_clk_timer_component_configuration.pl  --do_build_sim=0  ]
 Info: sys_clk_timer: Done RTL generation for module 'quadrature_nios_pwm_sys_clk_timer'
 Info: sys_clk_timer: "quadrature_nios_pwm" instantiated altera_avalon_timer "sys_clk_timer"
 Info: sysid: "quadrature_nios_pwm" instantiated altera_avalon_sysid_qsys "sysid"
+Info: timer_0: Starting RTL generation for module 'quadrature_nios_pwm_timer_0'
+Info: timer_0:   Generation command is [exec C:/development/Quartus/quartus/bin64//perl/bin/perl.exe -I C:/development/Quartus/quartus/bin64//perl/lib -I C:/development/quartus/quartus/sopc_builder/bin/europa -I C:/development/quartus/quartus/sopc_builder/bin -I C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/common -I C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=quadrature_nios_pwm_timer_0 --dir=C:/Users/gteho/AppData/Local/Temp/alt8792_4012084472557408112.dir/0009_timer_0_gen/ --quartus_dir=C:/development/quartus/quartus --verilog --config=C:/Users/gteho/AppData/Local/Temp/alt8792_4012084472557408112.dir/0009_timer_0_gen//quadrature_nios_pwm_timer_0_component_configuration.pl  --do_build_sim=0  ]
+Info: timer_0: Done RTL generation for module 'quadrature_nios_pwm_timer_0'
+Info: timer_0: "quadrature_nios_pwm" instantiated altera_avalon_timer "timer_0"
 Info: uart_0: Starting RTL generation for module 'quadrature_nios_pwm_uart_0'
-Info: uart_0:   Generation command is [exec C:/development/quartus/quartus/bin64/perl/bin/perl.exe -I C:/development/quartus/quartus/bin64/perl/lib -I C:/development/quartus/quartus/sopc_builder/bin/europa -I C:/development/quartus/quartus/sopc_builder/bin -I C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/common -I C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/altera_avalon_uart -- C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/altera_avalon_uart/generate_rtl.pl --name=quadrature_nios_pwm_uart_0 --dir=C:/Users/gteho/AppData/Local/Temp/alt8789_1616182820774988436.dir/0009_uart_0_gen/ --quartus_dir=C:/development/quartus/quartus --verilog --config=C:/Users/gteho/AppData/Local/Temp/alt8789_1616182820774988436.dir/0009_uart_0_gen//quadrature_nios_pwm_uart_0_component_configuration.pl  --do_build_sim=0  ]
+Info: uart_0:   Generation command is [exec C:/development/quartus/quartus/bin64/perl/bin/perl.exe -I C:/development/quartus/quartus/bin64/perl/lib -I C:/development/quartus/quartus/sopc_builder/bin/europa -I C:/development/quartus/quartus/sopc_builder/bin -I C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/common -I C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/altera_avalon_uart -- C:/development/quartus/quartus/../ip/altera/sopc_builder_ip/altera_avalon_uart/generate_rtl.pl --name=quadrature_nios_pwm_uart_0 --dir=C:/Users/gteho/AppData/Local/Temp/alt8792_4012084472557408112.dir/0010_uart_0_gen/ --quartus_dir=C:/development/quartus/quartus --verilog --config=C:/Users/gteho/AppData/Local/Temp/alt8792_4012084472557408112.dir/0010_uart_0_gen//quadrature_nios_pwm_uart_0_component_configuration.pl  --do_build_sim=0  ]
 Info: uart_0: Done RTL generation for module 'quadrature_nios_pwm_uart_0'
 Info: uart_0: "quadrature_nios_pwm" instantiated altera_avalon_uart "uart_0"
+Info: cpu_custom_instruction_master_translator: "quadrature_nios_pwm" instantiated altera_customins_master_translator "cpu_custom_instruction_master_translator"
+Info: cpu_custom_instruction_master_comb_xconnect: "quadrature_nios_pwm" instantiated altera_customins_xconnect "cpu_custom_instruction_master_comb_xconnect"
+Info: cpu_custom_instruction_master_comb_slave_translator0: "quadrature_nios_pwm" instantiated altera_customins_slave_translator "cpu_custom_instruction_master_comb_slave_translator0"
+Info: cpu_custom_instruction_master_multi_xconnect: "quadrature_nios_pwm" instantiated altera_customins_xconnect "cpu_custom_instruction_master_multi_xconnect"
 Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
@@ -109,19 +128,22 @@ Info: avalon_st_adapter_009: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_010: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_011: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_012: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_013: Inserting error_adapter: error_adapter_0
 Info: mm_interconnect_0: "quadrature_nios_pwm" instantiated altera_mm_interconnect "mm_interconnect_0"
 Info: irq_mapper: "quadrature_nios_pwm" instantiated altera_irq_mapper "irq_mapper"
 Info: rst_controller: "quadrature_nios_pwm" instantiated altera_reset_controller "rst_controller"
 Info: cpu: Starting RTL generation for module 'quadrature_nios_pwm_cpu_cpu'
-Info: cpu:   Generation command is [exec C:/development/Quartus/quartus/bin64//perl/bin/perl.exe -I C:/development/Quartus/quartus/bin64//perl/lib -I C:/development/quartus/quartus/sopc_builder/bin/europa -I C:/development/quartus/quartus/sopc_builder/bin -I C:/development/quartus/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I C:/development/quartus/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I C:/development/quartus/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I C:/development/quartus/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- C:/development/quartus/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.pl --name=quadrature_nios_pwm_cpu_cpu --dir=C:/Users/gteho/AppData/Local/Temp/alt8789_1616182820774988436.dir/0012_cpu_gen/ --quartus_bindir=C:/development/Quartus/quartus/bin64/ --verilog --config=C:/Users/gteho/AppData/Local/Temp/alt8789_1616182820774988436.dir/0012_cpu_gen//quadrature_nios_pwm_cpu_cpu_processor_configuration.pl  --do_build_sim=0  ]
-Info: cpu: # 2021.06.11 13:30:23 (*) Starting Nios II generation
-Info: cpu: # 2021.06.11 13:30:23 (*)   Elaborating CPU configuration settings
-Info: cpu: # 2021.06.11 13:30:23 (*)   Creating all objects for CPU
-Info: cpu: # 2021.06.11 13:30:24 (*)   Generating RTL from CPU objects
-Info: cpu: # 2021.06.11 13:30:24 (*)   Creating plain-text RTL
-Info: cpu: # 2021.06.11 13:30:24 (*) Done Nios II generation
+Info: cpu:   Generation command is [exec C:/development/Quartus/quartus/bin64//perl/bin/perl.exe -I C:/development/Quartus/quartus/bin64//perl/lib -I C:/development/quartus/quartus/sopc_builder/bin/europa -I C:/development/quartus/quartus/sopc_builder/bin -I C:/development/quartus/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I C:/development/quartus/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I C:/development/quartus/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I C:/development/quartus/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- C:/development/quartus/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.pl --name=quadrature_nios_pwm_cpu_cpu --dir=C:/Users/gteho/AppData/Local/Temp/alt8792_4012084472557408112.dir/0017_cpu_gen/ --quartus_bindir=C:/development/Quartus/quartus/bin64/ --verilog --config=C:/Users/gteho/AppData/Local/Temp/alt8792_4012084472557408112.dir/0017_cpu_gen//quadrature_nios_pwm_cpu_cpu_processor_configuration.pl  --do_build_sim=0  ]
+Info: cpu: # 2021.06.14 17:56:03 (*) Starting Nios II generation
+Info: cpu: # 2021.06.14 17:56:03 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2021.06.14 17:56:03 (*)   Creating all objects for CPU
+Info: cpu: # 2021.06.14 17:56:03 (*)   Generating RTL from CPU objects
+Info: cpu: # 2021.06.14 17:56:03 (*)   Creating plain-text RTL
+Info: cpu: # 2021.06.14 17:56:04 (*) Done Nios II generation
 Info: cpu: Done RTL generation for module 'quadrature_nios_pwm_cpu_cpu'
 Info: cpu: "cpu" instantiated altera_nios2_gen2_unit "cpu"
+Info: fpci_combi: "nios_custom_instr_floating_point_2_0" instantiated altera_nios_custom_instr_floating_point_2_combi "fpci_combi"
+Info: fpci_multi: "nios_custom_instr_floating_point_2_0" instantiated altera_nios_custom_instr_floating_point_2_multi "fpci_multi"
 Info: cpu_data_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "cpu_data_master_translator"
 Info: jtag_uart_avalon_jtag_slave_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "jtag_uart_avalon_jtag_slave_translator"
 Info: cpu_data_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "cpu_data_master_agent"
@@ -143,6 +165,6 @@ Info: rsp_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "r
 Info: Reusing file C:/development/Quartus/Projects/quadrature_nios_pwm/nios/quadrature_nios_pwm/synthesis/submodules/altera_merlin_arbitrator.sv
 Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
 Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
-Info: quadrature_nios_pwm: Done "quadrature_nios_pwm" with 32 modules, 45 files
+Info: quadrature_nios_pwm: Done "quadrature_nios_pwm" with 40 modules, 72 files
 Info: qsys-generate succeeded.
 Info: Finished: Create HDL design files for synthesis

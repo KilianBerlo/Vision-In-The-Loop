@@ -50,7 +50,24 @@ architecture rtl of quadrature_nios_pwm is
 			debug_mem_slave_waitrequest         : out std_logic;                                        -- waitrequest
 			debug_mem_slave_write               : in  std_logic                     := 'X';             -- write
 			debug_mem_slave_writedata           : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
-			dummy_ci_port                       : out std_logic                                         -- readra
+			E_ci_multi_done                     : in  std_logic                     := 'X';             -- done
+			E_ci_multi_clk_en                   : out std_logic;                                        -- clk_en
+			E_ci_multi_start                    : out std_logic;                                        -- start
+			E_ci_result                         : in  std_logic_vector(31 downto 0) := (others => 'X'); -- result
+			D_ci_a                              : out std_logic_vector(4 downto 0);                     -- a
+			D_ci_b                              : out std_logic_vector(4 downto 0);                     -- b
+			D_ci_c                              : out std_logic_vector(4 downto 0);                     -- c
+			D_ci_n                              : out std_logic_vector(7 downto 0);                     -- n
+			D_ci_readra                         : out std_logic;                                        -- readra
+			D_ci_readrb                         : out std_logic;                                        -- readrb
+			D_ci_writerc                        : out std_logic;                                        -- writerc
+			E_ci_dataa                          : out std_logic_vector(31 downto 0);                    -- dataa
+			E_ci_datab                          : out std_logic_vector(31 downto 0);                    -- datab
+			E_ci_multi_clock                    : out std_logic;                                        -- clk
+			E_ci_multi_reset                    : out std_logic;                                        -- reset
+			E_ci_multi_reset_req                : out std_logic;                                        -- reset_req
+			W_ci_estatus                        : out std_logic;                                        -- estatus
+			W_ci_ipending                       : out std_logic_vector(31 downto 0)                     -- ipending
 		);
 	end component quadrature_nios_pwm_cpu;
 
@@ -87,6 +104,31 @@ architecture rtl of quadrature_nios_pwm is
 			pwm_out           : out std_logic                                         -- pwm_out
 		);
 	end component pwm_module_avalon;
+
+	component quadrature_nios_pwm_nios_custom_instr_floating_point_2_0 is
+		generic (
+			arithmetic_present : boolean := true;
+			root_present       : boolean := true;
+			conversion_present : boolean := true;
+			comparison_present : boolean := true
+		);
+		port (
+			s1_dataa     : in  std_logic_vector(31 downto 0) := (others => 'X'); -- dataa
+			s1_datab     : in  std_logic_vector(31 downto 0) := (others => 'X'); -- datab
+			s1_n         : in  std_logic_vector(3 downto 0)  := (others => 'X'); -- n
+			s1_result    : out std_logic_vector(31 downto 0);                    -- result
+			s2_clk       : in  std_logic                     := 'X';             -- clk
+			s2_clk_en    : in  std_logic                     := 'X';             -- clk_en
+			s2_dataa     : in  std_logic_vector(31 downto 0) := (others => 'X'); -- dataa
+			s2_datab     : in  std_logic_vector(31 downto 0) := (others => 'X'); -- datab
+			s2_n         : in  std_logic_vector(2 downto 0)  := (others => 'X'); -- n
+			s2_reset     : in  std_logic                     := 'X';             -- reset
+			s2_reset_req : in  std_logic                     := 'X';             -- reset_req
+			s2_start     : in  std_logic                     := 'X';             -- start
+			s2_done      : out std_logic;                                        -- done
+			s2_result    : out std_logic_vector(31 downto 0)                     -- result
+		);
+	end component quadrature_nios_pwm_nios_custom_instr_floating_point_2_0;
 
 	component quadrature_nios_pwm_onchip_mem is
 		port (
@@ -153,6 +195,19 @@ architecture rtl of quadrature_nios_pwm is
 		);
 	end component quadrature_nios_pwm_sysid;
 
+	component quadrature_nios_pwm_timer_0 is
+		port (
+			clk        : in  std_logic                     := 'X';             -- clk
+			reset_n    : in  std_logic                     := 'X';             -- reset_n
+			address    : in  std_logic_vector(2 downto 0)  := (others => 'X'); -- address
+			writedata  : in  std_logic_vector(15 downto 0) := (others => 'X'); -- writedata
+			readdata   : out std_logic_vector(15 downto 0);                    -- readdata
+			chipselect : in  std_logic                     := 'X';             -- chipselect
+			write_n    : in  std_logic                     := 'X';             -- write_n
+			irq        : out std_logic                                         -- irq
+		);
+	end component quadrature_nios_pwm_timer_0;
+
 	component quadrature_nios_pwm_uart_0 is
 		port (
 			clk           : in  std_logic                     := 'X';             -- clk
@@ -169,6 +224,140 @@ architecture rtl of quadrature_nios_pwm is
 			irq           : out std_logic                                         -- irq
 		);
 	end component quadrature_nios_pwm_uart_0;
+
+	component altera_customins_master_translator is
+		generic (
+			SHARED_COMB_AND_MULTI : integer := 0
+		);
+		port (
+			ci_slave_dataa            : in  std_logic_vector(31 downto 0) := (others => 'X'); -- dataa
+			ci_slave_datab            : in  std_logic_vector(31 downto 0) := (others => 'X'); -- datab
+			ci_slave_result           : out std_logic_vector(31 downto 0);                    -- result
+			ci_slave_n                : in  std_logic_vector(7 downto 0)  := (others => 'X'); -- n
+			ci_slave_readra           : in  std_logic                     := 'X';             -- readra
+			ci_slave_readrb           : in  std_logic                     := 'X';             -- readrb
+			ci_slave_writerc          : in  std_logic                     := 'X';             -- writerc
+			ci_slave_a                : in  std_logic_vector(4 downto 0)  := (others => 'X'); -- a
+			ci_slave_b                : in  std_logic_vector(4 downto 0)  := (others => 'X'); -- b
+			ci_slave_c                : in  std_logic_vector(4 downto 0)  := (others => 'X'); -- c
+			ci_slave_ipending         : in  std_logic_vector(31 downto 0) := (others => 'X'); -- ipending
+			ci_slave_estatus          : in  std_logic                     := 'X';             -- estatus
+			ci_slave_multi_clk        : in  std_logic                     := 'X';             -- clk
+			ci_slave_multi_reset      : in  std_logic                     := 'X';             -- reset
+			ci_slave_multi_clken      : in  std_logic                     := 'X';             -- clk_en
+			ci_slave_multi_reset_req  : in  std_logic                     := 'X';             -- reset_req
+			ci_slave_multi_start      : in  std_logic                     := 'X';             -- start
+			ci_slave_multi_done       : out std_logic;                                        -- done
+			comb_ci_master_dataa      : out std_logic_vector(31 downto 0);                    -- dataa
+			comb_ci_master_datab      : out std_logic_vector(31 downto 0);                    -- datab
+			comb_ci_master_result     : in  std_logic_vector(31 downto 0) := (others => 'X'); -- result
+			comb_ci_master_n          : out std_logic_vector(7 downto 0);                     -- n
+			comb_ci_master_readra     : out std_logic;                                        -- readra
+			comb_ci_master_readrb     : out std_logic;                                        -- readrb
+			comb_ci_master_writerc    : out std_logic;                                        -- writerc
+			comb_ci_master_a          : out std_logic_vector(4 downto 0);                     -- a
+			comb_ci_master_b          : out std_logic_vector(4 downto 0);                     -- b
+			comb_ci_master_c          : out std_logic_vector(4 downto 0);                     -- c
+			comb_ci_master_ipending   : out std_logic_vector(31 downto 0);                    -- ipending
+			comb_ci_master_estatus    : out std_logic;                                        -- estatus
+			multi_ci_master_clk       : out std_logic;                                        -- clk
+			multi_ci_master_reset     : out std_logic;                                        -- reset
+			multi_ci_master_clken     : out std_logic;                                        -- clk_en
+			multi_ci_master_reset_req : out std_logic;                                        -- reset_req
+			multi_ci_master_start     : out std_logic;                                        -- start
+			multi_ci_master_done      : in  std_logic                     := 'X';             -- done
+			multi_ci_master_dataa     : out std_logic_vector(31 downto 0);                    -- dataa
+			multi_ci_master_datab     : out std_logic_vector(31 downto 0);                    -- datab
+			multi_ci_master_result    : in  std_logic_vector(31 downto 0) := (others => 'X'); -- result
+			multi_ci_master_n         : out std_logic_vector(7 downto 0);                     -- n
+			multi_ci_master_readra    : out std_logic;                                        -- readra
+			multi_ci_master_readrb    : out std_logic;                                        -- readrb
+			multi_ci_master_writerc   : out std_logic;                                        -- writerc
+			multi_ci_master_a         : out std_logic_vector(4 downto 0);                     -- a
+			multi_ci_master_b         : out std_logic_vector(4 downto 0);                     -- b
+			multi_ci_master_c         : out std_logic_vector(4 downto 0);                     -- c
+			ci_slave_multi_dataa      : in  std_logic_vector(31 downto 0) := (others => 'X'); -- multi_dataa
+			ci_slave_multi_datab      : in  std_logic_vector(31 downto 0) := (others => 'X'); -- multi_datab
+			ci_slave_multi_result     : out std_logic_vector(31 downto 0);                    -- multi_result
+			ci_slave_multi_n          : in  std_logic_vector(7 downto 0)  := (others => 'X'); -- multi_n
+			ci_slave_multi_readra     : in  std_logic                     := 'X';             -- multi_readra
+			ci_slave_multi_readrb     : in  std_logic                     := 'X';             -- multi_readrb
+			ci_slave_multi_writerc    : in  std_logic                     := 'X';             -- multi_writerc
+			ci_slave_multi_a          : in  std_logic_vector(4 downto 0)  := (others => 'X'); -- multi_a
+			ci_slave_multi_b          : in  std_logic_vector(4 downto 0)  := (others => 'X'); -- multi_b
+			ci_slave_multi_c          : in  std_logic_vector(4 downto 0)  := (others => 'X')  -- multi_c
+		);
+	end component altera_customins_master_translator;
+
+	component quadrature_nios_pwm_cpu_custom_instruction_master_comb_xconnect is
+		port (
+			ci_slave_dataa      : in  std_logic_vector(31 downto 0) := (others => 'X'); -- dataa
+			ci_slave_datab      : in  std_logic_vector(31 downto 0) := (others => 'X'); -- datab
+			ci_slave_result     : out std_logic_vector(31 downto 0);                    -- result
+			ci_slave_n          : in  std_logic_vector(7 downto 0)  := (others => 'X'); -- n
+			ci_slave_readra     : in  std_logic                     := 'X';             -- readra
+			ci_slave_readrb     : in  std_logic                     := 'X';             -- readrb
+			ci_slave_writerc    : in  std_logic                     := 'X';             -- writerc
+			ci_slave_a          : in  std_logic_vector(4 downto 0)  := (others => 'X'); -- a
+			ci_slave_b          : in  std_logic_vector(4 downto 0)  := (others => 'X'); -- b
+			ci_slave_c          : in  std_logic_vector(4 downto 0)  := (others => 'X'); -- c
+			ci_slave_ipending   : in  std_logic_vector(31 downto 0) := (others => 'X'); -- ipending
+			ci_slave_estatus    : in  std_logic                     := 'X';             -- estatus
+			ci_master0_dataa    : out std_logic_vector(31 downto 0);                    -- dataa
+			ci_master0_datab    : out std_logic_vector(31 downto 0);                    -- datab
+			ci_master0_result   : in  std_logic_vector(31 downto 0) := (others => 'X'); -- result
+			ci_master0_n        : out std_logic_vector(7 downto 0);                     -- n
+			ci_master0_readra   : out std_logic;                                        -- readra
+			ci_master0_readrb   : out std_logic;                                        -- readrb
+			ci_master0_writerc  : out std_logic;                                        -- writerc
+			ci_master0_a        : out std_logic_vector(4 downto 0);                     -- a
+			ci_master0_b        : out std_logic_vector(4 downto 0);                     -- b
+			ci_master0_c        : out std_logic_vector(4 downto 0);                     -- c
+			ci_master0_ipending : out std_logic_vector(31 downto 0);                    -- ipending
+			ci_master0_estatus  : out std_logic                                         -- estatus
+		);
+	end component quadrature_nios_pwm_cpu_custom_instruction_master_comb_xconnect;
+
+	component quadrature_nios_pwm_cpu_custom_instruction_master_multi_xconnect is
+		port (
+			ci_slave_dataa       : in  std_logic_vector(31 downto 0) := (others => 'X'); -- dataa
+			ci_slave_datab       : in  std_logic_vector(31 downto 0) := (others => 'X'); -- datab
+			ci_slave_result      : out std_logic_vector(31 downto 0);                    -- result
+			ci_slave_n           : in  std_logic_vector(7 downto 0)  := (others => 'X'); -- n
+			ci_slave_readra      : in  std_logic                     := 'X';             -- readra
+			ci_slave_readrb      : in  std_logic                     := 'X';             -- readrb
+			ci_slave_writerc     : in  std_logic                     := 'X';             -- writerc
+			ci_slave_a           : in  std_logic_vector(4 downto 0)  := (others => 'X'); -- a
+			ci_slave_b           : in  std_logic_vector(4 downto 0)  := (others => 'X'); -- b
+			ci_slave_c           : in  std_logic_vector(4 downto 0)  := (others => 'X'); -- c
+			ci_slave_ipending    : in  std_logic_vector(31 downto 0) := (others => 'X'); -- ipending
+			ci_slave_estatus     : in  std_logic                     := 'X';             -- estatus
+			ci_slave_clk         : in  std_logic                     := 'X';             -- clk
+			ci_slave_reset       : in  std_logic                     := 'X';             -- reset
+			ci_slave_clken       : in  std_logic                     := 'X';             -- clk_en
+			ci_slave_reset_req   : in  std_logic                     := 'X';             -- reset_req
+			ci_slave_start       : in  std_logic                     := 'X';             -- start
+			ci_slave_done        : out std_logic;                                        -- done
+			ci_master0_dataa     : out std_logic_vector(31 downto 0);                    -- dataa
+			ci_master0_datab     : out std_logic_vector(31 downto 0);                    -- datab
+			ci_master0_result    : in  std_logic_vector(31 downto 0) := (others => 'X'); -- result
+			ci_master0_n         : out std_logic_vector(7 downto 0);                     -- n
+			ci_master0_readra    : out std_logic;                                        -- readra
+			ci_master0_readrb    : out std_logic;                                        -- readrb
+			ci_master0_writerc   : out std_logic;                                        -- writerc
+			ci_master0_a         : out std_logic_vector(4 downto 0);                     -- a
+			ci_master0_b         : out std_logic_vector(4 downto 0);                     -- b
+			ci_master0_c         : out std_logic_vector(4 downto 0);                     -- c
+			ci_master0_ipending  : out std_logic_vector(31 downto 0);                    -- ipending
+			ci_master0_estatus   : out std_logic;                                        -- estatus
+			ci_master0_clk       : out std_logic;                                        -- clk
+			ci_master0_reset     : out std_logic;                                        -- reset
+			ci_master0_clken     : out std_logic;                                        -- clk_en
+			ci_master0_reset_req : out std_logic;                                        -- reset_req
+			ci_master0_start     : out std_logic;                                        -- start
+			ci_master0_done      : in  std_logic                     := 'X'              -- done
+		);
+	end component quadrature_nios_pwm_cpu_custom_instruction_master_multi_xconnect;
 
 	component quadrature_nios_pwm_mm_interconnect_0 is
 		port (
@@ -238,6 +427,11 @@ architecture rtl of quadrature_nios_pwm is
 			sys_clk_timer_s1_chipselect             : out std_logic;                                        -- chipselect
 			sysid_control_slave_address             : out std_logic_vector(0 downto 0);                     -- address
 			sysid_control_slave_readdata            : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			timer_0_s1_address                      : out std_logic_vector(2 downto 0);                     -- address
+			timer_0_s1_write                        : out std_logic;                                        -- write
+			timer_0_s1_readdata                     : in  std_logic_vector(15 downto 0) := (others => 'X'); -- readdata
+			timer_0_s1_writedata                    : out std_logic_vector(15 downto 0);                    -- writedata
+			timer_0_s1_chipselect                   : out std_logic;                                        -- chipselect
 			uart_0_s1_address                       : out std_logic_vector(2 downto 0);                     -- address
 			uart_0_s1_write                         : out std_logic;                                        -- write
 			uart_0_s1_read                          : out std_logic;                                        -- read
@@ -255,6 +449,7 @@ architecture rtl of quadrature_nios_pwm is
 			receiver0_irq : in  std_logic                     := 'X'; -- irq
 			receiver1_irq : in  std_logic                     := 'X'; -- irq
 			receiver2_irq : in  std_logic                     := 'X'; -- irq
+			receiver3_irq : in  std_logic                     := 'X'; -- irq
 			sender_irq    : out std_logic_vector(31 downto 0)         -- irq
 		);
 	end component quadrature_nios_pwm_irq_mapper;
@@ -325,91 +520,280 @@ architecture rtl of quadrature_nios_pwm is
 		);
 	end component altera_reset_controller;
 
-	signal cpu_data_master_readdata                                      : std_logic_vector(31 downto 0); -- mm_interconnect_0:cpu_data_master_readdata -> cpu:d_readdata
-	signal cpu_data_master_waitrequest                                   : std_logic;                     -- mm_interconnect_0:cpu_data_master_waitrequest -> cpu:d_waitrequest
-	signal cpu_data_master_debugaccess                                   : std_logic;                     -- cpu:debug_mem_slave_debugaccess_to_roms -> mm_interconnect_0:cpu_data_master_debugaccess
-	signal cpu_data_master_address                                       : std_logic_vector(17 downto 0); -- cpu:d_address -> mm_interconnect_0:cpu_data_master_address
-	signal cpu_data_master_byteenable                                    : std_logic_vector(3 downto 0);  -- cpu:d_byteenable -> mm_interconnect_0:cpu_data_master_byteenable
-	signal cpu_data_master_read                                          : std_logic;                     -- cpu:d_read -> mm_interconnect_0:cpu_data_master_read
-	signal cpu_data_master_write                                         : std_logic;                     -- cpu:d_write -> mm_interconnect_0:cpu_data_master_write
-	signal cpu_data_master_writedata                                     : std_logic_vector(31 downto 0); -- cpu:d_writedata -> mm_interconnect_0:cpu_data_master_writedata
-	signal cpu_instruction_master_readdata                               : std_logic_vector(31 downto 0); -- mm_interconnect_0:cpu_instruction_master_readdata -> cpu:i_readdata
-	signal cpu_instruction_master_waitrequest                            : std_logic;                     -- mm_interconnect_0:cpu_instruction_master_waitrequest -> cpu:i_waitrequest
-	signal cpu_instruction_master_address                                : std_logic_vector(17 downto 0); -- cpu:i_address -> mm_interconnect_0:cpu_instruction_master_address
-	signal cpu_instruction_master_read                                   : std_logic;                     -- cpu:i_read -> mm_interconnect_0:cpu_instruction_master_read
-	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_chipselect      : std_logic;                     -- mm_interconnect_0:jtag_uart_avalon_jtag_slave_chipselect -> jtag_uart:av_chipselect
-	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_readdata        : std_logic_vector(31 downto 0); -- jtag_uart:av_readdata -> mm_interconnect_0:jtag_uart_avalon_jtag_slave_readdata
-	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_waitrequest     : std_logic;                     -- jtag_uart:av_waitrequest -> mm_interconnect_0:jtag_uart_avalon_jtag_slave_waitrequest
-	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_address         : std_logic_vector(0 downto 0);  -- mm_interconnect_0:jtag_uart_avalon_jtag_slave_address -> jtag_uart:av_address
-	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_read            : std_logic;                     -- mm_interconnect_0:jtag_uart_avalon_jtag_slave_read -> mm_interconnect_0_jtag_uart_avalon_jtag_slave_read:in
-	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_write           : std_logic;                     -- mm_interconnect_0:jtag_uart_avalon_jtag_slave_write -> mm_interconnect_0_jtag_uart_avalon_jtag_slave_write:in
-	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_writedata       : std_logic_vector(31 downto 0); -- mm_interconnect_0:jtag_uart_avalon_jtag_slave_writedata -> jtag_uart:av_writedata
-	signal mm_interconnect_0_sysid_control_slave_readdata                : std_logic_vector(31 downto 0); -- sysid:readdata -> mm_interconnect_0:sysid_control_slave_readdata
-	signal mm_interconnect_0_sysid_control_slave_address                 : std_logic_vector(0 downto 0);  -- mm_interconnect_0:sysid_control_slave_address -> sysid:address
-	signal mm_interconnect_0_cpu_debug_mem_slave_readdata                : std_logic_vector(31 downto 0); -- cpu:debug_mem_slave_readdata -> mm_interconnect_0:cpu_debug_mem_slave_readdata
-	signal mm_interconnect_0_cpu_debug_mem_slave_waitrequest             : std_logic;                     -- cpu:debug_mem_slave_waitrequest -> mm_interconnect_0:cpu_debug_mem_slave_waitrequest
-	signal mm_interconnect_0_cpu_debug_mem_slave_debugaccess             : std_logic;                     -- mm_interconnect_0:cpu_debug_mem_slave_debugaccess -> cpu:debug_mem_slave_debugaccess
-	signal mm_interconnect_0_cpu_debug_mem_slave_address                 : std_logic_vector(8 downto 0);  -- mm_interconnect_0:cpu_debug_mem_slave_address -> cpu:debug_mem_slave_address
-	signal mm_interconnect_0_cpu_debug_mem_slave_read                    : std_logic;                     -- mm_interconnect_0:cpu_debug_mem_slave_read -> cpu:debug_mem_slave_read
-	signal mm_interconnect_0_cpu_debug_mem_slave_byteenable              : std_logic_vector(3 downto 0);  -- mm_interconnect_0:cpu_debug_mem_slave_byteenable -> cpu:debug_mem_slave_byteenable
-	signal mm_interconnect_0_cpu_debug_mem_slave_write                   : std_logic;                     -- mm_interconnect_0:cpu_debug_mem_slave_write -> cpu:debug_mem_slave_write
-	signal mm_interconnect_0_cpu_debug_mem_slave_writedata               : std_logic_vector(31 downto 0); -- mm_interconnect_0:cpu_debug_mem_slave_writedata -> cpu:debug_mem_slave_writedata
-	signal mm_interconnect_0_onchip_mem_s1_chipselect                    : std_logic;                     -- mm_interconnect_0:onchip_mem_s1_chipselect -> onchip_mem:chipselect
-	signal mm_interconnect_0_onchip_mem_s1_readdata                      : std_logic_vector(31 downto 0); -- onchip_mem:readdata -> mm_interconnect_0:onchip_mem_s1_readdata
-	signal mm_interconnect_0_onchip_mem_s1_address                       : std_logic_vector(13 downto 0); -- mm_interconnect_0:onchip_mem_s1_address -> onchip_mem:address
-	signal mm_interconnect_0_onchip_mem_s1_byteenable                    : std_logic_vector(3 downto 0);  -- mm_interconnect_0:onchip_mem_s1_byteenable -> onchip_mem:byteenable
-	signal mm_interconnect_0_onchip_mem_s1_write                         : std_logic;                     -- mm_interconnect_0:onchip_mem_s1_write -> onchip_mem:write
-	signal mm_interconnect_0_onchip_mem_s1_writedata                     : std_logic_vector(31 downto 0); -- mm_interconnect_0:onchip_mem_s1_writedata -> onchip_mem:writedata
-	signal mm_interconnect_0_onchip_mem_s1_clken                         : std_logic;                     -- mm_interconnect_0:onchip_mem_s1_clken -> onchip_mem:clken
-	signal mm_interconnect_0_sys_clk_timer_s1_chipselect                 : std_logic;                     -- mm_interconnect_0:sys_clk_timer_s1_chipselect -> sys_clk_timer:chipselect
-	signal mm_interconnect_0_sys_clk_timer_s1_readdata                   : std_logic_vector(15 downto 0); -- sys_clk_timer:readdata -> mm_interconnect_0:sys_clk_timer_s1_readdata
-	signal mm_interconnect_0_sys_clk_timer_s1_address                    : std_logic_vector(2 downto 0);  -- mm_interconnect_0:sys_clk_timer_s1_address -> sys_clk_timer:address
-	signal mm_interconnect_0_sys_clk_timer_s1_write                      : std_logic;                     -- mm_interconnect_0:sys_clk_timer_s1_write -> mm_interconnect_0_sys_clk_timer_s1_write:in
-	signal mm_interconnect_0_sys_clk_timer_s1_writedata                  : std_logic_vector(15 downto 0); -- mm_interconnect_0:sys_clk_timer_s1_writedata -> sys_clk_timer:writedata
-	signal mm_interconnect_0_uart_0_s1_chipselect                        : std_logic;                     -- mm_interconnect_0:uart_0_s1_chipselect -> uart_0:chipselect
-	signal mm_interconnect_0_uart_0_s1_readdata                          : std_logic_vector(15 downto 0); -- uart_0:readdata -> mm_interconnect_0:uart_0_s1_readdata
-	signal mm_interconnect_0_uart_0_s1_address                           : std_logic_vector(2 downto 0);  -- mm_interconnect_0:uart_0_s1_address -> uart_0:address
-	signal mm_interconnect_0_uart_0_s1_read                              : std_logic;                     -- mm_interconnect_0:uart_0_s1_read -> mm_interconnect_0_uart_0_s1_read:in
-	signal mm_interconnect_0_uart_0_s1_begintransfer                     : std_logic;                     -- mm_interconnect_0:uart_0_s1_begintransfer -> uart_0:begintransfer
-	signal mm_interconnect_0_uart_0_s1_write                             : std_logic;                     -- mm_interconnect_0:uart_0_s1_write -> mm_interconnect_0_uart_0_s1_write:in
-	signal mm_interconnect_0_uart_0_s1_writedata                         : std_logic_vector(15 downto 0); -- mm_interconnect_0:uart_0_s1_writedata -> uart_0:writedata
-	signal mm_interconnect_0_pio_0_s1_chipselect                         : std_logic;                     -- mm_interconnect_0:pio_0_s1_chipselect -> pio_0:chipselect
-	signal mm_interconnect_0_pio_0_s1_readdata                           : std_logic_vector(31 downto 0); -- pio_0:readdata -> mm_interconnect_0:pio_0_s1_readdata
-	signal mm_interconnect_0_pio_0_s1_address                            : std_logic_vector(1 downto 0);  -- mm_interconnect_0:pio_0_s1_address -> pio_0:address
-	signal mm_interconnect_0_pio_0_s1_write                              : std_logic;                     -- mm_interconnect_0:pio_0_s1_write -> mm_interconnect_0_pio_0_s1_write:in
-	signal mm_interconnect_0_pio_0_s1_writedata                          : std_logic_vector(31 downto 0); -- mm_interconnect_0:pio_0_s1_writedata -> pio_0:writedata
-	signal mm_interconnect_0_quadrature_encoder_0_slave_readdata         : std_logic_vector(31 downto 0); -- quadrature_encoder_0:slave_readdata -> mm_interconnect_0:quadrature_encoder_0_slave_readdata
-	signal mm_interconnect_0_quadrature_encoder_0_slave_address          : std_logic_vector(7 downto 0);  -- mm_interconnect_0:quadrature_encoder_0_slave_address -> quadrature_encoder_0:slave_address
-	signal mm_interconnect_0_quadrature_encoder_0_slave_read             : std_logic;                     -- mm_interconnect_0:quadrature_encoder_0_slave_read -> quadrature_encoder_0:slave_read
-	signal mm_interconnect_0_quadrature_encoder_1_slave_readdata         : std_logic_vector(31 downto 0); -- quadrature_encoder_1:slave_readdata -> mm_interconnect_0:quadrature_encoder_1_slave_readdata
-	signal mm_interconnect_0_quadrature_encoder_1_slave_address          : std_logic_vector(7 downto 0);  -- mm_interconnect_0:quadrature_encoder_1_slave_address -> quadrature_encoder_1:slave_address
-	signal mm_interconnect_0_quadrature_encoder_1_slave_read             : std_logic;                     -- mm_interconnect_0:quadrature_encoder_1_slave_read -> quadrature_encoder_1:slave_read
-	signal mm_interconnect_0_motor_pwm_0_slave_1_address                 : std_logic_vector(7 downto 0);  -- mm_interconnect_0:motor_pwm_0_slave_1_address -> motor_pwm_0:slave_address_1
-	signal mm_interconnect_0_motor_pwm_0_slave_1_write                   : std_logic;                     -- mm_interconnect_0:motor_pwm_0_slave_1_write -> motor_pwm_0:slave_write_1
-	signal mm_interconnect_0_motor_pwm_0_slave_1_writedata               : std_logic_vector(31 downto 0); -- mm_interconnect_0:motor_pwm_0_slave_1_writedata -> motor_pwm_0:slave_writedata_1
-	signal mm_interconnect_0_motor_pwm_1_slave_1_address                 : std_logic_vector(7 downto 0);  -- mm_interconnect_0:motor_pwm_1_slave_1_address -> motor_pwm_1:slave_address_1
-	signal mm_interconnect_0_motor_pwm_1_slave_1_write                   : std_logic;                     -- mm_interconnect_0:motor_pwm_1_slave_1_write -> motor_pwm_1:slave_write_1
-	signal mm_interconnect_0_motor_pwm_1_slave_1_writedata               : std_logic_vector(31 downto 0); -- mm_interconnect_0:motor_pwm_1_slave_1_writedata -> motor_pwm_1:slave_writedata_1
-	signal mm_interconnect_0_motor_pwm_0_slave_2_address                 : std_logic_vector(7 downto 0);  -- mm_interconnect_0:motor_pwm_0_slave_2_address -> motor_pwm_0:slave_address_2
-	signal mm_interconnect_0_motor_pwm_0_slave_2_write                   : std_logic;                     -- mm_interconnect_0:motor_pwm_0_slave_2_write -> motor_pwm_0:slave_write_2
-	signal mm_interconnect_0_motor_pwm_0_slave_2_writedata               : std_logic_vector(31 downto 0); -- mm_interconnect_0:motor_pwm_0_slave_2_writedata -> motor_pwm_0:slave_writedata_2
-	signal mm_interconnect_0_motor_pwm_1_slave_2_address                 : std_logic_vector(7 downto 0);  -- mm_interconnect_0:motor_pwm_1_slave_2_address -> motor_pwm_1:slave_address_2
-	signal mm_interconnect_0_motor_pwm_1_slave_2_write                   : std_logic;                     -- mm_interconnect_0:motor_pwm_1_slave_2_write -> motor_pwm_1:slave_write_2
-	signal mm_interconnect_0_motor_pwm_1_slave_2_writedata               : std_logic_vector(31 downto 0); -- mm_interconnect_0:motor_pwm_1_slave_2_writedata -> motor_pwm_1:slave_writedata_2
-	signal irq_mapper_receiver0_irq                                      : std_logic;                     -- jtag_uart:av_irq -> irq_mapper:receiver0_irq
-	signal irq_mapper_receiver1_irq                                      : std_logic;                     -- sys_clk_timer:irq -> irq_mapper:receiver1_irq
-	signal irq_mapper_receiver2_irq                                      : std_logic;                     -- uart_0:irq -> irq_mapper:receiver2_irq
-	signal cpu_irq_irq                                                   : std_logic_vector(31 downto 0); -- irq_mapper:sender_irq -> cpu:irq
-	signal rst_controller_reset_out_reset                                : std_logic;                     -- rst_controller:reset_out -> [irq_mapper:reset, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, onchip_mem:reset, rst_controller_reset_out_reset:in, rst_translator:in_reset]
-	signal rst_controller_reset_out_reset_req                            : std_logic;                     -- rst_controller:reset_req -> [cpu:reset_req, onchip_mem:reset_req, rst_translator:reset_req_in]
-	signal reset_reset_n_ports_inv                                       : std_logic;                     -- reset_reset_n:inv -> rst_controller:reset_in0
-	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_read_ports_inv  : std_logic;                     -- mm_interconnect_0_jtag_uart_avalon_jtag_slave_read:inv -> jtag_uart:av_read_n
-	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_write_ports_inv : std_logic;                     -- mm_interconnect_0_jtag_uart_avalon_jtag_slave_write:inv -> jtag_uart:av_write_n
-	signal mm_interconnect_0_sys_clk_timer_s1_write_ports_inv            : std_logic;                     -- mm_interconnect_0_sys_clk_timer_s1_write:inv -> sys_clk_timer:write_n
-	signal mm_interconnect_0_uart_0_s1_read_ports_inv                    : std_logic;                     -- mm_interconnect_0_uart_0_s1_read:inv -> uart_0:read_n
-	signal mm_interconnect_0_uart_0_s1_write_ports_inv                   : std_logic;                     -- mm_interconnect_0_uart_0_s1_write:inv -> uart_0:write_n
-	signal mm_interconnect_0_pio_0_s1_write_ports_inv                    : std_logic;                     -- mm_interconnect_0_pio_0_s1_write:inv -> pio_0:write_n
-	signal rst_controller_reset_out_reset_ports_inv                      : std_logic;                     -- rst_controller_reset_out_reset:inv -> [cpu:reset_n, jtag_uart:rst_n, motor_pwm_0:reset, motor_pwm_1:reset, pio_0:reset_n, quadrature_encoder_0:reset, quadrature_encoder_1:reset, sys_clk_timer:reset_n, sysid:reset_n, uart_0:reset_n]
+	component quadrature_nios_pwm_cpu_custom_instruction_master_comb_slave_translator0 is
+		generic (
+			N_WIDTH          : integer := 8;
+			USE_DONE         : integer := 1;
+			NUM_FIXED_CYCLES : integer := 2
+		);
+		port (
+			ci_slave_dataa      : in  std_logic_vector(31 downto 0) := (others => 'X'); --  ci_slave.dataa
+			ci_slave_datab      : in  std_logic_vector(31 downto 0) := (others => 'X'); --          .datab
+			ci_slave_result     : out std_logic_vector(31 downto 0);                    --          .result
+			ci_slave_n          : in  std_logic_vector(7 downto 0)  := (others => 'X'); --          .n
+			ci_slave_readra     : in  std_logic                     := 'X';             --          .readra
+			ci_slave_readrb     : in  std_logic                     := 'X';             --          .readrb
+			ci_slave_writerc    : in  std_logic                     := 'X';             --          .writerc
+			ci_slave_a          : in  std_logic_vector(4 downto 0)  := (others => 'X'); --          .a
+			ci_slave_b          : in  std_logic_vector(4 downto 0)  := (others => 'X'); --          .b
+			ci_slave_c          : in  std_logic_vector(4 downto 0)  := (others => 'X'); --          .c
+			ci_slave_ipending   : in  std_logic_vector(31 downto 0) := (others => 'X'); --          .ipending
+			ci_slave_estatus    : in  std_logic                     := 'X';             --          .estatus
+			ci_master_dataa     : out std_logic_vector(31 downto 0);                    -- ci_master.dataa
+			ci_master_datab     : out std_logic_vector(31 downto 0);                    --          .datab
+			ci_master_result    : in  std_logic_vector(31 downto 0) := (others => 'X'); --          .result
+			ci_master_n         : out std_logic_vector(3 downto 0);                     --          .n
+			ci_master_a         : out std_logic_vector(4 downto 0);
+			ci_master_b         : out std_logic_vector(4 downto 0);
+			ci_master_c         : out std_logic_vector(4 downto 0);
+			ci_master_clk       : out std_logic;
+			ci_master_clken     : out std_logic;
+			ci_master_done      : in  std_logic                     := 'X';
+			ci_master_estatus   : out std_logic;
+			ci_master_ipending  : out std_logic_vector(31 downto 0);
+			ci_master_readra    : out std_logic;
+			ci_master_readrb    : out std_logic;
+			ci_master_reset     : out std_logic;
+			ci_master_reset_req : out std_logic;
+			ci_master_start     : out std_logic;
+			ci_master_writerc   : out std_logic;
+			ci_slave_clk        : in  std_logic                     := 'X';
+			ci_slave_clken      : in  std_logic                     := 'X';
+			ci_slave_done       : out std_logic;
+			ci_slave_reset      : in  std_logic                     := 'X';
+			ci_slave_reset_req  : in  std_logic                     := 'X';
+			ci_slave_start      : in  std_logic                     := 'X'
+		);
+	end component quadrature_nios_pwm_cpu_custom_instruction_master_comb_slave_translator0;
+
+	component quadrature_nios_pwm_cpu_custom_instruction_master_multi_slave_translator0 is
+		generic (
+			N_WIDTH          : integer := 8;
+			USE_DONE         : integer := 1;
+			NUM_FIXED_CYCLES : integer := 2
+		);
+		port (
+			ci_slave_dataa      : in  std_logic_vector(31 downto 0) := (others => 'X'); --  ci_slave.dataa
+			ci_slave_datab      : in  std_logic_vector(31 downto 0) := (others => 'X'); --          .datab
+			ci_slave_result     : out std_logic_vector(31 downto 0);                    --          .result
+			ci_slave_n          : in  std_logic_vector(7 downto 0)  := (others => 'X'); --          .n
+			ci_slave_readra     : in  std_logic                     := 'X';             --          .readra
+			ci_slave_readrb     : in  std_logic                     := 'X';             --          .readrb
+			ci_slave_writerc    : in  std_logic                     := 'X';             --          .writerc
+			ci_slave_a          : in  std_logic_vector(4 downto 0)  := (others => 'X'); --          .a
+			ci_slave_b          : in  std_logic_vector(4 downto 0)  := (others => 'X'); --          .b
+			ci_slave_c          : in  std_logic_vector(4 downto 0)  := (others => 'X'); --          .c
+			ci_slave_ipending   : in  std_logic_vector(31 downto 0) := (others => 'X'); --          .ipending
+			ci_slave_estatus    : in  std_logic                     := 'X';             --          .estatus
+			ci_slave_clk        : in  std_logic                     := 'X';             --          .clk
+			ci_slave_clken      : in  std_logic                     := 'X';             --          .clk_en
+			ci_slave_reset_req  : in  std_logic                     := 'X';             --          .reset_req
+			ci_slave_reset      : in  std_logic                     := 'X';             --          .reset
+			ci_slave_start      : in  std_logic                     := 'X';             --          .start
+			ci_slave_done       : out std_logic;                                        --          .done
+			ci_master_dataa     : out std_logic_vector(31 downto 0);                    -- ci_master.dataa
+			ci_master_datab     : out std_logic_vector(31 downto 0);                    --          .datab
+			ci_master_result    : in  std_logic_vector(31 downto 0) := (others => 'X'); --          .result
+			ci_master_n         : out std_logic_vector(2 downto 0);                     --          .n
+			ci_master_clk       : out std_logic;                                        --          .clk
+			ci_master_clken     : out std_logic;                                        --          .clk_en
+			ci_master_reset_req : out std_logic;                                        --          .reset_req
+			ci_master_reset     : out std_logic;                                        --          .reset
+			ci_master_start     : out std_logic;                                        --          .start
+			ci_master_done      : in  std_logic                     := 'X';             --          .done
+			ci_master_a         : out std_logic_vector(4 downto 0);
+			ci_master_b         : out std_logic_vector(4 downto 0);
+			ci_master_c         : out std_logic_vector(4 downto 0);
+			ci_master_estatus   : out std_logic;
+			ci_master_ipending  : out std_logic_vector(31 downto 0);
+			ci_master_readra    : out std_logic;
+			ci_master_readrb    : out std_logic;
+			ci_master_writerc   : out std_logic
+		);
+	end component quadrature_nios_pwm_cpu_custom_instruction_master_multi_slave_translator0;
+
+	signal cpu_custom_instruction_master_readra                                      : std_logic;                     -- cpu:D_ci_readra -> cpu_custom_instruction_master_translator:ci_slave_readra
+	signal cpu_custom_instruction_master_a                                           : std_logic_vector(4 downto 0);  -- cpu:D_ci_a -> cpu_custom_instruction_master_translator:ci_slave_a
+	signal cpu_custom_instruction_master_b                                           : std_logic_vector(4 downto 0);  -- cpu:D_ci_b -> cpu_custom_instruction_master_translator:ci_slave_b
+	signal cpu_custom_instruction_master_c                                           : std_logic_vector(4 downto 0);  -- cpu:D_ci_c -> cpu_custom_instruction_master_translator:ci_slave_c
+	signal cpu_custom_instruction_master_readrb                                      : std_logic;                     -- cpu:D_ci_readrb -> cpu_custom_instruction_master_translator:ci_slave_readrb
+	signal cpu_custom_instruction_master_clk                                         : std_logic;                     -- cpu:E_ci_multi_clock -> cpu_custom_instruction_master_translator:ci_slave_multi_clk
+	signal cpu_custom_instruction_master_ipending                                    : std_logic_vector(31 downto 0); -- cpu:W_ci_ipending -> cpu_custom_instruction_master_translator:ci_slave_ipending
+	signal cpu_custom_instruction_master_start                                       : std_logic;                     -- cpu:E_ci_multi_start -> cpu_custom_instruction_master_translator:ci_slave_multi_start
+	signal cpu_custom_instruction_master_reset_req                                   : std_logic;                     -- cpu:E_ci_multi_reset_req -> cpu_custom_instruction_master_translator:ci_slave_multi_reset_req
+	signal cpu_custom_instruction_master_done                                        : std_logic;                     -- cpu_custom_instruction_master_translator:ci_slave_multi_done -> cpu:E_ci_multi_done
+	signal cpu_custom_instruction_master_n                                           : std_logic_vector(7 downto 0);  -- cpu:D_ci_n -> cpu_custom_instruction_master_translator:ci_slave_n
+	signal cpu_custom_instruction_master_result                                      : std_logic_vector(31 downto 0); -- cpu_custom_instruction_master_translator:ci_slave_result -> cpu:E_ci_result
+	signal cpu_custom_instruction_master_estatus                                     : std_logic;                     -- cpu:W_ci_estatus -> cpu_custom_instruction_master_translator:ci_slave_estatus
+	signal cpu_custom_instruction_master_clk_en                                      : std_logic;                     -- cpu:E_ci_multi_clk_en -> cpu_custom_instruction_master_translator:ci_slave_multi_clken
+	signal cpu_custom_instruction_master_datab                                       : std_logic_vector(31 downto 0); -- cpu:E_ci_datab -> cpu_custom_instruction_master_translator:ci_slave_datab
+	signal cpu_custom_instruction_master_dataa                                       : std_logic_vector(31 downto 0); -- cpu:E_ci_dataa -> cpu_custom_instruction_master_translator:ci_slave_dataa
+	signal cpu_custom_instruction_master_reset                                       : std_logic;                     -- cpu:E_ci_multi_reset -> cpu_custom_instruction_master_translator:ci_slave_multi_reset
+	signal cpu_custom_instruction_master_writerc                                     : std_logic;                     -- cpu:D_ci_writerc -> cpu_custom_instruction_master_translator:ci_slave_writerc
+	signal cpu_custom_instruction_master_translator_comb_ci_master_result            : std_logic_vector(31 downto 0); -- cpu_custom_instruction_master_comb_xconnect:ci_slave_result -> cpu_custom_instruction_master_translator:comb_ci_master_result
+	signal cpu_custom_instruction_master_translator_comb_ci_master_readra            : std_logic;                     -- cpu_custom_instruction_master_translator:comb_ci_master_readra -> cpu_custom_instruction_master_comb_xconnect:ci_slave_readra
+	signal cpu_custom_instruction_master_translator_comb_ci_master_a                 : std_logic_vector(4 downto 0);  -- cpu_custom_instruction_master_translator:comb_ci_master_a -> cpu_custom_instruction_master_comb_xconnect:ci_slave_a
+	signal cpu_custom_instruction_master_translator_comb_ci_master_b                 : std_logic_vector(4 downto 0);  -- cpu_custom_instruction_master_translator:comb_ci_master_b -> cpu_custom_instruction_master_comb_xconnect:ci_slave_b
+	signal cpu_custom_instruction_master_translator_comb_ci_master_readrb            : std_logic;                     -- cpu_custom_instruction_master_translator:comb_ci_master_readrb -> cpu_custom_instruction_master_comb_xconnect:ci_slave_readrb
+	signal cpu_custom_instruction_master_translator_comb_ci_master_c                 : std_logic_vector(4 downto 0);  -- cpu_custom_instruction_master_translator:comb_ci_master_c -> cpu_custom_instruction_master_comb_xconnect:ci_slave_c
+	signal cpu_custom_instruction_master_translator_comb_ci_master_estatus           : std_logic;                     -- cpu_custom_instruction_master_translator:comb_ci_master_estatus -> cpu_custom_instruction_master_comb_xconnect:ci_slave_estatus
+	signal cpu_custom_instruction_master_translator_comb_ci_master_ipending          : std_logic_vector(31 downto 0); -- cpu_custom_instruction_master_translator:comb_ci_master_ipending -> cpu_custom_instruction_master_comb_xconnect:ci_slave_ipending
+	signal cpu_custom_instruction_master_translator_comb_ci_master_datab             : std_logic_vector(31 downto 0); -- cpu_custom_instruction_master_translator:comb_ci_master_datab -> cpu_custom_instruction_master_comb_xconnect:ci_slave_datab
+	signal cpu_custom_instruction_master_translator_comb_ci_master_dataa             : std_logic_vector(31 downto 0); -- cpu_custom_instruction_master_translator:comb_ci_master_dataa -> cpu_custom_instruction_master_comb_xconnect:ci_slave_dataa
+	signal cpu_custom_instruction_master_translator_comb_ci_master_writerc           : std_logic;                     -- cpu_custom_instruction_master_translator:comb_ci_master_writerc -> cpu_custom_instruction_master_comb_xconnect:ci_slave_writerc
+	signal cpu_custom_instruction_master_translator_comb_ci_master_n                 : std_logic_vector(7 downto 0);  -- cpu_custom_instruction_master_translator:comb_ci_master_n -> cpu_custom_instruction_master_comb_xconnect:ci_slave_n
+	signal cpu_custom_instruction_master_comb_xconnect_ci_master0_result             : std_logic_vector(31 downto 0); -- cpu_custom_instruction_master_comb_slave_translator0:ci_slave_result -> cpu_custom_instruction_master_comb_xconnect:ci_master0_result
+	signal cpu_custom_instruction_master_comb_xconnect_ci_master0_readra             : std_logic;                     -- cpu_custom_instruction_master_comb_xconnect:ci_master0_readra -> cpu_custom_instruction_master_comb_slave_translator0:ci_slave_readra
+	signal cpu_custom_instruction_master_comb_xconnect_ci_master0_a                  : std_logic_vector(4 downto 0);  -- cpu_custom_instruction_master_comb_xconnect:ci_master0_a -> cpu_custom_instruction_master_comb_slave_translator0:ci_slave_a
+	signal cpu_custom_instruction_master_comb_xconnect_ci_master0_b                  : std_logic_vector(4 downto 0);  -- cpu_custom_instruction_master_comb_xconnect:ci_master0_b -> cpu_custom_instruction_master_comb_slave_translator0:ci_slave_b
+	signal cpu_custom_instruction_master_comb_xconnect_ci_master0_readrb             : std_logic;                     -- cpu_custom_instruction_master_comb_xconnect:ci_master0_readrb -> cpu_custom_instruction_master_comb_slave_translator0:ci_slave_readrb
+	signal cpu_custom_instruction_master_comb_xconnect_ci_master0_c                  : std_logic_vector(4 downto 0);  -- cpu_custom_instruction_master_comb_xconnect:ci_master0_c -> cpu_custom_instruction_master_comb_slave_translator0:ci_slave_c
+	signal cpu_custom_instruction_master_comb_xconnect_ci_master0_estatus            : std_logic;                     -- cpu_custom_instruction_master_comb_xconnect:ci_master0_estatus -> cpu_custom_instruction_master_comb_slave_translator0:ci_slave_estatus
+	signal cpu_custom_instruction_master_comb_xconnect_ci_master0_ipending           : std_logic_vector(31 downto 0); -- cpu_custom_instruction_master_comb_xconnect:ci_master0_ipending -> cpu_custom_instruction_master_comb_slave_translator0:ci_slave_ipending
+	signal cpu_custom_instruction_master_comb_xconnect_ci_master0_datab              : std_logic_vector(31 downto 0); -- cpu_custom_instruction_master_comb_xconnect:ci_master0_datab -> cpu_custom_instruction_master_comb_slave_translator0:ci_slave_datab
+	signal cpu_custom_instruction_master_comb_xconnect_ci_master0_dataa              : std_logic_vector(31 downto 0); -- cpu_custom_instruction_master_comb_xconnect:ci_master0_dataa -> cpu_custom_instruction_master_comb_slave_translator0:ci_slave_dataa
+	signal cpu_custom_instruction_master_comb_xconnect_ci_master0_writerc            : std_logic;                     -- cpu_custom_instruction_master_comb_xconnect:ci_master0_writerc -> cpu_custom_instruction_master_comb_slave_translator0:ci_slave_writerc
+	signal cpu_custom_instruction_master_comb_xconnect_ci_master0_n                  : std_logic_vector(7 downto 0);  -- cpu_custom_instruction_master_comb_xconnect:ci_master0_n -> cpu_custom_instruction_master_comb_slave_translator0:ci_slave_n
+	signal cpu_custom_instruction_master_comb_slave_translator0_ci_master_result     : std_logic_vector(31 downto 0); -- nios_custom_instr_floating_point_2_0:s1_result -> cpu_custom_instruction_master_comb_slave_translator0:ci_master_result
+	signal cpu_custom_instruction_master_comb_slave_translator0_ci_master_datab      : std_logic_vector(31 downto 0); -- cpu_custom_instruction_master_comb_slave_translator0:ci_master_datab -> nios_custom_instr_floating_point_2_0:s1_datab
+	signal cpu_custom_instruction_master_comb_slave_translator0_ci_master_dataa      : std_logic_vector(31 downto 0); -- cpu_custom_instruction_master_comb_slave_translator0:ci_master_dataa -> nios_custom_instr_floating_point_2_0:s1_dataa
+	signal cpu_custom_instruction_master_comb_slave_translator0_ci_master_n          : std_logic_vector(3 downto 0);  -- cpu_custom_instruction_master_comb_slave_translator0:ci_master_n -> nios_custom_instr_floating_point_2_0:s1_n
+	signal cpu_custom_instruction_master_translator_multi_ci_master_readra           : std_logic;                     -- cpu_custom_instruction_master_translator:multi_ci_master_readra -> cpu_custom_instruction_master_multi_xconnect:ci_slave_readra
+	signal cpu_custom_instruction_master_translator_multi_ci_master_a                : std_logic_vector(4 downto 0);  -- cpu_custom_instruction_master_translator:multi_ci_master_a -> cpu_custom_instruction_master_multi_xconnect:ci_slave_a
+	signal cpu_custom_instruction_master_translator_multi_ci_master_b                : std_logic_vector(4 downto 0);  -- cpu_custom_instruction_master_translator:multi_ci_master_b -> cpu_custom_instruction_master_multi_xconnect:ci_slave_b
+	signal cpu_custom_instruction_master_translator_multi_ci_master_clk              : std_logic;                     -- cpu_custom_instruction_master_translator:multi_ci_master_clk -> cpu_custom_instruction_master_multi_xconnect:ci_slave_clk
+	signal cpu_custom_instruction_master_translator_multi_ci_master_readrb           : std_logic;                     -- cpu_custom_instruction_master_translator:multi_ci_master_readrb -> cpu_custom_instruction_master_multi_xconnect:ci_slave_readrb
+	signal cpu_custom_instruction_master_translator_multi_ci_master_c                : std_logic_vector(4 downto 0);  -- cpu_custom_instruction_master_translator:multi_ci_master_c -> cpu_custom_instruction_master_multi_xconnect:ci_slave_c
+	signal cpu_custom_instruction_master_translator_multi_ci_master_start            : std_logic;                     -- cpu_custom_instruction_master_translator:multi_ci_master_start -> cpu_custom_instruction_master_multi_xconnect:ci_slave_start
+	signal cpu_custom_instruction_master_translator_multi_ci_master_reset_req        : std_logic;                     -- cpu_custom_instruction_master_translator:multi_ci_master_reset_req -> cpu_custom_instruction_master_multi_xconnect:ci_slave_reset_req
+	signal cpu_custom_instruction_master_translator_multi_ci_master_done             : std_logic;                     -- cpu_custom_instruction_master_multi_xconnect:ci_slave_done -> cpu_custom_instruction_master_translator:multi_ci_master_done
+	signal cpu_custom_instruction_master_translator_multi_ci_master_n                : std_logic_vector(7 downto 0);  -- cpu_custom_instruction_master_translator:multi_ci_master_n -> cpu_custom_instruction_master_multi_xconnect:ci_slave_n
+	signal cpu_custom_instruction_master_translator_multi_ci_master_result           : std_logic_vector(31 downto 0); -- cpu_custom_instruction_master_multi_xconnect:ci_slave_result -> cpu_custom_instruction_master_translator:multi_ci_master_result
+	signal cpu_custom_instruction_master_translator_multi_ci_master_clk_en           : std_logic;                     -- cpu_custom_instruction_master_translator:multi_ci_master_clken -> cpu_custom_instruction_master_multi_xconnect:ci_slave_clken
+	signal cpu_custom_instruction_master_translator_multi_ci_master_datab            : std_logic_vector(31 downto 0); -- cpu_custom_instruction_master_translator:multi_ci_master_datab -> cpu_custom_instruction_master_multi_xconnect:ci_slave_datab
+	signal cpu_custom_instruction_master_translator_multi_ci_master_dataa            : std_logic_vector(31 downto 0); -- cpu_custom_instruction_master_translator:multi_ci_master_dataa -> cpu_custom_instruction_master_multi_xconnect:ci_slave_dataa
+	signal cpu_custom_instruction_master_translator_multi_ci_master_reset            : std_logic;                     -- cpu_custom_instruction_master_translator:multi_ci_master_reset -> cpu_custom_instruction_master_multi_xconnect:ci_slave_reset
+	signal cpu_custom_instruction_master_translator_multi_ci_master_writerc          : std_logic;                     -- cpu_custom_instruction_master_translator:multi_ci_master_writerc -> cpu_custom_instruction_master_multi_xconnect:ci_slave_writerc
+	signal cpu_custom_instruction_master_multi_xconnect_ci_master0_readra            : std_logic;                     -- cpu_custom_instruction_master_multi_xconnect:ci_master0_readra -> cpu_custom_instruction_master_multi_slave_translator0:ci_slave_readra
+	signal cpu_custom_instruction_master_multi_xconnect_ci_master0_a                 : std_logic_vector(4 downto 0);  -- cpu_custom_instruction_master_multi_xconnect:ci_master0_a -> cpu_custom_instruction_master_multi_slave_translator0:ci_slave_a
+	signal cpu_custom_instruction_master_multi_xconnect_ci_master0_b                 : std_logic_vector(4 downto 0);  -- cpu_custom_instruction_master_multi_xconnect:ci_master0_b -> cpu_custom_instruction_master_multi_slave_translator0:ci_slave_b
+	signal cpu_custom_instruction_master_multi_xconnect_ci_master0_readrb            : std_logic;                     -- cpu_custom_instruction_master_multi_xconnect:ci_master0_readrb -> cpu_custom_instruction_master_multi_slave_translator0:ci_slave_readrb
+	signal cpu_custom_instruction_master_multi_xconnect_ci_master0_c                 : std_logic_vector(4 downto 0);  -- cpu_custom_instruction_master_multi_xconnect:ci_master0_c -> cpu_custom_instruction_master_multi_slave_translator0:ci_slave_c
+	signal cpu_custom_instruction_master_multi_xconnect_ci_master0_clk               : std_logic;                     -- cpu_custom_instruction_master_multi_xconnect:ci_master0_clk -> cpu_custom_instruction_master_multi_slave_translator0:ci_slave_clk
+	signal cpu_custom_instruction_master_multi_xconnect_ci_master0_ipending          : std_logic_vector(31 downto 0); -- cpu_custom_instruction_master_multi_xconnect:ci_master0_ipending -> cpu_custom_instruction_master_multi_slave_translator0:ci_slave_ipending
+	signal cpu_custom_instruction_master_multi_xconnect_ci_master0_start             : std_logic;                     -- cpu_custom_instruction_master_multi_xconnect:ci_master0_start -> cpu_custom_instruction_master_multi_slave_translator0:ci_slave_start
+	signal cpu_custom_instruction_master_multi_xconnect_ci_master0_reset_req         : std_logic;                     -- cpu_custom_instruction_master_multi_xconnect:ci_master0_reset_req -> cpu_custom_instruction_master_multi_slave_translator0:ci_slave_reset_req
+	signal cpu_custom_instruction_master_multi_xconnect_ci_master0_done              : std_logic;                     -- cpu_custom_instruction_master_multi_slave_translator0:ci_slave_done -> cpu_custom_instruction_master_multi_xconnect:ci_master0_done
+	signal cpu_custom_instruction_master_multi_xconnect_ci_master0_n                 : std_logic_vector(7 downto 0);  -- cpu_custom_instruction_master_multi_xconnect:ci_master0_n -> cpu_custom_instruction_master_multi_slave_translator0:ci_slave_n
+	signal cpu_custom_instruction_master_multi_xconnect_ci_master0_result            : std_logic_vector(31 downto 0); -- cpu_custom_instruction_master_multi_slave_translator0:ci_slave_result -> cpu_custom_instruction_master_multi_xconnect:ci_master0_result
+	signal cpu_custom_instruction_master_multi_xconnect_ci_master0_estatus           : std_logic;                     -- cpu_custom_instruction_master_multi_xconnect:ci_master0_estatus -> cpu_custom_instruction_master_multi_slave_translator0:ci_slave_estatus
+	signal cpu_custom_instruction_master_multi_xconnect_ci_master0_clk_en            : std_logic;                     -- cpu_custom_instruction_master_multi_xconnect:ci_master0_clken -> cpu_custom_instruction_master_multi_slave_translator0:ci_slave_clken
+	signal cpu_custom_instruction_master_multi_xconnect_ci_master0_datab             : std_logic_vector(31 downto 0); -- cpu_custom_instruction_master_multi_xconnect:ci_master0_datab -> cpu_custom_instruction_master_multi_slave_translator0:ci_slave_datab
+	signal cpu_custom_instruction_master_multi_xconnect_ci_master0_dataa             : std_logic_vector(31 downto 0); -- cpu_custom_instruction_master_multi_xconnect:ci_master0_dataa -> cpu_custom_instruction_master_multi_slave_translator0:ci_slave_dataa
+	signal cpu_custom_instruction_master_multi_xconnect_ci_master0_reset             : std_logic;                     -- cpu_custom_instruction_master_multi_xconnect:ci_master0_reset -> cpu_custom_instruction_master_multi_slave_translator0:ci_slave_reset
+	signal cpu_custom_instruction_master_multi_xconnect_ci_master0_writerc           : std_logic;                     -- cpu_custom_instruction_master_multi_xconnect:ci_master0_writerc -> cpu_custom_instruction_master_multi_slave_translator0:ci_slave_writerc
+	signal cpu_custom_instruction_master_multi_slave_translator0_ci_master_result    : std_logic_vector(31 downto 0); -- nios_custom_instr_floating_point_2_0:s2_result -> cpu_custom_instruction_master_multi_slave_translator0:ci_master_result
+	signal cpu_custom_instruction_master_multi_slave_translator0_ci_master_clk       : std_logic;                     -- cpu_custom_instruction_master_multi_slave_translator0:ci_master_clk -> nios_custom_instr_floating_point_2_0:s2_clk
+	signal cpu_custom_instruction_master_multi_slave_translator0_ci_master_clk_en    : std_logic;                     -- cpu_custom_instruction_master_multi_slave_translator0:ci_master_clken -> nios_custom_instr_floating_point_2_0:s2_clk_en
+	signal cpu_custom_instruction_master_multi_slave_translator0_ci_master_datab     : std_logic_vector(31 downto 0); -- cpu_custom_instruction_master_multi_slave_translator0:ci_master_datab -> nios_custom_instr_floating_point_2_0:s2_datab
+	signal cpu_custom_instruction_master_multi_slave_translator0_ci_master_dataa     : std_logic_vector(31 downto 0); -- cpu_custom_instruction_master_multi_slave_translator0:ci_master_dataa -> nios_custom_instr_floating_point_2_0:s2_dataa
+	signal cpu_custom_instruction_master_multi_slave_translator0_ci_master_start     : std_logic;                     -- cpu_custom_instruction_master_multi_slave_translator0:ci_master_start -> nios_custom_instr_floating_point_2_0:s2_start
+	signal cpu_custom_instruction_master_multi_slave_translator0_ci_master_reset     : std_logic;                     -- cpu_custom_instruction_master_multi_slave_translator0:ci_master_reset -> nios_custom_instr_floating_point_2_0:s2_reset
+	signal cpu_custom_instruction_master_multi_slave_translator0_ci_master_reset_req : std_logic;                     -- cpu_custom_instruction_master_multi_slave_translator0:ci_master_reset_req -> nios_custom_instr_floating_point_2_0:s2_reset_req
+	signal cpu_custom_instruction_master_multi_slave_translator0_ci_master_done      : std_logic;                     -- nios_custom_instr_floating_point_2_0:s2_done -> cpu_custom_instruction_master_multi_slave_translator0:ci_master_done
+	signal cpu_custom_instruction_master_multi_slave_translator0_ci_master_n         : std_logic_vector(2 downto 0);  -- cpu_custom_instruction_master_multi_slave_translator0:ci_master_n -> nios_custom_instr_floating_point_2_0:s2_n
+	signal cpu_data_master_readdata                                                  : std_logic_vector(31 downto 0); -- mm_interconnect_0:cpu_data_master_readdata -> cpu:d_readdata
+	signal cpu_data_master_waitrequest                                               : std_logic;                     -- mm_interconnect_0:cpu_data_master_waitrequest -> cpu:d_waitrequest
+	signal cpu_data_master_debugaccess                                               : std_logic;                     -- cpu:debug_mem_slave_debugaccess_to_roms -> mm_interconnect_0:cpu_data_master_debugaccess
+	signal cpu_data_master_address                                                   : std_logic_vector(17 downto 0); -- cpu:d_address -> mm_interconnect_0:cpu_data_master_address
+	signal cpu_data_master_byteenable                                                : std_logic_vector(3 downto 0);  -- cpu:d_byteenable -> mm_interconnect_0:cpu_data_master_byteenable
+	signal cpu_data_master_read                                                      : std_logic;                     -- cpu:d_read -> mm_interconnect_0:cpu_data_master_read
+	signal cpu_data_master_write                                                     : std_logic;                     -- cpu:d_write -> mm_interconnect_0:cpu_data_master_write
+	signal cpu_data_master_writedata                                                 : std_logic_vector(31 downto 0); -- cpu:d_writedata -> mm_interconnect_0:cpu_data_master_writedata
+	signal cpu_instruction_master_readdata                                           : std_logic_vector(31 downto 0); -- mm_interconnect_0:cpu_instruction_master_readdata -> cpu:i_readdata
+	signal cpu_instruction_master_waitrequest                                        : std_logic;                     -- mm_interconnect_0:cpu_instruction_master_waitrequest -> cpu:i_waitrequest
+	signal cpu_instruction_master_address                                            : std_logic_vector(17 downto 0); -- cpu:i_address -> mm_interconnect_0:cpu_instruction_master_address
+	signal cpu_instruction_master_read                                               : std_logic;                     -- cpu:i_read -> mm_interconnect_0:cpu_instruction_master_read
+	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_chipselect                  : std_logic;                     -- mm_interconnect_0:jtag_uart_avalon_jtag_slave_chipselect -> jtag_uart:av_chipselect
+	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_readdata                    : std_logic_vector(31 downto 0); -- jtag_uart:av_readdata -> mm_interconnect_0:jtag_uart_avalon_jtag_slave_readdata
+	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_waitrequest                 : std_logic;                     -- jtag_uart:av_waitrequest -> mm_interconnect_0:jtag_uart_avalon_jtag_slave_waitrequest
+	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_address                     : std_logic_vector(0 downto 0);  -- mm_interconnect_0:jtag_uart_avalon_jtag_slave_address -> jtag_uart:av_address
+	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_read                        : std_logic;                     -- mm_interconnect_0:jtag_uart_avalon_jtag_slave_read -> mm_interconnect_0_jtag_uart_avalon_jtag_slave_read:in
+	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_write                       : std_logic;                     -- mm_interconnect_0:jtag_uart_avalon_jtag_slave_write -> mm_interconnect_0_jtag_uart_avalon_jtag_slave_write:in
+	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_writedata                   : std_logic_vector(31 downto 0); -- mm_interconnect_0:jtag_uart_avalon_jtag_slave_writedata -> jtag_uart:av_writedata
+	signal mm_interconnect_0_sysid_control_slave_readdata                            : std_logic_vector(31 downto 0); -- sysid:readdata -> mm_interconnect_0:sysid_control_slave_readdata
+	signal mm_interconnect_0_sysid_control_slave_address                             : std_logic_vector(0 downto 0);  -- mm_interconnect_0:sysid_control_slave_address -> sysid:address
+	signal mm_interconnect_0_cpu_debug_mem_slave_readdata                            : std_logic_vector(31 downto 0); -- cpu:debug_mem_slave_readdata -> mm_interconnect_0:cpu_debug_mem_slave_readdata
+	signal mm_interconnect_0_cpu_debug_mem_slave_waitrequest                         : std_logic;                     -- cpu:debug_mem_slave_waitrequest -> mm_interconnect_0:cpu_debug_mem_slave_waitrequest
+	signal mm_interconnect_0_cpu_debug_mem_slave_debugaccess                         : std_logic;                     -- mm_interconnect_0:cpu_debug_mem_slave_debugaccess -> cpu:debug_mem_slave_debugaccess
+	signal mm_interconnect_0_cpu_debug_mem_slave_address                             : std_logic_vector(8 downto 0);  -- mm_interconnect_0:cpu_debug_mem_slave_address -> cpu:debug_mem_slave_address
+	signal mm_interconnect_0_cpu_debug_mem_slave_read                                : std_logic;                     -- mm_interconnect_0:cpu_debug_mem_slave_read -> cpu:debug_mem_slave_read
+	signal mm_interconnect_0_cpu_debug_mem_slave_byteenable                          : std_logic_vector(3 downto 0);  -- mm_interconnect_0:cpu_debug_mem_slave_byteenable -> cpu:debug_mem_slave_byteenable
+	signal mm_interconnect_0_cpu_debug_mem_slave_write                               : std_logic;                     -- mm_interconnect_0:cpu_debug_mem_slave_write -> cpu:debug_mem_slave_write
+	signal mm_interconnect_0_cpu_debug_mem_slave_writedata                           : std_logic_vector(31 downto 0); -- mm_interconnect_0:cpu_debug_mem_slave_writedata -> cpu:debug_mem_slave_writedata
+	signal mm_interconnect_0_onchip_mem_s1_chipselect                                : std_logic;                     -- mm_interconnect_0:onchip_mem_s1_chipselect -> onchip_mem:chipselect
+	signal mm_interconnect_0_onchip_mem_s1_readdata                                  : std_logic_vector(31 downto 0); -- onchip_mem:readdata -> mm_interconnect_0:onchip_mem_s1_readdata
+	signal mm_interconnect_0_onchip_mem_s1_address                                   : std_logic_vector(13 downto 0); -- mm_interconnect_0:onchip_mem_s1_address -> onchip_mem:address
+	signal mm_interconnect_0_onchip_mem_s1_byteenable                                : std_logic_vector(3 downto 0);  -- mm_interconnect_0:onchip_mem_s1_byteenable -> onchip_mem:byteenable
+	signal mm_interconnect_0_onchip_mem_s1_write                                     : std_logic;                     -- mm_interconnect_0:onchip_mem_s1_write -> onchip_mem:write
+	signal mm_interconnect_0_onchip_mem_s1_writedata                                 : std_logic_vector(31 downto 0); -- mm_interconnect_0:onchip_mem_s1_writedata -> onchip_mem:writedata
+	signal mm_interconnect_0_onchip_mem_s1_clken                                     : std_logic;                     -- mm_interconnect_0:onchip_mem_s1_clken -> onchip_mem:clken
+	signal mm_interconnect_0_sys_clk_timer_s1_chipselect                             : std_logic;                     -- mm_interconnect_0:sys_clk_timer_s1_chipselect -> sys_clk_timer:chipselect
+	signal mm_interconnect_0_sys_clk_timer_s1_readdata                               : std_logic_vector(15 downto 0); -- sys_clk_timer:readdata -> mm_interconnect_0:sys_clk_timer_s1_readdata
+	signal mm_interconnect_0_sys_clk_timer_s1_address                                : std_logic_vector(2 downto 0);  -- mm_interconnect_0:sys_clk_timer_s1_address -> sys_clk_timer:address
+	signal mm_interconnect_0_sys_clk_timer_s1_write                                  : std_logic;                     -- mm_interconnect_0:sys_clk_timer_s1_write -> mm_interconnect_0_sys_clk_timer_s1_write:in
+	signal mm_interconnect_0_sys_clk_timer_s1_writedata                              : std_logic_vector(15 downto 0); -- mm_interconnect_0:sys_clk_timer_s1_writedata -> sys_clk_timer:writedata
+	signal mm_interconnect_0_uart_0_s1_chipselect                                    : std_logic;                     -- mm_interconnect_0:uart_0_s1_chipselect -> uart_0:chipselect
+	signal mm_interconnect_0_uart_0_s1_readdata                                      : std_logic_vector(15 downto 0); -- uart_0:readdata -> mm_interconnect_0:uart_0_s1_readdata
+	signal mm_interconnect_0_uart_0_s1_address                                       : std_logic_vector(2 downto 0);  -- mm_interconnect_0:uart_0_s1_address -> uart_0:address
+	signal mm_interconnect_0_uart_0_s1_read                                          : std_logic;                     -- mm_interconnect_0:uart_0_s1_read -> mm_interconnect_0_uart_0_s1_read:in
+	signal mm_interconnect_0_uart_0_s1_begintransfer                                 : std_logic;                     -- mm_interconnect_0:uart_0_s1_begintransfer -> uart_0:begintransfer
+	signal mm_interconnect_0_uart_0_s1_write                                         : std_logic;                     -- mm_interconnect_0:uart_0_s1_write -> mm_interconnect_0_uart_0_s1_write:in
+	signal mm_interconnect_0_uart_0_s1_writedata                                     : std_logic_vector(15 downto 0); -- mm_interconnect_0:uart_0_s1_writedata -> uart_0:writedata
+	signal mm_interconnect_0_pio_0_s1_chipselect                                     : std_logic;                     -- mm_interconnect_0:pio_0_s1_chipselect -> pio_0:chipselect
+	signal mm_interconnect_0_pio_0_s1_readdata                                       : std_logic_vector(31 downto 0); -- pio_0:readdata -> mm_interconnect_0:pio_0_s1_readdata
+	signal mm_interconnect_0_pio_0_s1_address                                        : std_logic_vector(1 downto 0);  -- mm_interconnect_0:pio_0_s1_address -> pio_0:address
+	signal mm_interconnect_0_pio_0_s1_write                                          : std_logic;                     -- mm_interconnect_0:pio_0_s1_write -> mm_interconnect_0_pio_0_s1_write:in
+	signal mm_interconnect_0_pio_0_s1_writedata                                      : std_logic_vector(31 downto 0); -- mm_interconnect_0:pio_0_s1_writedata -> pio_0:writedata
+	signal mm_interconnect_0_timer_0_s1_chipselect                                   : std_logic;                     -- mm_interconnect_0:timer_0_s1_chipselect -> timer_0:chipselect
+	signal mm_interconnect_0_timer_0_s1_readdata                                     : std_logic_vector(15 downto 0); -- timer_0:readdata -> mm_interconnect_0:timer_0_s1_readdata
+	signal mm_interconnect_0_timer_0_s1_address                                      : std_logic_vector(2 downto 0);  -- mm_interconnect_0:timer_0_s1_address -> timer_0:address
+	signal mm_interconnect_0_timer_0_s1_write                                        : std_logic;                     -- mm_interconnect_0:timer_0_s1_write -> mm_interconnect_0_timer_0_s1_write:in
+	signal mm_interconnect_0_timer_0_s1_writedata                                    : std_logic_vector(15 downto 0); -- mm_interconnect_0:timer_0_s1_writedata -> timer_0:writedata
+	signal mm_interconnect_0_quadrature_encoder_0_slave_readdata                     : std_logic_vector(31 downto 0); -- quadrature_encoder_0:slave_readdata -> mm_interconnect_0:quadrature_encoder_0_slave_readdata
+	signal mm_interconnect_0_quadrature_encoder_0_slave_address                      : std_logic_vector(7 downto 0);  -- mm_interconnect_0:quadrature_encoder_0_slave_address -> quadrature_encoder_0:slave_address
+	signal mm_interconnect_0_quadrature_encoder_0_slave_read                         : std_logic;                     -- mm_interconnect_0:quadrature_encoder_0_slave_read -> quadrature_encoder_0:slave_read
+	signal mm_interconnect_0_quadrature_encoder_1_slave_readdata                     : std_logic_vector(31 downto 0); -- quadrature_encoder_1:slave_readdata -> mm_interconnect_0:quadrature_encoder_1_slave_readdata
+	signal mm_interconnect_0_quadrature_encoder_1_slave_address                      : std_logic_vector(7 downto 0);  -- mm_interconnect_0:quadrature_encoder_1_slave_address -> quadrature_encoder_1:slave_address
+	signal mm_interconnect_0_quadrature_encoder_1_slave_read                         : std_logic;                     -- mm_interconnect_0:quadrature_encoder_1_slave_read -> quadrature_encoder_1:slave_read
+	signal mm_interconnect_0_motor_pwm_0_slave_1_address                             : std_logic_vector(7 downto 0);  -- mm_interconnect_0:motor_pwm_0_slave_1_address -> motor_pwm_0:slave_address_1
+	signal mm_interconnect_0_motor_pwm_0_slave_1_write                               : std_logic;                     -- mm_interconnect_0:motor_pwm_0_slave_1_write -> motor_pwm_0:slave_write_1
+	signal mm_interconnect_0_motor_pwm_0_slave_1_writedata                           : std_logic_vector(31 downto 0); -- mm_interconnect_0:motor_pwm_0_slave_1_writedata -> motor_pwm_0:slave_writedata_1
+	signal mm_interconnect_0_motor_pwm_1_slave_1_address                             : std_logic_vector(7 downto 0);  -- mm_interconnect_0:motor_pwm_1_slave_1_address -> motor_pwm_1:slave_address_1
+	signal mm_interconnect_0_motor_pwm_1_slave_1_write                               : std_logic;                     -- mm_interconnect_0:motor_pwm_1_slave_1_write -> motor_pwm_1:slave_write_1
+	signal mm_interconnect_0_motor_pwm_1_slave_1_writedata                           : std_logic_vector(31 downto 0); -- mm_interconnect_0:motor_pwm_1_slave_1_writedata -> motor_pwm_1:slave_writedata_1
+	signal mm_interconnect_0_motor_pwm_0_slave_2_address                             : std_logic_vector(7 downto 0);  -- mm_interconnect_0:motor_pwm_0_slave_2_address -> motor_pwm_0:slave_address_2
+	signal mm_interconnect_0_motor_pwm_0_slave_2_write                               : std_logic;                     -- mm_interconnect_0:motor_pwm_0_slave_2_write -> motor_pwm_0:slave_write_2
+	signal mm_interconnect_0_motor_pwm_0_slave_2_writedata                           : std_logic_vector(31 downto 0); -- mm_interconnect_0:motor_pwm_0_slave_2_writedata -> motor_pwm_0:slave_writedata_2
+	signal mm_interconnect_0_motor_pwm_1_slave_2_address                             : std_logic_vector(7 downto 0);  -- mm_interconnect_0:motor_pwm_1_slave_2_address -> motor_pwm_1:slave_address_2
+	signal mm_interconnect_0_motor_pwm_1_slave_2_write                               : std_logic;                     -- mm_interconnect_0:motor_pwm_1_slave_2_write -> motor_pwm_1:slave_write_2
+	signal mm_interconnect_0_motor_pwm_1_slave_2_writedata                           : std_logic_vector(31 downto 0); -- mm_interconnect_0:motor_pwm_1_slave_2_writedata -> motor_pwm_1:slave_writedata_2
+	signal irq_mapper_receiver0_irq                                                  : std_logic;                     -- jtag_uart:av_irq -> irq_mapper:receiver0_irq
+	signal irq_mapper_receiver1_irq                                                  : std_logic;                     -- sys_clk_timer:irq -> irq_mapper:receiver1_irq
+	signal irq_mapper_receiver2_irq                                                  : std_logic;                     -- uart_0:irq -> irq_mapper:receiver2_irq
+	signal irq_mapper_receiver3_irq                                                  : std_logic;                     -- timer_0:irq -> irq_mapper:receiver3_irq
+	signal cpu_irq_irq                                                               : std_logic_vector(31 downto 0); -- irq_mapper:sender_irq -> cpu:irq
+	signal rst_controller_reset_out_reset                                            : std_logic;                     -- rst_controller:reset_out -> [irq_mapper:reset, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, onchip_mem:reset, rst_controller_reset_out_reset:in, rst_translator:in_reset]
+	signal rst_controller_reset_out_reset_req                                        : std_logic;                     -- rst_controller:reset_req -> [cpu:reset_req, onchip_mem:reset_req, rst_translator:reset_req_in]
+	signal reset_reset_n_ports_inv                                                   : std_logic;                     -- reset_reset_n:inv -> rst_controller:reset_in0
+	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_read_ports_inv              : std_logic;                     -- mm_interconnect_0_jtag_uart_avalon_jtag_slave_read:inv -> jtag_uart:av_read_n
+	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_write_ports_inv             : std_logic;                     -- mm_interconnect_0_jtag_uart_avalon_jtag_slave_write:inv -> jtag_uart:av_write_n
+	signal mm_interconnect_0_sys_clk_timer_s1_write_ports_inv                        : std_logic;                     -- mm_interconnect_0_sys_clk_timer_s1_write:inv -> sys_clk_timer:write_n
+	signal mm_interconnect_0_uart_0_s1_read_ports_inv                                : std_logic;                     -- mm_interconnect_0_uart_0_s1_read:inv -> uart_0:read_n
+	signal mm_interconnect_0_uart_0_s1_write_ports_inv                               : std_logic;                     -- mm_interconnect_0_uart_0_s1_write:inv -> uart_0:write_n
+	signal mm_interconnect_0_pio_0_s1_write_ports_inv                                : std_logic;                     -- mm_interconnect_0_pio_0_s1_write:inv -> pio_0:write_n
+	signal mm_interconnect_0_timer_0_s1_write_ports_inv                              : std_logic;                     -- mm_interconnect_0_timer_0_s1_write:inv -> timer_0:write_n
+	signal rst_controller_reset_out_reset_ports_inv                                  : std_logic;                     -- rst_controller_reset_out_reset:inv -> [cpu:reset_n, jtag_uart:rst_n, motor_pwm_0:reset, motor_pwm_1:reset, pio_0:reset_n, quadrature_encoder_0:reset, quadrature_encoder_1:reset, sys_clk_timer:reset_n, sysid:reset_n, timer_0:reset_n, uart_0:reset_n]
 
 begin
 
@@ -440,7 +824,24 @@ begin
 			debug_mem_slave_waitrequest         => mm_interconnect_0_cpu_debug_mem_slave_waitrequest, --                          .waitrequest
 			debug_mem_slave_write               => mm_interconnect_0_cpu_debug_mem_slave_write,       --                          .write
 			debug_mem_slave_writedata           => mm_interconnect_0_cpu_debug_mem_slave_writedata,   --                          .writedata
-			dummy_ci_port                       => open                                               -- custom_instruction_master.readra
+			E_ci_multi_done                     => cpu_custom_instruction_master_done,                -- custom_instruction_master.done
+			E_ci_multi_clk_en                   => cpu_custom_instruction_master_clk_en,              --                          .clk_en
+			E_ci_multi_start                    => cpu_custom_instruction_master_start,               --                          .start
+			E_ci_result                         => cpu_custom_instruction_master_result,              --                          .result
+			D_ci_a                              => cpu_custom_instruction_master_a,                   --                          .a
+			D_ci_b                              => cpu_custom_instruction_master_b,                   --                          .b
+			D_ci_c                              => cpu_custom_instruction_master_c,                   --                          .c
+			D_ci_n                              => cpu_custom_instruction_master_n,                   --                          .n
+			D_ci_readra                         => cpu_custom_instruction_master_readra,              --                          .readra
+			D_ci_readrb                         => cpu_custom_instruction_master_readrb,              --                          .readrb
+			D_ci_writerc                        => cpu_custom_instruction_master_writerc,             --                          .writerc
+			E_ci_dataa                          => cpu_custom_instruction_master_dataa,               --                          .dataa
+			E_ci_datab                          => cpu_custom_instruction_master_datab,               --                          .datab
+			E_ci_multi_clock                    => cpu_custom_instruction_master_clk,                 --                          .clk
+			E_ci_multi_reset                    => cpu_custom_instruction_master_reset,               --                          .reset
+			E_ci_multi_reset_req                => cpu_custom_instruction_master_reset_req,           --                          .reset_req
+			W_ci_estatus                        => cpu_custom_instruction_master_estatus,             --                          .estatus
+			W_ci_ipending                       => cpu_custom_instruction_master_ipending             --                          .ipending
 		);
 
 	jtag_uart : component quadrature_nios_pwm_jtag_uart
@@ -491,6 +892,30 @@ begin
 			slave_writedata_1 => mm_interconnect_0_motor_pwm_1_slave_1_writedata, --              .writedata
 			pwm_direction     => motor_pwm_1_motor_control_direction_out,         -- motor_control.direction_out
 			pwm_out           => motor_pwm_1_motor_control_pwm_out                --              .pwm_out
+		);
+
+	nios_custom_instr_floating_point_2_0 : component quadrature_nios_pwm_nios_custom_instr_floating_point_2_0
+		generic map (
+			arithmetic_present => true,
+			root_present       => false,
+			conversion_present => true,
+			comparison_present => true
+		)
+		port map (
+			s1_dataa     => cpu_custom_instruction_master_comb_slave_translator0_ci_master_dataa,      -- s1.dataa
+			s1_datab     => cpu_custom_instruction_master_comb_slave_translator0_ci_master_datab,      --   .datab
+			s1_n         => cpu_custom_instruction_master_comb_slave_translator0_ci_master_n,          --   .n
+			s1_result    => cpu_custom_instruction_master_comb_slave_translator0_ci_master_result,     --   .result
+			s2_clk       => cpu_custom_instruction_master_multi_slave_translator0_ci_master_clk,       -- s2.clk
+			s2_clk_en    => cpu_custom_instruction_master_multi_slave_translator0_ci_master_clk_en,    --   .clk_en
+			s2_dataa     => cpu_custom_instruction_master_multi_slave_translator0_ci_master_dataa,     --   .dataa
+			s2_datab     => cpu_custom_instruction_master_multi_slave_translator0_ci_master_datab,     --   .datab
+			s2_n         => cpu_custom_instruction_master_multi_slave_translator0_ci_master_n,         --   .n
+			s2_reset     => cpu_custom_instruction_master_multi_slave_translator0_ci_master_reset,     --   .reset
+			s2_reset_req => cpu_custom_instruction_master_multi_slave_translator0_ci_master_reset_req, --   .reset_req
+			s2_start     => cpu_custom_instruction_master_multi_slave_translator0_ci_master_start,     --   .start
+			s2_done      => cpu_custom_instruction_master_multi_slave_translator0_ci_master_done,      --   .done
+			s2_result    => cpu_custom_instruction_master_multi_slave_translator0_ci_master_result     --   .result
 		);
 
 	onchip_mem : component quadrature_nios_pwm_onchip_mem
@@ -566,6 +991,18 @@ begin
 			address  => mm_interconnect_0_sysid_control_slave_address(0)  --              .address
 		);
 
+	timer_0 : component quadrature_nios_pwm_timer_0
+		port map (
+			clk        => clk_clk,                                      --   clk.clk
+			reset_n    => rst_controller_reset_out_reset_ports_inv,     -- reset.reset_n
+			address    => mm_interconnect_0_timer_0_s1_address,         --    s1.address
+			writedata  => mm_interconnect_0_timer_0_s1_writedata,       --      .writedata
+			readdata   => mm_interconnect_0_timer_0_s1_readdata,        --      .readdata
+			chipselect => mm_interconnect_0_timer_0_s1_chipselect,      --      .chipselect
+			write_n    => mm_interconnect_0_timer_0_s1_write_ports_inv, --      .write_n
+			irq        => irq_mapper_receiver3_irq                      --   irq.irq
+		);
+
 	uart_0 : component quadrature_nios_pwm_uart_0
 		port map (
 			clk           => clk_clk,                                     --                 clk.clk
@@ -580,6 +1017,227 @@ begin
 			rxd           => uart_0_external_connection_rxd,              -- external_connection.export
 			txd           => uart_0_external_connection_txd,              --                    .export
 			irq           => irq_mapper_receiver2_irq                     --                 irq.irq
+		);
+
+	cpu_custom_instruction_master_translator : component altera_customins_master_translator
+		generic map (
+			SHARED_COMB_AND_MULTI => 1
+		)
+		port map (
+			ci_slave_dataa            => cpu_custom_instruction_master_dataa,                                --        ci_slave.dataa
+			ci_slave_datab            => cpu_custom_instruction_master_datab,                                --                .datab
+			ci_slave_result           => cpu_custom_instruction_master_result,                               --                .result
+			ci_slave_n                => cpu_custom_instruction_master_n,                                    --                .n
+			ci_slave_readra           => cpu_custom_instruction_master_readra,                               --                .readra
+			ci_slave_readrb           => cpu_custom_instruction_master_readrb,                               --                .readrb
+			ci_slave_writerc          => cpu_custom_instruction_master_writerc,                              --                .writerc
+			ci_slave_a                => cpu_custom_instruction_master_a,                                    --                .a
+			ci_slave_b                => cpu_custom_instruction_master_b,                                    --                .b
+			ci_slave_c                => cpu_custom_instruction_master_c,                                    --                .c
+			ci_slave_ipending         => cpu_custom_instruction_master_ipending,                             --                .ipending
+			ci_slave_estatus          => cpu_custom_instruction_master_estatus,                              --                .estatus
+			ci_slave_multi_clk        => cpu_custom_instruction_master_clk,                                  --                .clk
+			ci_slave_multi_reset      => cpu_custom_instruction_master_reset,                                --                .reset
+			ci_slave_multi_clken      => cpu_custom_instruction_master_clk_en,                               --                .clk_en
+			ci_slave_multi_reset_req  => cpu_custom_instruction_master_reset_req,                            --                .reset_req
+			ci_slave_multi_start      => cpu_custom_instruction_master_start,                                --                .start
+			ci_slave_multi_done       => cpu_custom_instruction_master_done,                                 --                .done
+			comb_ci_master_dataa      => cpu_custom_instruction_master_translator_comb_ci_master_dataa,      --  comb_ci_master.dataa
+			comb_ci_master_datab      => cpu_custom_instruction_master_translator_comb_ci_master_datab,      --                .datab
+			comb_ci_master_result     => cpu_custom_instruction_master_translator_comb_ci_master_result,     --                .result
+			comb_ci_master_n          => cpu_custom_instruction_master_translator_comb_ci_master_n,          --                .n
+			comb_ci_master_readra     => cpu_custom_instruction_master_translator_comb_ci_master_readra,     --                .readra
+			comb_ci_master_readrb     => cpu_custom_instruction_master_translator_comb_ci_master_readrb,     --                .readrb
+			comb_ci_master_writerc    => cpu_custom_instruction_master_translator_comb_ci_master_writerc,    --                .writerc
+			comb_ci_master_a          => cpu_custom_instruction_master_translator_comb_ci_master_a,          --                .a
+			comb_ci_master_b          => cpu_custom_instruction_master_translator_comb_ci_master_b,          --                .b
+			comb_ci_master_c          => cpu_custom_instruction_master_translator_comb_ci_master_c,          --                .c
+			comb_ci_master_ipending   => cpu_custom_instruction_master_translator_comb_ci_master_ipending,   --                .ipending
+			comb_ci_master_estatus    => cpu_custom_instruction_master_translator_comb_ci_master_estatus,    --                .estatus
+			multi_ci_master_clk       => cpu_custom_instruction_master_translator_multi_ci_master_clk,       -- multi_ci_master.clk
+			multi_ci_master_reset     => cpu_custom_instruction_master_translator_multi_ci_master_reset,     --                .reset
+			multi_ci_master_clken     => cpu_custom_instruction_master_translator_multi_ci_master_clk_en,    --                .clk_en
+			multi_ci_master_reset_req => cpu_custom_instruction_master_translator_multi_ci_master_reset_req, --                .reset_req
+			multi_ci_master_start     => cpu_custom_instruction_master_translator_multi_ci_master_start,     --                .start
+			multi_ci_master_done      => cpu_custom_instruction_master_translator_multi_ci_master_done,      --                .done
+			multi_ci_master_dataa     => cpu_custom_instruction_master_translator_multi_ci_master_dataa,     --                .dataa
+			multi_ci_master_datab     => cpu_custom_instruction_master_translator_multi_ci_master_datab,     --                .datab
+			multi_ci_master_result    => cpu_custom_instruction_master_translator_multi_ci_master_result,    --                .result
+			multi_ci_master_n         => cpu_custom_instruction_master_translator_multi_ci_master_n,         --                .n
+			multi_ci_master_readra    => cpu_custom_instruction_master_translator_multi_ci_master_readra,    --                .readra
+			multi_ci_master_readrb    => cpu_custom_instruction_master_translator_multi_ci_master_readrb,    --                .readrb
+			multi_ci_master_writerc   => cpu_custom_instruction_master_translator_multi_ci_master_writerc,   --                .writerc
+			multi_ci_master_a         => cpu_custom_instruction_master_translator_multi_ci_master_a,         --                .a
+			multi_ci_master_b         => cpu_custom_instruction_master_translator_multi_ci_master_b,         --                .b
+			multi_ci_master_c         => cpu_custom_instruction_master_translator_multi_ci_master_c,         --                .c
+			ci_slave_multi_dataa      => "00000000000000000000000000000000",                                 --     (terminated)
+			ci_slave_multi_datab      => "00000000000000000000000000000000",                                 --     (terminated)
+			ci_slave_multi_result     => open,                                                               --     (terminated)
+			ci_slave_multi_n          => "00000000",                                                         --     (terminated)
+			ci_slave_multi_readra     => '0',                                                                --     (terminated)
+			ci_slave_multi_readrb     => '0',                                                                --     (terminated)
+			ci_slave_multi_writerc    => '0',                                                                --     (terminated)
+			ci_slave_multi_a          => "00000",                                                            --     (terminated)
+			ci_slave_multi_b          => "00000",                                                            --     (terminated)
+			ci_slave_multi_c          => "00000"                                                             --     (terminated)
+		);
+
+	cpu_custom_instruction_master_comb_xconnect : component quadrature_nios_pwm_cpu_custom_instruction_master_comb_xconnect
+		port map (
+			ci_slave_dataa      => cpu_custom_instruction_master_translator_comb_ci_master_dataa,    --   ci_slave.dataa
+			ci_slave_datab      => cpu_custom_instruction_master_translator_comb_ci_master_datab,    --           .datab
+			ci_slave_result     => cpu_custom_instruction_master_translator_comb_ci_master_result,   --           .result
+			ci_slave_n          => cpu_custom_instruction_master_translator_comb_ci_master_n,        --           .n
+			ci_slave_readra     => cpu_custom_instruction_master_translator_comb_ci_master_readra,   --           .readra
+			ci_slave_readrb     => cpu_custom_instruction_master_translator_comb_ci_master_readrb,   --           .readrb
+			ci_slave_writerc    => cpu_custom_instruction_master_translator_comb_ci_master_writerc,  --           .writerc
+			ci_slave_a          => cpu_custom_instruction_master_translator_comb_ci_master_a,        --           .a
+			ci_slave_b          => cpu_custom_instruction_master_translator_comb_ci_master_b,        --           .b
+			ci_slave_c          => cpu_custom_instruction_master_translator_comb_ci_master_c,        --           .c
+			ci_slave_ipending   => cpu_custom_instruction_master_translator_comb_ci_master_ipending, --           .ipending
+			ci_slave_estatus    => cpu_custom_instruction_master_translator_comb_ci_master_estatus,  --           .estatus
+			ci_master0_dataa    => cpu_custom_instruction_master_comb_xconnect_ci_master0_dataa,     -- ci_master0.dataa
+			ci_master0_datab    => cpu_custom_instruction_master_comb_xconnect_ci_master0_datab,     --           .datab
+			ci_master0_result   => cpu_custom_instruction_master_comb_xconnect_ci_master0_result,    --           .result
+			ci_master0_n        => cpu_custom_instruction_master_comb_xconnect_ci_master0_n,         --           .n
+			ci_master0_readra   => cpu_custom_instruction_master_comb_xconnect_ci_master0_readra,    --           .readra
+			ci_master0_readrb   => cpu_custom_instruction_master_comb_xconnect_ci_master0_readrb,    --           .readrb
+			ci_master0_writerc  => cpu_custom_instruction_master_comb_xconnect_ci_master0_writerc,   --           .writerc
+			ci_master0_a        => cpu_custom_instruction_master_comb_xconnect_ci_master0_a,         --           .a
+			ci_master0_b        => cpu_custom_instruction_master_comb_xconnect_ci_master0_b,         --           .b
+			ci_master0_c        => cpu_custom_instruction_master_comb_xconnect_ci_master0_c,         --           .c
+			ci_master0_ipending => cpu_custom_instruction_master_comb_xconnect_ci_master0_ipending,  --           .ipending
+			ci_master0_estatus  => cpu_custom_instruction_master_comb_xconnect_ci_master0_estatus    --           .estatus
+		);
+
+	cpu_custom_instruction_master_comb_slave_translator0 : component quadrature_nios_pwm_cpu_custom_instruction_master_comb_slave_translator0
+		generic map (
+			N_WIDTH          => 4,
+			USE_DONE         => 0,
+			NUM_FIXED_CYCLES => 0
+		)
+		port map (
+			ci_slave_dataa      => cpu_custom_instruction_master_comb_xconnect_ci_master0_dataa,          --  ci_slave.dataa
+			ci_slave_datab      => cpu_custom_instruction_master_comb_xconnect_ci_master0_datab,          --          .datab
+			ci_slave_result     => cpu_custom_instruction_master_comb_xconnect_ci_master0_result,         --          .result
+			ci_slave_n          => cpu_custom_instruction_master_comb_xconnect_ci_master0_n,              --          .n
+			ci_slave_readra     => cpu_custom_instruction_master_comb_xconnect_ci_master0_readra,         --          .readra
+			ci_slave_readrb     => cpu_custom_instruction_master_comb_xconnect_ci_master0_readrb,         --          .readrb
+			ci_slave_writerc    => cpu_custom_instruction_master_comb_xconnect_ci_master0_writerc,        --          .writerc
+			ci_slave_a          => cpu_custom_instruction_master_comb_xconnect_ci_master0_a,              --          .a
+			ci_slave_b          => cpu_custom_instruction_master_comb_xconnect_ci_master0_b,              --          .b
+			ci_slave_c          => cpu_custom_instruction_master_comb_xconnect_ci_master0_c,              --          .c
+			ci_slave_ipending   => cpu_custom_instruction_master_comb_xconnect_ci_master0_ipending,       --          .ipending
+			ci_slave_estatus    => cpu_custom_instruction_master_comb_xconnect_ci_master0_estatus,        --          .estatus
+			ci_master_dataa     => cpu_custom_instruction_master_comb_slave_translator0_ci_master_dataa,  -- ci_master.dataa
+			ci_master_datab     => cpu_custom_instruction_master_comb_slave_translator0_ci_master_datab,  --          .datab
+			ci_master_result    => cpu_custom_instruction_master_comb_slave_translator0_ci_master_result, --          .result
+			ci_master_n         => cpu_custom_instruction_master_comb_slave_translator0_ci_master_n,      --          .n
+			ci_master_readra    => open,                                                                  -- (terminated)
+			ci_master_readrb    => open,                                                                  -- (terminated)
+			ci_master_writerc   => open,                                                                  -- (terminated)
+			ci_master_a         => open,                                                                  -- (terminated)
+			ci_master_b         => open,                                                                  -- (terminated)
+			ci_master_c         => open,                                                                  -- (terminated)
+			ci_master_ipending  => open,                                                                  -- (terminated)
+			ci_master_estatus   => open,                                                                  -- (terminated)
+			ci_master_clk       => open,                                                                  -- (terminated)
+			ci_master_clken     => open,                                                                  -- (terminated)
+			ci_master_reset_req => open,                                                                  -- (terminated)
+			ci_master_reset     => open,                                                                  -- (terminated)
+			ci_master_start     => open,                                                                  -- (terminated)
+			ci_master_done      => '0',                                                                   -- (terminated)
+			ci_slave_clk        => '0',                                                                   -- (terminated)
+			ci_slave_clken      => '0',                                                                   -- (terminated)
+			ci_slave_reset_req  => '0',                                                                   -- (terminated)
+			ci_slave_reset      => '0',                                                                   -- (terminated)
+			ci_slave_start      => '0',                                                                   -- (terminated)
+			ci_slave_done       => open                                                                   -- (terminated)
+		);
+
+	cpu_custom_instruction_master_multi_xconnect : component quadrature_nios_pwm_cpu_custom_instruction_master_multi_xconnect
+		port map (
+			ci_slave_dataa       => cpu_custom_instruction_master_translator_multi_ci_master_dataa,     --   ci_slave.dataa
+			ci_slave_datab       => cpu_custom_instruction_master_translator_multi_ci_master_datab,     --           .datab
+			ci_slave_result      => cpu_custom_instruction_master_translator_multi_ci_master_result,    --           .result
+			ci_slave_n           => cpu_custom_instruction_master_translator_multi_ci_master_n,         --           .n
+			ci_slave_readra      => cpu_custom_instruction_master_translator_multi_ci_master_readra,    --           .readra
+			ci_slave_readrb      => cpu_custom_instruction_master_translator_multi_ci_master_readrb,    --           .readrb
+			ci_slave_writerc     => cpu_custom_instruction_master_translator_multi_ci_master_writerc,   --           .writerc
+			ci_slave_a           => cpu_custom_instruction_master_translator_multi_ci_master_a,         --           .a
+			ci_slave_b           => cpu_custom_instruction_master_translator_multi_ci_master_b,         --           .b
+			ci_slave_c           => cpu_custom_instruction_master_translator_multi_ci_master_c,         --           .c
+			ci_slave_ipending    => open,                                                               --           .ipending
+			ci_slave_estatus     => open,                                                               --           .estatus
+			ci_slave_clk         => cpu_custom_instruction_master_translator_multi_ci_master_clk,       --           .clk
+			ci_slave_reset       => cpu_custom_instruction_master_translator_multi_ci_master_reset,     --           .reset
+			ci_slave_clken       => cpu_custom_instruction_master_translator_multi_ci_master_clk_en,    --           .clk_en
+			ci_slave_reset_req   => cpu_custom_instruction_master_translator_multi_ci_master_reset_req, --           .reset_req
+			ci_slave_start       => cpu_custom_instruction_master_translator_multi_ci_master_start,     --           .start
+			ci_slave_done        => cpu_custom_instruction_master_translator_multi_ci_master_done,      --           .done
+			ci_master0_dataa     => cpu_custom_instruction_master_multi_xconnect_ci_master0_dataa,      -- ci_master0.dataa
+			ci_master0_datab     => cpu_custom_instruction_master_multi_xconnect_ci_master0_datab,      --           .datab
+			ci_master0_result    => cpu_custom_instruction_master_multi_xconnect_ci_master0_result,     --           .result
+			ci_master0_n         => cpu_custom_instruction_master_multi_xconnect_ci_master0_n,          --           .n
+			ci_master0_readra    => cpu_custom_instruction_master_multi_xconnect_ci_master0_readra,     --           .readra
+			ci_master0_readrb    => cpu_custom_instruction_master_multi_xconnect_ci_master0_readrb,     --           .readrb
+			ci_master0_writerc   => cpu_custom_instruction_master_multi_xconnect_ci_master0_writerc,    --           .writerc
+			ci_master0_a         => cpu_custom_instruction_master_multi_xconnect_ci_master0_a,          --           .a
+			ci_master0_b         => cpu_custom_instruction_master_multi_xconnect_ci_master0_b,          --           .b
+			ci_master0_c         => cpu_custom_instruction_master_multi_xconnect_ci_master0_c,          --           .c
+			ci_master0_ipending  => cpu_custom_instruction_master_multi_xconnect_ci_master0_ipending,   --           .ipending
+			ci_master0_estatus   => cpu_custom_instruction_master_multi_xconnect_ci_master0_estatus,    --           .estatus
+			ci_master0_clk       => cpu_custom_instruction_master_multi_xconnect_ci_master0_clk,        --           .clk
+			ci_master0_reset     => cpu_custom_instruction_master_multi_xconnect_ci_master0_reset,      --           .reset
+			ci_master0_clken     => cpu_custom_instruction_master_multi_xconnect_ci_master0_clk_en,     --           .clk_en
+			ci_master0_reset_req => cpu_custom_instruction_master_multi_xconnect_ci_master0_reset_req,  --           .reset_req
+			ci_master0_start     => cpu_custom_instruction_master_multi_xconnect_ci_master0_start,      --           .start
+			ci_master0_done      => cpu_custom_instruction_master_multi_xconnect_ci_master0_done        --           .done
+		);
+
+	cpu_custom_instruction_master_multi_slave_translator0 : component quadrature_nios_pwm_cpu_custom_instruction_master_multi_slave_translator0
+		generic map (
+			N_WIDTH          => 3,
+			USE_DONE         => 1,
+			NUM_FIXED_CYCLES => 1
+		)
+		port map (
+			ci_slave_dataa      => cpu_custom_instruction_master_multi_xconnect_ci_master0_dataa,             --  ci_slave.dataa
+			ci_slave_datab      => cpu_custom_instruction_master_multi_xconnect_ci_master0_datab,             --          .datab
+			ci_slave_result     => cpu_custom_instruction_master_multi_xconnect_ci_master0_result,            --          .result
+			ci_slave_n          => cpu_custom_instruction_master_multi_xconnect_ci_master0_n,                 --          .n
+			ci_slave_readra     => cpu_custom_instruction_master_multi_xconnect_ci_master0_readra,            --          .readra
+			ci_slave_readrb     => cpu_custom_instruction_master_multi_xconnect_ci_master0_readrb,            --          .readrb
+			ci_slave_writerc    => cpu_custom_instruction_master_multi_xconnect_ci_master0_writerc,           --          .writerc
+			ci_slave_a          => cpu_custom_instruction_master_multi_xconnect_ci_master0_a,                 --          .a
+			ci_slave_b          => cpu_custom_instruction_master_multi_xconnect_ci_master0_b,                 --          .b
+			ci_slave_c          => cpu_custom_instruction_master_multi_xconnect_ci_master0_c,                 --          .c
+			ci_slave_ipending   => cpu_custom_instruction_master_multi_xconnect_ci_master0_ipending,          --          .ipending
+			ci_slave_estatus    => cpu_custom_instruction_master_multi_xconnect_ci_master0_estatus,           --          .estatus
+			ci_slave_clk        => cpu_custom_instruction_master_multi_xconnect_ci_master0_clk,               --          .clk
+			ci_slave_clken      => cpu_custom_instruction_master_multi_xconnect_ci_master0_clk_en,            --          .clk_en
+			ci_slave_reset_req  => cpu_custom_instruction_master_multi_xconnect_ci_master0_reset_req,         --          .reset_req
+			ci_slave_reset      => cpu_custom_instruction_master_multi_xconnect_ci_master0_reset,             --          .reset
+			ci_slave_start      => cpu_custom_instruction_master_multi_xconnect_ci_master0_start,             --          .start
+			ci_slave_done       => cpu_custom_instruction_master_multi_xconnect_ci_master0_done,              --          .done
+			ci_master_dataa     => cpu_custom_instruction_master_multi_slave_translator0_ci_master_dataa,     -- ci_master.dataa
+			ci_master_datab     => cpu_custom_instruction_master_multi_slave_translator0_ci_master_datab,     --          .datab
+			ci_master_result    => cpu_custom_instruction_master_multi_slave_translator0_ci_master_result,    --          .result
+			ci_master_n         => cpu_custom_instruction_master_multi_slave_translator0_ci_master_n,         --          .n
+			ci_master_clk       => cpu_custom_instruction_master_multi_slave_translator0_ci_master_clk,       --          .clk
+			ci_master_clken     => cpu_custom_instruction_master_multi_slave_translator0_ci_master_clk_en,    --          .clk_en
+			ci_master_reset_req => cpu_custom_instruction_master_multi_slave_translator0_ci_master_reset_req, --          .reset_req
+			ci_master_reset     => cpu_custom_instruction_master_multi_slave_translator0_ci_master_reset,     --          .reset
+			ci_master_start     => cpu_custom_instruction_master_multi_slave_translator0_ci_master_start,     --          .start
+			ci_master_done      => cpu_custom_instruction_master_multi_slave_translator0_ci_master_done,      --          .done
+			ci_master_readra    => open,                                                                      -- (terminated)
+			ci_master_readrb    => open,                                                                      -- (terminated)
+			ci_master_writerc   => open,                                                                      -- (terminated)
+			ci_master_a         => open,                                                                      -- (terminated)
+			ci_master_b         => open,                                                                      -- (terminated)
+			ci_master_c         => open,                                                                      -- (terminated)
+			ci_master_ipending  => open,                                                                      -- (terminated)
+			ci_master_estatus   => open                                                                       -- (terminated)
 		);
 
 	mm_interconnect_0 : component quadrature_nios_pwm_mm_interconnect_0
@@ -650,6 +1308,11 @@ begin
 			sys_clk_timer_s1_chipselect             => mm_interconnect_0_sys_clk_timer_s1_chipselect,             --                                .chipselect
 			sysid_control_slave_address             => mm_interconnect_0_sysid_control_slave_address,             --             sysid_control_slave.address
 			sysid_control_slave_readdata            => mm_interconnect_0_sysid_control_slave_readdata,            --                                .readdata
+			timer_0_s1_address                      => mm_interconnect_0_timer_0_s1_address,                      --                      timer_0_s1.address
+			timer_0_s1_write                        => mm_interconnect_0_timer_0_s1_write,                        --                                .write
+			timer_0_s1_readdata                     => mm_interconnect_0_timer_0_s1_readdata,                     --                                .readdata
+			timer_0_s1_writedata                    => mm_interconnect_0_timer_0_s1_writedata,                    --                                .writedata
+			timer_0_s1_chipselect                   => mm_interconnect_0_timer_0_s1_chipselect,                   --                                .chipselect
 			uart_0_s1_address                       => mm_interconnect_0_uart_0_s1_address,                       --                       uart_0_s1.address
 			uart_0_s1_write                         => mm_interconnect_0_uart_0_s1_write,                         --                                .write
 			uart_0_s1_read                          => mm_interconnect_0_uart_0_s1_read,                          --                                .read
@@ -666,6 +1329,7 @@ begin
 			receiver0_irq => irq_mapper_receiver0_irq,       -- receiver0.irq
 			receiver1_irq => irq_mapper_receiver1_irq,       -- receiver1.irq
 			receiver2_irq => irq_mapper_receiver2_irq,       -- receiver2.irq
+			receiver3_irq => irq_mapper_receiver3_irq,       -- receiver3.irq
 			sender_irq    => cpu_irq_irq                     --    sender.irq
 		);
 
@@ -747,6 +1411,8 @@ begin
 	mm_interconnect_0_uart_0_s1_write_ports_inv <= not mm_interconnect_0_uart_0_s1_write;
 
 	mm_interconnect_0_pio_0_s1_write_ports_inv <= not mm_interconnect_0_pio_0_s1_write;
+
+	mm_interconnect_0_timer_0_s1_write_ports_inv <= not mm_interconnect_0_timer_0_s1_write;
 
 	rst_controller_reset_out_reset_ports_inv <= not rst_controller_reset_out_reset;
 
