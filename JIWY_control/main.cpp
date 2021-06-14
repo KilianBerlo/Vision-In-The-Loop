@@ -5,35 +5,26 @@
 #include <cstring>
 #include <unistd.h>
 #include <vector>
-#include <array>
 #include <iostream>
+#include <csignal>
 
-#include <netinet/in.h>
-#include "serial_com/Serial.h"
+#include "serial/uart.hpp"
+#include "motor/motor.hpp"
 
-struct tx_message
+// Vector which holds an x amount of motors.
+std::vector<Plant::Motor> motors;
+
+// SIGINT handler.
+void sigIntHandler(int exit_code)
 {
-    uint32_t freq : 14;
-    uint32_t duty : 14;
-    uint32_t direction : 2;
-    uint32_t enable : 1;
-    uint32_t motor : 1;
-
-    void setDutyCycle (uint8_t duty_cycle)
+    // Stop all motors.
+    for (auto motor : motors)
     {
-        duty = uint32_t ((float)freq * ((float)duty_cycle / 100));
+        motor.disable();
     }
-};
 
-std::array<uint8_t, 4> convertToArray(tx_message msg)
-{
-    std::array<uint8_t, 4> temp{};
-    std::copy(
-            reinterpret_cast<uint8_t *>(&msg),
-            reinterpret_cast<uint8_t *>(&msg) + 4,
-            &temp[0]
-    );
-    return temp;
+    std::cout << "Stopping motor driver with exit code: " << exit_code << std::endl;
+    exit(exit_code);
 }
 
 /**
@@ -43,25 +34,33 @@ std::array<uint8_t, 4> convertToArray(tx_message msg)
 
 int main()
 {
-    auto port = Serial(TERMINAL);
+    // Add a program interruption handler (on ^C).
+    signal(SIGINT, sigIntHandler);
 
-    auto tx_msg = tx_message();
-    tx_msg.freq = 2500;
-    tx_msg.direction = 0b01; // Clockwise (positive)
-    tx_msg.enable = 1;
-    tx_msg.motor = 0;
-    tx_msg.setDutyCycle(63);
+    // Establish a serial connection.
+    Serial::UART serial_port = Serial::UART(TERMINAL);
 
-    // Enable motor 0.
-    port.write_array(convertToArray(tx_msg));
+    // Create instances of the motors.
+    Plant::Motor tilt_motor = Plant::Motor(0, 2500, serial_port);
+    Plant::Motor pan_motor = Plant::Motor(1, 2500, serial_port);
 
-    // Enable motor 1.
-    tx_msg.motor = 1;
-    port.write_array(convertToArray(tx_msg));
+    // Add to the vector of motors so they can all be safely stopped in case of a SIGINT.
+    motors.push_back(tilt_motor);
+    motors.push_back(pan_motor);
+
+    std::cout << "Motor driver started." << std::endl;
+
+    tilt_motor.setDutyCycle(63);
+    tilt_motor.setDirection(Plant::Motor::Direction::CLOCKWISE);
+    tilt_motor.enable();
+
+    pan_motor.setDutyCycle(63);
+    pan_motor.setDirection(Plant::Motor::Direction::CLOCKWISE);
+    //pan_motor.enable();
 
     while(true)
     {
-        auto msg = port.readMessage(false);
+        auto msg = serial_port.readMessage(false);
 
         if (msg != std::nullopt)
         {
@@ -69,41 +68,35 @@ int main()
 
             switch(msg->motor)
             {
+                // Tilt
                 case 0 :
                 {
                     // Two rotations
                     if (count >= 100)
                     {
-                        tx_msg.direction = 0b10; // Counterclockwise (negative count)
-                        tx_msg.motor = 0;
-                        port.write_array(convertToArray(tx_msg));
+                        tilt_motor.setDirection(Plant::Motor::Direction::COUNTERCLOCKWISE);
                     }
 
                     if (count < 0)
                     {
-                        tx_msg.direction = 0b01; // Clockwise (positive)
-                        tx_msg.motor = 0;
-                        port.write_array(convertToArray(tx_msg));
+                        tilt_motor.setDirection(Plant::Motor::Direction::CLOCKWISE);
                     }
 
                     std::cout << "Motor 0: "<< count << std::endl;
                     break;
                 }
+                // Pan
                 case 1 :
                 {
                     // Two rotations
                     if (count >= 100)
                     {
-                        tx_msg.direction = 0b10; // Counterclockwise (negative count)
-                        tx_msg.motor = 1;
-                        port.write_array(convertToArray(tx_msg));
+                        pan_motor.setDirection(Plant::Motor::Direction::COUNTERCLOCKWISE);
                     }
 
                     if (count < 0)
                     {
-                        tx_msg.direction = 0b01; // Clockwise (positive)
-                        tx_msg.motor = 1;
-                        port.write_array(convertToArray(tx_msg));
+                        pan_motor.setDirection(Plant::Motor::Direction::COUNTERCLOCKWISE);
                     }
 
                     std::cout << "Motor 1: "<< count << std::endl;

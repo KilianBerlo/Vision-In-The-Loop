@@ -1,7 +1,3 @@
-//
-// Created by glen on 07-06-21.
-//
-
 #include <termios.h>
 #include <fcntl.h>
 #include <cstdio>
@@ -11,9 +7,9 @@
 #include <vector>
 #include <cstring>
 
-#include "Serial.h"
+#include "uart.hpp"
 
-Serial::Serial(std::string com_port)
+Serial::UART::UART(std::string com_port)
 {
     file = open(com_port.c_str(), O_RDWR);
     if (file == -1) {
@@ -23,20 +19,22 @@ Serial::Serial(std::string com_port)
 
     struct termios tios;
     tcgetattr(file, &tios);
-// disable flow control and all that, and ignore break and parity errors
+    // disable flow control and all that, and ignore break and parity errors
     tios.c_iflag = IGNBRK | IGNPAR;
     tios.c_oflag = 0;
     tios.c_lflag = 0;
     cfsetspeed(&tios, B115200);
     tcsetattr(file, TCSAFLUSH, &tios);
 
-// the serial port has a brief glitch once we turn it on which generates a
-// start bit; sleep for 1ms to let it settle
+    // the serial port has a brief glitch once we turn it on which generates a
+    // start bit; sleep for 1ms to let it settle
     usleep(1000);
 }
 
-void Serial::write_array(std::array<uint8_t, 4> data)
+void Serial::UART::writeMessage(Serial::tx_message msg)
 {
+    std::array<uint8_t, 4> data = convertToArray(msg);
+
     if (file != -1)
     {
         if (write(file, data.data(), data.size()) == -1)
@@ -46,7 +44,7 @@ void Serial::write_array(std::array<uint8_t, 4> data)
     }
 }
 
-std::optional<Serial::rx_message> Serial::readMessage(bool await_response)
+std::optional<Serial::rx_message> Serial::UART::readMessage(bool await_response)
 {
     // Temporary data array.
     std::array<uint8_t ,MESSAGE_SIZE> temp{};
@@ -82,4 +80,15 @@ std::optional<Serial::rx_message> Serial::readMessage(bool await_response)
     }
 
     return std::nullopt;
+}
+
+std::array<uint8_t, 4> Serial::UART::convertToArray(Serial::tx_message msg)
+{
+    std::array<uint8_t, 4> temp{};
+    std::copy(
+            reinterpret_cast<uint8_t *>(&msg),
+            reinterpret_cast<uint8_t *>(&msg) + 4,
+            &temp[0]
+    );
+    return temp;
 }

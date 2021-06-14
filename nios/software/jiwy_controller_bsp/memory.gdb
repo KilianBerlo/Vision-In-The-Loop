@@ -3,7 +3,7 @@
 # Machine generated for CPU 'cpu' in SOPC Builder design 'quadrature_nios_pwm'
 # SOPC Builder design path: C:/Users/gteho/Repositories/EMSYS-LAB/nios/quadrature_nios_pwm.sopcinfo
 #
-# Generated: Fri Jun 11 13:42:55 CEST 2021
+# Generated: Mon Jun 14 10:18:45 CEST 2021
 
 # DO NOT MODIFY THIS FILE
 #

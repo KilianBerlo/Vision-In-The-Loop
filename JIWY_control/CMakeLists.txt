@@ -3,4 +3,4 @@ project(JIWY_control)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(JIWY_control main.cpp serial_com/Serial.cpp serial_com/Serial.h)
+add_executable(JIWY_control main.cpp serial/uart.cpp serial/uart.hpp motor/motor.cpp motor/motor.hpp)

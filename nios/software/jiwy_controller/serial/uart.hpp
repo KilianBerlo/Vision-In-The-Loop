@@ -59,11 +59,11 @@ namespace Serial
 	public:
 		UART(std::function<void(Serial::rx_message &received_message)> callback);
 
-		void sendData(std::array<uint8_t, MESSAGE_SIZE> data);
-
-		std::array<uint8_t, 4> convertToArray(tx_message msg);
+		void sendData(tx_message msg);
 
 	private:
+
+		std::array<uint8_t, 4> convertToArray(tx_message msg);
 
 		static bool uart_ready;
 		static std::array<uint8_t, MESSAGE_SIZE> rx_data;

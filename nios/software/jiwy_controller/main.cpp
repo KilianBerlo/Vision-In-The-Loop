@@ -64,7 +64,7 @@ int main()
 		{
 			prev_tilt = tilt;
 			Serial::tx_message message(tilt, 0);
-			uart.sendData(uart.convertToArray(message));
+			uart.sendData(message);
 		}
 
 		int32_t pan = pan_encoder.readData();
@@ -73,7 +73,7 @@ int main()
 		{
 			prev_pan = pan;
 			Serial::tx_message message(pan, 1);
-			uart.sendData(uart.convertToArray(message));
+			uart.sendData(message);
 		}
 
 		//usleep(10);

@@ -55,8 +55,11 @@ Serial::UART::UART(std::function<void(Serial::rx_message &received_message)> fun
 }
 
 
-void Serial::UART::sendData(std::array<uint8_t, 4> data)
+void Serial::UART::sendData(tx_message msg)
 {
+	// Convert the message to an array.
+	std::array<uint8_t, 4> data	= convertToArray(msg);
+
 	for (uint8_t data_byte : data)
 	{
 		alt_u8 status = IORD_ALTERA_AVALON_UART_STATUS (UART_0_BASE);
