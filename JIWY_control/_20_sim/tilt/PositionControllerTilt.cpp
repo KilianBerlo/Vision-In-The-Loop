@@ -315,7 +315,6 @@ void PositionControllerTilt::CalculateOutput (void)
 {
 	/* out = SignalLimiter2\output; */
 	m_V[11] = m_V[7];
-
 }
 
 /* This function calculates the final equations of the model.

@@ -3,8 +3,9 @@
 
 #include <cstdint>
 #include <cmath>
-#include "../serial/uart.hpp"
 
+#include "../serial/uart.hpp"
+#include "../timer/timer.hpp"
 
 namespace Plant
 {
@@ -33,11 +34,19 @@ namespace Plant
 
         void disable();
 
+        void goToInitialPosition(uint8_t duty_cycle);
+
+        double getAngle(int32_t encoder_value);
+
+        double current_position = 0.0;
+
     private:
         // ID of this motor.
-        const uint8_t id;
+        const uint32_t id;
 
         const double radians_per_step;
+
+        int32_t encoder_start_position = 0;
 
         // Instance of the UART.
         Serial::UART uart;
@@ -48,10 +57,4 @@ namespace Plant
 
 
 }
-
-
-
-
-
-
 #endif //JIWY_CONTROL_MOTOR_HPP

@@ -7,6 +7,8 @@
 #include <vector>
 #include <iostream>
 #include <csignal>
+#include <time.h>
+#include <chrono>
 
 #include "serial/uart.hpp"
 #include "motor/motor.hpp"
@@ -44,45 +46,73 @@ int main()
     Serial::UART serial_port = Serial::UART(TERMINAL);
 
     // Create instances of the motors.
-    Plant::Motor tilt_motor = Plant::Motor(0, 2500, 320, serial_port);
+    Plant::Motor tilt_motor = Plant::Motor(0, 2500, 160, serial_port);
     //Plant::Motor pan_motor = Plant::Motor(1, 2500, 80, serial_port);
 
     // Add to the vector of motors so they can all be safely stopped in case of a SIGINT.
     motors.push_back(tilt_motor);
     //motors.push_back(pan_motor);
 
+    // Motor homing to go to the initial positions.
+    tilt_motor.goToInitialPosition(60);
+
     // Initialize the 20-sim models.
-    XXDouble u_tilt [2 + 1];
-    XXDouble y_tilt [2 + 1];
+    XXDouble u_tilt [3 + 1];
+    XXDouble y_tilt [1 + 1];
 
     // Initialize the input with correct initial values.
     // TODO: add homing and determine the angle.
-    u_tilt[0] = 0.0;		/* in */
-    u_tilt[1] = 0.0;		/* position */
+    u_tilt[0] = 0.0;		/* corr */
+    u_tilt[1] = 12.0;		/* in */
+    u_tilt[2] = 0.0;		/* position */
 
-    y_tilt[0] = 0.0;		/* corr */
-    y_tilt[1] = 0.0;		/* out */
+    y_tilt[0] = 0.0;		/* out */
 
     PositionControllerTilt tilt_model;
     PositionControllerTilt pan_model;
 
     // Initialize the submodel itself and calculate the outputs for t = 0.0.
     tilt_model.Initialize(u_tilt, y_tilt, 0.0);
-    std::cout << "Model time is: " << tilt_model.GetTime() << std::endl;
+
+    Timer clock;
+    clock.tick();
 
     std::cout << "Motor driver started." << std::endl;
 
-    tilt_motor.setDutyCycle(63);
-    tilt_motor.setDirection(Plant::Motor::Direction::CLOCKWISE);
-    //tilt_motor.enable();
-
-    //pan_motor.setDutyCycle(63);
-    //pan_motor.setDirection(Plant::Motor::Direction::CLOCKWISE);
-    //pan_motor.enable();
+    //u_tilt[1] = 1.0;
 
     while(true)
     {
         auto msg = serial_port.readMessage(false);
+
+        clock.tock();
+
+        // Every 10ms.
+        if (clock.duration().count() >= 10)
+        {
+            // Time step!
+            clock.tick();
+
+            u_tilt[2] = tilt_motor.current_position;
+
+            tilt_model.Calculate(u_tilt, y_tilt);
+            int32_t percentage = int32_t (y_tilt[0] * 100);
+
+            if (percentage > 0)
+            {
+                tilt_motor.setDirection(Plant::Motor::Direction::CLOCKWISE);
+            }
+            else if (percentage < 0)
+            {
+                tilt_motor.setDirection(Plant::Motor::Direction::COUNTERCLOCKWISE);
+            }
+
+            tilt_motor.setDutyCycle(percentage);
+            tilt_motor.enable();
+
+            std::cout << "Duty cycle: " << percentage << " Encoder: " << tilt_motor.current_position <<  " time: " << tilt_model.GetTime() << std::endl;
+        }
+
 
         if (msg != std::nullopt)
         {
@@ -93,18 +123,9 @@ int main()
                 // Tilt
                 case 0 :
                 {
-                    // Two rotations
-                    if (count >= 100)
-                    {
-                        tilt_motor.setDirection(Plant::Motor::Direction::COUNTERCLOCKWISE);
-                    }
-
-                    if (count < 0)
-                    {
-                        tilt_motor.setDirection(Plant::Motor::Direction::CLOCKWISE);
-                    }
-
-                    std::cout << "Motor 0: "<< count << std::endl;
+                    double angle = tilt_motor.getAngle(count);
+                    tilt_motor.current_position = angle;
+                    //std::cout << "Motor 0 angle at: "<< angle << " rad" << std::endl;
                     break;
                 }
                 // Pan
@@ -121,7 +142,7 @@ int main()
                         pan_motor.setDirection(Plant::Motor::Direction::COUNTERCLOCKWISE);
                     }*/
 
-                    std::cout << "Motor 1: "<< count << std::endl;
+                    //std::cout << "Motor 1: "<< count << std::endl;
                     break;
                 }
             }

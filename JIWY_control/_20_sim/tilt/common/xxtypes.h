@@ -41,7 +41,7 @@
 #define XX_TYPES_H
 
 /* The mentioned typedefs */
-typedef double XXDouble;
+typedef float XXDouble;
 typedef int XXInteger;
 typedef char XXCharacter;
 typedef char XXBoolean;
