@@ -1,7 +1,8 @@
 #include "motor.hpp"
 
-Plant::Motor::Motor(uint8_t id, uint32_t frequency, Serial::UART uart) :
+Plant::Motor::Motor(uint8_t id, uint32_t frequency, uint32_t steps_per_revolution, Serial::UART uart) :
     id(id),
+    radians_per_step((360.0 / double(steps_per_revolution)) * (M_PI / 180.0)),
     uart(uart)
 {
     // Set motor id.

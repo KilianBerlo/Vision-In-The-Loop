@@ -27,6 +27,7 @@
 #include "common/xxmodel.h"
 #include "common/xxinteg.h"
 
+//include "../../motor/motor.hpp"
 
 class PositionControllerTilt: virtual public Submodel20sim
 {
@@ -149,6 +150,7 @@ class PositionControllerTilt: virtual public Submodel20sim
 		 */
 		void CopyVariablesToOutputs (XXDouble *y);
 
+		//const Plant::Motor motor;
 
 		Discrete myintegmethod;	///< pointer to the integration method for this submodel
 };

@@ -11,6 +11,9 @@
 #include "serial/uart.hpp"
 #include "motor/motor.hpp"
 
+#include "_20_sim/tilt/PositionControllerTilt.h"
+#include "_20_sim/pan/PositionControllerPan.h"
+
 // Vector which holds an x amount of motors.
 std::vector<Plant::Motor> motors;
 
@@ -41,21 +44,40 @@ int main()
     Serial::UART serial_port = Serial::UART(TERMINAL);
 
     // Create instances of the motors.
-    Plant::Motor tilt_motor = Plant::Motor(0, 2500, serial_port);
-    Plant::Motor pan_motor = Plant::Motor(1, 2500, serial_port);
+    Plant::Motor tilt_motor = Plant::Motor(0, 2500, 320, serial_port);
+    //Plant::Motor pan_motor = Plant::Motor(1, 2500, 80, serial_port);
 
     // Add to the vector of motors so they can all be safely stopped in case of a SIGINT.
     motors.push_back(tilt_motor);
-    motors.push_back(pan_motor);
+    //motors.push_back(pan_motor);
+
+    // Initialize the 20-sim models.
+    XXDouble u_tilt [2 + 1];
+    XXDouble y_tilt [2 + 1];
+
+    // Initialize the input with correct initial values.
+    // TODO: add homing and determine the angle.
+    u_tilt[0] = 0.0;		/* in */
+    u_tilt[1] = 0.0;		/* position */
+
+    y_tilt[0] = 0.0;		/* corr */
+    y_tilt[1] = 0.0;		/* out */
+
+    PositionControllerTilt tilt_model;
+    PositionControllerTilt pan_model;
+
+    // Initialize the submodel itself and calculate the outputs for t = 0.0.
+    tilt_model.Initialize(u_tilt, y_tilt, 0.0);
+    std::cout << "Model time is: " << tilt_model.GetTime() << std::endl;
 
     std::cout << "Motor driver started." << std::endl;
 
     tilt_motor.setDutyCycle(63);
     tilt_motor.setDirection(Plant::Motor::Direction::CLOCKWISE);
-    tilt_motor.enable();
+    //tilt_motor.enable();
 
-    pan_motor.setDutyCycle(63);
-    pan_motor.setDirection(Plant::Motor::Direction::CLOCKWISE);
+    //pan_motor.setDutyCycle(63);
+    //pan_motor.setDirection(Plant::Motor::Direction::CLOCKWISE);
     //pan_motor.enable();
 
     while(true)
@@ -88,7 +110,7 @@ int main()
                 // Pan
                 case 1 :
                 {
-                    // Two rotations
+                    /* Two rotations
                     if (count >= 100)
                     {
                         pan_motor.setDirection(Plant::Motor::Direction::COUNTERCLOCKWISE);
@@ -97,7 +119,7 @@ int main()
                     if (count < 0)
                     {
                         pan_motor.setDirection(Plant::Motor::Direction::COUNTERCLOCKWISE);
-                    }
+                    }*/
 
                     std::cout << "Motor 1: "<< count << std::endl;
                     break;

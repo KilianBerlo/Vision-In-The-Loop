@@ -2,6 +2,7 @@
 #define JIWY_CONTROL_MOTOR_HPP
 
 #include <cstdint>
+#include <cmath>
 #include "../serial/uart.hpp"
 
 
@@ -19,7 +20,7 @@ namespace Plant
             STOP_VCC =          0b11, // Brake to VCC.
         };
 
-        Motor(uint8_t id, uint32_t frequency, Serial::UART uart);
+        Motor(uint8_t id, uint32_t frequency, uint32_t steps_per_revolution, Serial::UART uart);
 
         void setFrequency(uint32_t frequency);
 
@@ -35,6 +36,8 @@ namespace Plant
     private:
         // ID of this motor.
         const uint8_t id;
+
+        const double radians_per_step;
 
         // Instance of the UART.
         Serial::UART uart;

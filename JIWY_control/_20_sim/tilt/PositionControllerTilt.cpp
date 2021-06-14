@@ -26,6 +26,12 @@
 /* Delta margin used for end time checking */
 const XXDouble c_delta = 1.0e-7;
 
+/*PositionControllerTilt::PositionControllerTilt(Plant::Motor motor) :
+        motor(motor)
+{
+
+}*/
+
 /* this PRIVATE function sets the input variables from the input vector */
 void PositionControllerTilt::CopyInputsToVariables (XXDouble *u)
 {
