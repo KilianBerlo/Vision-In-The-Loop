@@ -31,7 +31,7 @@ Serial::UART::UART(std::string com_port)
     usleep(1000);
 }
 
-void Serial::UART::writeMessage(Serial::tx_message msg)
+void Serial::UART::writeMessage(Serial::message msg)
 {
     std::array<uint8_t, 4> data = convertToArray(msg);
 
@@ -44,7 +44,7 @@ void Serial::UART::writeMessage(Serial::tx_message msg)
     }
 }
 
-std::optional<Serial::rx_message> Serial::UART::readMessage(bool await_response)
+std::optional<Serial::message> Serial::UART::readMessage(bool await_response)
 {
     // Temporary data array.
     std::array<uint8_t ,MESSAGE_SIZE> temp{};
@@ -55,7 +55,7 @@ std::optional<Serial::rx_message> Serial::UART::readMessage(bool await_response)
         {
             read(file, temp.data(), MESSAGE_SIZE);
 
-            Serial::rx_message received_message{};
+            Serial::message received_message{};
             std::memcpy(&received_message, &temp, MESSAGE_SIZE);
 
             return received_message;
@@ -72,7 +72,7 @@ std::optional<Serial::rx_message> Serial::UART::readMessage(bool await_response)
         {
             read(file, temp.data(), MESSAGE_SIZE);
 
-            Serial::rx_message received_message{};
+            Serial::message received_message{};
             std::memcpy(&received_message, &temp, MESSAGE_SIZE);
 
             return received_message;
@@ -82,7 +82,7 @@ std::optional<Serial::rx_message> Serial::UART::readMessage(bool await_response)
     return std::nullopt;
 }
 
-std::array<uint8_t, 4> Serial::UART::convertToArray(Serial::tx_message msg)
+std::array<uint8_t, 4> Serial::UART::convertToArray(Serial::message msg)
 {
     std::array<uint8_t, 4> temp{};
     std::copy(

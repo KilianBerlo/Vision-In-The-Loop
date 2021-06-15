@@ -8,16 +8,16 @@ Plant::Motor::Motor(uint8_t id, uint32_t frequency, uint32_t steps_per_revolutio
     uart(uart)
 {
     // Set motor id.
-    tx_msg.motor = id;
+    //tx_msg.motor = id;
 
     // Set frequency.
-    tx_msg.freq = frequency;
+    //tx_msg.freq = frequency;
 
     // Set direction without performing a write.
-    tx_msg.direction = static_cast<uint32_t>(Direction::STOP_GND);
+    //tx_msg.direction = static_cast<uint32_t>(Direction::STOP_GND);
 }
 
-void Plant::Motor::setFrequency(uint32_t frequency)
+/*void Plant::Motor::setFrequency(uint32_t frequency)
 {
     tx_msg.freq = frequency;
     uart.writeMessage(tx_msg);
@@ -86,4 +86,4 @@ void Plant::Motor::goToInitialPosition(uint8_t duty_cycle)
 double Plant::Motor::getAngle(int32_t encoder_value)
 {
     return (encoder_value - encoder_start_position) * radians_per_step;
-}
+}*/

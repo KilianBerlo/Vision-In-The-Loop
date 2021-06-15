@@ -26,21 +26,23 @@ obj/default/main.o: main.cpp \
  ../jiwy_controller_20_sim_bsp//newlib/nios2-elf/include/sys/sched.h \
  ../jiwy_controller_20_sim_bsp//newlib/nios2-elf/include/machine/types.h \
  ../jiwy_controller_20_sim_bsp//newlib/nios2-elf/include/sys/stdio.h \
- ../jiwy_controller_20_sim_bsp//newlib/nios2-elf/include/unistd.h \
- ../jiwy_controller_20_sim_bsp//newlib/nios2-elf/include/sys/unistd.h \
  c\:\users\gteho\repositories\emsys-lab\nios\software\jiwy_controller_20_sim_bsp\hal\inc\io.h \
  c\:\users\gteho\repositories\emsys-lab\nios\software\jiwy_controller_20_sim_bsp\hal\inc\alt_types.h \
  c\:/Users/gteho/Repositories/EMSYS-LAB/nios/software/jiwy_controller_20_sim_bsp/system.h \
  c\:/Users/gteho/Repositories/EMSYS-LAB/nios/software/jiwy_controller_20_sim_bsp/linker.h \
- motor_driver/encoder.hpp motor_driver/motor.hpp serial/uart.hpp \
+ motor_driver/motor.hpp serial/uart.hpp \
  c\:\users\gteho\repositories\emsys-lab\nios\software\jiwy_controller_20_sim_bsp\drivers\inc\altera_avalon_uart_regs.h \
  c\:\users\gteho\repositories\emsys-lab\nios\software\jiwy_controller_20_sim_bsp\hal\inc\sys\alt_irq.h \
  ../jiwy_controller_20_sim_bsp//newlib/nios2-elf/include/errno.h \
  ../jiwy_controller_20_sim_bsp//newlib/nios2-elf/include/sys/errno.h \
  c\:\users\gteho\repositories\emsys-lab\nios\software\jiwy_controller_20_sim_bsp\hal\inc\nios2.h \
  c\:\users\gteho\repositories\emsys-lab\nios\software\jiwy_controller_20_sim_bsp\hal\inc\alt_types.h \
+ timer/timer.hpp \
+ c\:\users\gteho\repositories\emsys-lab\nios\software\jiwy_controller_20_sim_bsp\drivers\inc\altera_avalon_timer_regs.h \
+ 20-sim/tilt/PositionControllerTilt.h 20-sim/tilt/../common/xxmodel.h \
+ 20-sim/tilt/../common/xxtypes.h 20-sim/tilt/../common/xxinteg.h \
  20-sim/pan/PositionControllerPan.h 20-sim/pan/../common/xxmodel.h \
- 20-sim/pan/../common/xxtypes.h 20-sim/pan/../common/xxinteg.h
+ 20-sim/pan/../common/xxinteg.h
 ../jiwy_controller_20_sim_bsp//newlib/nios2-elf/include/stdio.h:
 ../jiwy_controller_20_sim_bsp//newlib/nios2-elf/include/_ansi.h:
 ../jiwy_controller_20_sim_bsp//newlib/nios2-elf/include/newlib.h:
@@ -68,13 +70,10 @@ obj/default/main.o: main.cpp \
 ../jiwy_controller_20_sim_bsp//newlib/nios2-elf/include/sys/sched.h:
 ../jiwy_controller_20_sim_bsp//newlib/nios2-elf/include/machine/types.h:
 ../jiwy_controller_20_sim_bsp//newlib/nios2-elf/include/sys/stdio.h:
-../jiwy_controller_20_sim_bsp//newlib/nios2-elf/include/unistd.h:
-../jiwy_controller_20_sim_bsp//newlib/nios2-elf/include/sys/unistd.h:
 c\:\users\gteho\repositories\emsys-lab\nios\software\jiwy_controller_20_sim_bsp\hal\inc\io.h:
 c\:\users\gteho\repositories\emsys-lab\nios\software\jiwy_controller_20_sim_bsp\hal\inc\alt_types.h:
 c\:/Users/gteho/Repositories/EMSYS-LAB/nios/software/jiwy_controller_20_sim_bsp/system.h:
 c\:/Users/gteho/Repositories/EMSYS-LAB/nios/software/jiwy_controller_20_sim_bsp/linker.h:
-motor_driver/encoder.hpp:
 motor_driver/motor.hpp:
 serial/uart.hpp:
 c\:\users\gteho\repositories\emsys-lab\nios\software\jiwy_controller_20_sim_bsp\drivers\inc\altera_avalon_uart_regs.h:
@@ -83,7 +82,12 @@ c\:\users\gteho\repositories\emsys-lab\nios\software\jiwy_controller_20_sim_bsp\
 ../jiwy_controller_20_sim_bsp//newlib/nios2-elf/include/sys/errno.h:
 c\:\users\gteho\repositories\emsys-lab\nios\software\jiwy_controller_20_sim_bsp\hal\inc\nios2.h:
 c\:\users\gteho\repositories\emsys-lab\nios\software\jiwy_controller_20_sim_bsp\hal\inc\alt_types.h:
+timer/timer.hpp:
+c\:\users\gteho\repositories\emsys-lab\nios\software\jiwy_controller_20_sim_bsp\drivers\inc\altera_avalon_timer_regs.h:
+20-sim/tilt/PositionControllerTilt.h:
+20-sim/tilt/../common/xxmodel.h:
+20-sim/tilt/../common/xxtypes.h:
+20-sim/tilt/../common/xxinteg.h:
 20-sim/pan/PositionControllerPan.h:
 20-sim/pan/../common/xxmodel.h:
-20-sim/pan/../common/xxtypes.h:
 20-sim/pan/../common/xxinteg.h:

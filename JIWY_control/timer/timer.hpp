@@ -1,6 +1,9 @@
 #ifndef JIWY_CONTROL_TIMER_HPP
 #define JIWY_CONTROL_TIMER_HPP
 
+#include <time.h>
+#include <chrono>
+
 template <class TimeT = std::chrono::milliseconds,
         class ClockT = std::chrono::steady_clock>
 class Timer

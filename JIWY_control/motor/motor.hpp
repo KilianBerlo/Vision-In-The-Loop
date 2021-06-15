@@ -52,7 +52,7 @@ namespace Plant
         Serial::UART uart;
 
         // Struct which contains the current motor config.
-        Serial::tx_message tx_msg{};
+        //Serial::message tx_msg{};
     };
 
 

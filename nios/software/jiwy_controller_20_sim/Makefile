@@ -90,13 +90,7 @@ ELF := jiwy_controller_20_sim.elf
 
 # Paths to C, C++, and assembly source files.
 C_SRCS :=
-CXX_SRCS += motor_driver/encoder.cpp
-CXX_SRCS += motor_driver/motor.cpp
-CXX_SRCS += serial/uart.cpp
-CXX_SRCS += main.cpp
-CXX_SRCS += 20-sim/pan/PositionControllerPan.cpp
-CXX_SRCS += 20-sim/tilt/PositionControllerTilt.cpp
-CXX_SRCS += 20-sim/common/xxinteg.cpp
+CXX_SRCS :=
 ASM_SRCS :=
 
 
@@ -104,7 +98,7 @@ ASM_SRCS :=
 OBJ_ROOT_DIR := obj
 
 # Options to control objdump.
-CREATE_OBJDUMP := 1
+CREATE_OBJDUMP := 0
 OBJDUMP_INCLUDE_SOURCE := 1
 OBJDUMP_FULL_CONTENTS := 0
 
