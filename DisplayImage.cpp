@@ -99,14 +99,14 @@ static GstFlowReturn new_sample (GstElement *sink, AllElements *element)
 		if (tracking_area > 10000){	//When the area of the object is greater than 10000 pixels
 			 int posX = horizontal_moment / tracking_area;	//Calculate the horizontal position of the object
 			 int posY = vertical_moment / tracking_area;	//Calculate the vertical position of the object
-		      	 distX = (160 - posX) * 0.16325;
-			 distY = (120 - posY) * 0.16825;
+		      	 distX = (160 - posX) * 0.00284925;
+			 distY = (120 - posY) * 0.00293652;
 			 horizontal_last = posX;	//Getting a new horizontal position
 			 vertical_last = posY;	//Getting a new vertical position value
 	      	}
 	      	
             	g_print("Position of the object is: %d, %d \n", horizontal_last, vertical_last);	//Showing tracked co-ordinated values
-            	g_print("Degrees of the object from center is: %f, %f \n", distX, distY);	//Showing distance from object center to frame center, needed for motor controller
+            	g_print("Radians of the object from center is: %f, %f \n", distX, distY);	//Showing distance from object center to frame center, needed for motor controller
 	      
 	      	/* Write location data to files */
 	      	fstream file;
