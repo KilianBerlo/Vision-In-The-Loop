@@ -14,6 +14,8 @@ int sat_low =136;	//Lower range of saturation
 int sat_high = 255;	//Upper range of saturation
 int val_low = 150;	//Lower range of value
 int val_high = 255;	//Upper range of value 
+double distX = 0.0;
+double distY = 0.0;
 int horizontal_last = -1;	//Horizontal position
 int vertical_last = -1;	//Vertical position
 
@@ -97,10 +99,14 @@ static GstFlowReturn new_sample (GstElement *sink, AllElements *element)
 		if (tracking_area > 10000){	//When the area of the object is greater than 10000 pixels
 			 int posX = horizontal_moment / tracking_area;	//Calculate the horizontal position of the object
 			 int posY = vertical_moment / tracking_area;	//Calculate the vertical position of the object
+		      	 distX = (160 - posX) * 0.16325;
+			 distY = (120 - posY) * 0.16825;
 			 horizontal_last = posX;	//Getting a new horizontal position
 			 vertical_last = posY;	//Getting a new vertical position value
 	      	}
+	      	
             	g_print("Position of the object is: %d, %d \n", horizontal_last, vertical_last);	//Showing tracked co-ordinated values
+            	g_print("Degrees of the object from center is: %f, %f \n", distX, distY);	//Showing distance from object center to frame center, needed for motor controller
 	      
 	      	/* Write location data to files */
 	      	fstream file;
@@ -153,7 +159,7 @@ int main (int   argc, char *argv[])
 
   /* we set the input filename to the source element */
   g_object_set (G_OBJECT (element.source), "device", "/dev/video0", NULL);
-  caps = gst_caps_new_simple("image/jpeg", "format", G_TYPE_STRING, "RGB", "framerate", GST_TYPE_FRACTION, 30, 1, "width", G_TYPE_INT, res_w, "height", G_TYPE_INT, res_h, NULL);
+  caps = gst_caps_new_simple("image/jpeg", "framerate", GST_TYPE_FRACTION, 30, 1, "width", G_TYPE_INT, res_w, "height", G_TYPE_INT, res_h, NULL);
   g_object_set(G_OBJECT(element.filter), "caps", caps, NULL);
 
   /* we add a message handler */
