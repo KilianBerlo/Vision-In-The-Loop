@@ -53,8 +53,8 @@ int main()
     std::cout << "Motor driver started." << std::endl;
 
     Serial::message tx{};
-    tx.motor = 0;
-    tx.setAngle(M_PI * 4);
+    tx.motor = 1;
+    tx.setAngle(M_PI * 2);
 
     serial_port.writeMessage(tx);
 
@@ -73,19 +73,19 @@ int main()
                 // Tilt
                 case 0 :
                 {
-                    //std::cout << "Motor 0 angle at: "<< angle << " rad" << std::endl;
+                    std::cout << "Motor 0 angle at: "<< angle << " rad" << std::endl;
                     break;
                 }
                 // Pan
                 case 1 :
                 {
-                    //std::cout << "Motor 1 angle at: "<< angle << " rad" << std::endl;
+                    std::cout << "Motor 1 angle at: "<< angle << " rad" << std::endl;
                     break;
                 }
             }
         }
 
-        sleep(2);
+        usleep(500000);
 
         float temp = tx.getAngle();
         tx.setAngle( temp + 1);

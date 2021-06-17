@@ -22,7 +22,7 @@
 #define PositionControllerTilt_H
 
 /* 20-sim include files */
-#include "../common/xxmodel.h"
+#include "tilt_model.h"
 #include "../common/xxinteg.h"
 
 

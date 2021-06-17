@@ -1,0 +1,25 @@
+==================================================================
+Thu 17 Jun 2021 14:55:16 
+==================================================================
+Thu 17 Jun 2021 14:55:16 Configuring newlib to build a smallc C library in /mnt/c/Users/gteho/Repositories/EMSYS-LAB/nios/software/demonstrator_bsp/newlib-build-tmp/smallc...
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... nios2-unknown-elf
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln works... yes
+checking whether ln -s works... yes
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for gawk... gawk
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking whether g++ accepts -static-libstdc++ -static-libgcc... 

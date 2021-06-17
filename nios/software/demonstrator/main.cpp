@@ -30,21 +30,25 @@ Plant::Motor pan_motor = Plant::Motor(MOTOR_PWM_1_SLAVE_1_BASE, MOTOR_PWM_1_SLAV
 XXDouble u_tilt [3 + 1];
 XXDouble y_tilt [1 + 1];
 
+//XXDouble u_pan [2 + 1];
+//XXDouble y_pan [2 + 1];
 XXDouble u_pan [3 + 1];
 XXDouble y_pan [1 + 1];
 
 // Definitions of 20-sim models.
 PositionControllerTilt tilt_model;
-PositionControllerPan pan_model;
+//PositionControllerPan pan_model;
+PositionControllerTilt pan_model;
 
-volatile bool tilt_homing_done = false;
-volatile bool pan_homing_done = true;
+volatile bool tilt_homing_done = true;
+volatile bool pan_homing_done = false;
 
 void handleTimerEvent()
 {
 	if(tilt_homing_done && pan_homing_done)
 	{
 		u_tilt[2] = tilt_motor.getAngle();
+		//u_pan[1] = pan_motor.getAngle();
 		u_pan[2] = pan_motor.getAngle();
 
 		// Tilt motor.
@@ -52,17 +56,19 @@ void handleTimerEvent()
 		{
 			tilt_model.Calculate(u_tilt, y_tilt);
 			tilt_motor.setSpeedAndDirection(int8_t (y_tilt[0] * 100));
-		}
-		else
-		{
-			tilt_model.Terminate(u_tilt, y_tilt);
-			tilt_motor.disable();
+
+			if(tilt_model.IsFinished())
+			{
+				tilt_model.Terminate(u_tilt, y_tilt);
+				tilt_motor.disable();
+			}
 		}
 
 		// Pan motor.
 		if (!pan_model.IsFinished())
 		{
 			pan_model.Calculate(u_pan, y_pan);
+			//pan_motor.setSpeedAndDirection(int8_t (y_pan[1] * 100));
 			pan_motor.setSpeedAndDirection(int8_t (y_pan[0] * 100));
 		}
 		else
@@ -74,12 +80,12 @@ void handleTimerEvent()
 	else
 	{
 		// Motor is still homing!
-		if(tilt_motor.isAtInitialPosition() == true)
+		if(tilt_motor.isAtInitialPosition() == true && !tilt_homing_done)
 		{
 			tilt_homing_done = true;
 		}
 
-		if(pan_motor.isAtInitialPosition() == true)
+		if(pan_motor.isAtInitialPosition() == true && !pan_homing_done)
 		{
 			pan_homing_done = true;
 		}
@@ -99,15 +105,13 @@ void handleUartEvent(Serial::message &received_message)
 		{
 			u_tilt[1] = angle;
 			tilt_model.Initialize(u_tilt, y_tilt, 0.0);
-			//tilt_motor.setFrequency(received_message.getFirstWord());
-			//tilt_motor.setSecondWord(received_message.getSecondWord());
 			break;
 		}
 
 		case 1:
 		{
-			//pan_motor.setFrequency(received_message.getFirstWord());
-			//pan_motor.setSecondWord(received_message.getSecondWord());
+			u_pan[1] = angle;
+			pan_model.Initialize(u_pan, y_pan, 0.0);
 			break;
 		}
 	}
@@ -119,17 +123,12 @@ void handleUartEvent(Serial::message &received_message)
  */
 int main()
 {
+	u_tilt[0] = 0.0;	/* corr */
+	u_tilt[1] = 0.0;	/* in */
+	u_tilt[2] = 0.0;	/* position */
 
-	u_pan[0] = 0.0;		/* corr */
-	u_pan[1] = 0.0;		/* in */
-	u_pan[2] = 0.0;		/* position */
-
-	u_tilt[0] = 0.0;		/* corr */
-	u_tilt[1] = 0.0;		/* in */
-	u_tilt[2] = 0.0;		/* position */
-
-	pan_model.Initialize(u_pan, y_pan, 0.0);
-	tilt_model.Initialize(u_tilt, y_tilt, 0.0);
+	//u_pan[0] = 0.0;		/* in */
+	//u_pan[2] = 0.0;		/* position */
 
 	pan_model.SetFinishTime(1);
 	tilt_model.SetFinishTime(1);
@@ -141,6 +140,11 @@ int main()
 	usleep(10000);
 
 	timer.enable();
+
+	while(!tilt_homing_done || !pan_homing_done);
+
+	pan_model.Initialize(u_pan, y_pan, 0.0);
+	tilt_model.Initialize(u_tilt, y_tilt, 0.0);
 
 	float prev_tilt = 0;
 	float prev_pan = 0;

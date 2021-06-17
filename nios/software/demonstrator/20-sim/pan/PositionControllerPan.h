@@ -22,8 +22,8 @@
 #define PositionControllerPan_H
 
 /* 20-sim include files */
-#include "../common/xxmodel.h"
 #include "../common/xxinteg.h"
+#include "pan_model.h"
 
 
 class PositionControllerPan: virtual public Submodel20sim

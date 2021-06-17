@@ -16,6 +16,7 @@
 
 /* 20-sim include files */
 #include "xxtypes.h"
+#include <cstddef>
 
 class Submodel20sim;	//Forward declaration
 

@@ -80,7 +80,7 @@ int32_t Plant::Motor::readData()
 
 bool Plant::Motor::isAtInitialPosition()
 {
-	int32_t value = readData();
+	volatile int32_t value = readData();
 
 	if (value != encoder_start_position)
 	{
