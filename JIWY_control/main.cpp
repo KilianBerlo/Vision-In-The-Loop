@@ -2,7 +2,6 @@
 #pragma ide diagnostic ignored "EndlessLoop"
 #define TERMINAL    "/dev/ttyS6"
 
-#include <cstring>
 #include <unistd.h>
 #include <vector>
 #include <iostream>
@@ -10,18 +9,18 @@
 
 #include "serial/uart.hpp"
 #include "motor/motor.hpp"
+#include "opencv/image_recognition.hpp"
 
-// SIGINT handler.
-void sigIntHandler(int exit_code)
+// Establish a serial connection.
+Serial::UART serial_port = Serial::UART(TERMINAL);
+
+// Create instances of the motors.
+Plant::Motor tilt_motor = Plant::Motor(0, serial_port);
+Plant::Motor pan_motor = Plant::Motor(1, serial_port);
+
+void move_motor(float x_axis, float y_axis)
 {
-    // Stop all motors.
-    /*for (auto motor : motors)
-    {
-        motor.disable();
-    }*/
-
-    std::cout << "Stopping motor driver with exit code: " << exit_code << std::endl;
-    exit(exit_code);
+    std::cout << "X_axis: " << x_axis << " Y_axis: " << y_axis << std::endl;
 }
 
 /**
@@ -30,33 +29,13 @@ void sigIntHandler(int exit_code)
  */
 int main()
 {
-    // Add a program interruption handler (on ^C).
-    signal(SIGINT, sigIntHandler);
-
-    // Establish a serial connection.
-    Serial::UART serial_port = Serial::UART(TERMINAL);
-
-    // Create instances of the motors.
-    //Plant::Motor tilt_motor = Plant::Motor(0, 2500, 160, serial_port);
-    //Plant::Motor pan_motor = Plant::Motor(1, 2500, 80, serial_port);
-
-    // Add to the vector of motors so they can all be safely stopped in case of a SIGINT.
-    //motors.push_back(tilt_motor);
-    //motors.push_back(pan_motor);
-
-    // Initialize the submodel itself and calculate the outputs for t = 0.0.
-    //tilt_model.Initialize(u_tilt, y_tilt, 0.0);
-
-    //Timer clock;
-    //clock.tick();
+    ImageRecognition opencv = ImageRecognition();
+    ImageRecognition::initialize(move_motor);
 
     std::cout << "Motor driver started." << std::endl;
 
-    Serial::message tx{};
-    tx.motor = 1;
-    tx.setAngle(M_PI * 2);
-
-    serial_port.writeMessage(tx);
+    tilt_motor.setAngle(1);
+    pan_motor.setAngle(5);
 
     while(true)
     {
@@ -84,12 +63,6 @@ int main()
                 }
             }
         }
-
-        usleep(500000);
-
-        float temp = tx.getAngle();
-        tx.setAngle( temp + 1);
-        serial_port.writeMessage(tx);
     }
 }
 #pragma clang diagnostic pop

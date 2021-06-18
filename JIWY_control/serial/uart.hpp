@@ -33,20 +33,6 @@ namespace Serial
         }
     };
 
-    /*struct tx_message
-    {
-        uint32_t freq : 14;
-        uint32_t duty : 14;
-        uint32_t direction : 2;
-        uint32_t enable : 1;
-        uint32_t motor : 1;
-
-        void setDutyCycle (uint8_t duty_cycle)
-        {
-            duty = uint32_t ((float)freq * ((float)duty_cycle / 100));
-        }
-    };*/
-
     class UART
     {
     public:

@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>15-jun-2021 13:59:22</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1623758362048</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>18-jun-2021 12:24:07</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1624011847074</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\gteho\Repositories\EMSYS-LAB\nios\software\demonstrator_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>C:\Users\gteho\Repositories\EMSYS-LAB\nios\quadrature_nios_pwm.sopcinfo</SopcDesignFile>
