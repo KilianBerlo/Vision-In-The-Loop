@@ -44,7 +44,7 @@ void Serial::UART::writeMessage(Serial::message msg)
     }
 }
 
-std::optional<Serial::message> Serial::UART::readMessage(bool await_response)
+Serial::message Serial::UART::readMessage(bool await_response) const
 {
     // Temporary data array.
     std::array<uint8_t ,MESSAGE_SIZE> temp{};
@@ -79,7 +79,7 @@ std::optional<Serial::message> Serial::UART::readMessage(bool await_response)
         }
     }
 
-    return std::nullopt;
+    return {};
 }
 
 std::array<uint8_t, 4> Serial::UART::convertToArray(Serial::message msg)

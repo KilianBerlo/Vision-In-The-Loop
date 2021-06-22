@@ -1,11 +1,8 @@
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "EndlessLoop"
-#define TERMINAL    "/dev/ttyS6"
+#define TERMINAL "/dev/ttyS6"
 
 #include <unistd.h>
-#include <vector>
-#include <iostream>
-#include <csignal>
 
 #include "serial/uart.hpp"
 #include "motor/motor.hpp"
@@ -20,7 +17,9 @@ Plant::Motor pan_motor = Plant::Motor(1, serial_port);
 
 void move_motor(float x_axis, float y_axis)
 {
-    std::cout << "X_axis: " << x_axis << " Y_axis: " << y_axis << std::endl;
+    //std::cout << "X_axis: " << x_axis << " Y_axis: " << y_axis << std::endl;
+    tilt_motor.setAngle(y_axis);
+    pan_motor.setAngle(x_axis);
 }
 
 /**
@@ -30,39 +29,14 @@ void move_motor(float x_axis, float y_axis)
 int main()
 {
     ImageRecognition opencv = ImageRecognition();
+
+    // Initialize and run OpenCV.
     ImageRecognition::initialize(move_motor);
-
-    std::cout << "Motor driver started." << std::endl;
-
-    tilt_motor.setAngle(1);
-    pan_motor.setAngle(5);
+    ImageRecognition::run();
 
     while(true)
     {
-        auto msg = serial_port.readMessage(false);
-
-        if (msg != std::nullopt)
-        {
-            float angle = msg->getAngle();
-
-            //std::cout << angle << std::endl;
-
-            switch(msg->motor)
-            {
-                // Tilt
-                case 0 :
-                {
-                    std::cout << "Motor 0 angle at: "<< angle << " rad" << std::endl;
-                    break;
-                }
-                // Pan
-                case 1 :
-                {
-                    std::cout << "Motor 1 angle at: "<< angle << " rad" << std::endl;
-                    break;
-                }
-            }
-        }
+        usleep(100000);
     }
 }
 #pragma clang diagnostic pop

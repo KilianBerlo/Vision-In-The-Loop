@@ -5,7 +5,6 @@
 #include <cstring>
 #include <string>
 #include <array>
-#include <optional>
 
 namespace Serial
 {
@@ -38,7 +37,7 @@ namespace Serial
     public:
         UART(std::string com_port);
 
-        std::optional<message> readMessage(bool await_response = false);
+        message readMessage(bool await_response = false) const;
 
         void writeMessage(Serial::message msg);
 
@@ -46,8 +45,8 @@ namespace Serial
 
         std::array<uint8_t, 4> convertToArray(Serial::message msg);
 
+        // The uart stream.
         int file;
-
     };
 }
 

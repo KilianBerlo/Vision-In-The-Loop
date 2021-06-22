@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.16)
 project(JIWY_control)
 
-set(CMAKE_C_COMPILER arm-linux-gnueabihf-gcc)
-set(CMAKE_CXX_COMPILER arm-linux-gnueabihf-g++)
+#set(CMAKE_C_COMPILER arm-linux-gnueabihf-gcc)
+#set(CMAKE_CXX_COMPILER arm-linux-gnueabihf-g++)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 11)
 
 find_package(OpenCV REQUIRED)
 find_package(PkgConfig REQUIRED)
@@ -26,7 +26,6 @@ add_executable(JIWY_control
         )
 
 #linking Gstreamer library with target executable
-
 target_link_libraries(JIWY_control
         PkgConfig::GST
         )

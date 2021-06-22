@@ -5,6 +5,7 @@
 #include "opencv2/imgproc.hpp"	//Used for several funcions of opencv for image processing
 #include "opencv2/highgui.hpp"	//For saving the images with imwrite for debugging
 #include <fstream>	//For writing x and y values to a file for debugging
+#include <functional>
 
 using namespace cv;
 
