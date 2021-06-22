@@ -23,24 +23,21 @@ Serial::UART uart = Serial::UART(handleUartEvent);
 Timer timer = Timer(handleTimerEvent);
 
 // Setup Motors.
-Plant::Motor tilt_motor = Plant::Motor(MOTOR_PWM_0_SLAVE_1_BASE, MOTOR_PWM_0_SLAVE_2_BASE, PWM_FREQUENCY, QUADRATURE_ENCODER_0_BASE, 2161);
+Plant::Motor tilt_motor = Plant::Motor(MOTOR_PWM_0_SLAVE_1_BASE, MOTOR_PWM_0_SLAVE_2_BASE, PWM_FREQUENCY, QUADRATURE_ENCODER_0_BASE, 2000);
 Plant::Motor pan_motor = Plant::Motor(MOTOR_PWM_1_SLAVE_1_BASE, MOTOR_PWM_1_SLAVE_2_BASE, PWM_FREQUENCY, QUADRATURE_ENCODER_1_BASE, 4915);
 
 // Motor input and output value arrays.
 XXDouble u_tilt [3 + 1];
 XXDouble y_tilt [1 + 1];
 
-//XXDouble u_pan [2 + 1];
-//XXDouble y_pan [2 + 1];
 XXDouble u_pan [3 + 1];
 XXDouble y_pan [1 + 1];
 
 // Definitions of 20-sim models.
 PositionControllerTilt tilt_model;
-//PositionControllerPan pan_model;
 PositionControllerTilt pan_model;
 
-volatile bool tilt_homing_done = true;
+volatile bool tilt_homing_done = false;
 volatile bool pan_homing_done = false;
 
 void handleTimerEvent()
@@ -48,7 +45,6 @@ void handleTimerEvent()
 	if(tilt_homing_done && pan_homing_done)
 	{
 		u_tilt[2] = tilt_motor.getAngle();
-		//u_pan[1] = pan_motor.getAngle();
 		u_pan[2] = pan_motor.getAngle();
 
 		// Tilt motor.
@@ -68,7 +64,6 @@ void handleTimerEvent()
 		if (!pan_model.IsFinished())
 		{
 			pan_model.Calculate(u_pan, y_pan);
-			//pan_motor.setSpeedAndDirection(int8_t (y_pan[1] * 100));
 			pan_motor.setSpeedAndDirection(int8_t (y_pan[0] * 100));
 		}
 		else
@@ -103,15 +98,25 @@ void handleUartEvent(Serial::message &received_message)
 	{
 		case 0:
 		{
-			u_tilt[1] = angle;
-			tilt_model.Initialize(u_tilt, y_tilt, 0.0);
+			u_tilt[1] += angle;
+
+			if (u_tilt[1] > 0.1 && u_tilt[1] < 3)
+			{
+				tilt_model.Initialize(u_tilt, y_tilt, 0.0);
+			}
+
 			break;
 		}
 
 		case 1:
 		{
-			u_pan[1] = angle;
-			pan_model.Initialize(u_pan, y_pan, 0.0);
+			u_pan[1] += angle;
+
+			if (u_pan[1] > 0.1 && u_pan[1] < 5.5)
+			{
+				pan_model.Initialize(u_pan, y_pan, 0.0);
+			}
+
 			break;
 		}
 	}
@@ -124,7 +129,7 @@ void handleUartEvent(Serial::message &received_message)
 int main()
 {
 	u_tilt[0] = 0.0;	/* corr */
-	u_tilt[1] = 0.55;	/* in */
+	u_tilt[1] = 1.4;	/* in */
 	u_tilt[2] = 0.0;	/* position */
 
 	u_pan[0] = 0.0;		/* corr */
@@ -140,42 +145,23 @@ int main()
 
 	usleep(10000);
 
+	// Enable the timer interrupts.
 	timer.enable();
 
+	// Wait until the homing is done.
 	while(!tilt_homing_done || !pan_homing_done);
 
+	// Wait for 100ms before starting the controller.
+	usleep(100000);
+
+	// Move to the middle of both axis.
 	pan_model.Initialize(u_pan, y_pan, 0.0);
 	tilt_model.Initialize(u_tilt, y_tilt, 0.0);
 
-	float prev_tilt = 0;
-	float prev_pan = 0;
-
 	while(1)
 	{
-		//u_tilt[1] += 3.14159265;
-		//tilt_model.Initialize(u_tilt, y_tilt, 0.0);
-
-		float tilt = tilt_motor.getAngle();
-
-		if (tilt != prev_tilt)
-		{
-			prev_tilt = tilt;
-			Serial::message message;
-			message.motor = 0;
-			message.setAngle(tilt);
-			uart.sendData(message);
-		}
-
-		float pan = pan_motor.getAngle();
-
-		if (pan != prev_pan)
-		{
-			prev_pan = pan;
-			Serial::message message;
-			message.motor = 1;
-			message.setAngle(pan);
-			uart.sendData(message);
-		}
+		// Just a 100ms delay. Everything is interrupt based!
+		usleep(100000);
 	}
 
 	return 0;
