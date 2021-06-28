@@ -114,26 +114,26 @@ GstFlowReturn ImageRecognition::new_sample (GstElement *sink, AllElements *eleme
 
     /* Retrieve the buffer */
     g_signal_emit_by_name (element->sink, "pull-sample", &sample, NULL);
-    g_print("Check frame \n");
+    //g_print("Check frame \n");
     if (sample)
     {
         buffer = gst_sample_get_buffer(sample);	//Get the buffer associated with sample
         if (gst_buffer_map(buffer, &map, GST_MAP_READ))
         {
-            g_print("size: %ld \n", map.size);
+            //g_print("size: %ld \n", map.size);
             Mat frameYUV(res_h + res_h/2, res_w, CV_8UC1 , map.data, Mat::AUTO_STEP); //Converting mapping of sample to openCV Mat
             Mat frameRGB(res_h, res_w, CV_8UC4);	//Creating a matrix for RGB values
             cvtColor(frameYUV, frameRGB, COLOR_YUV2BGRA_I420);	//Converting YUV image to RGB
-            imwrite("checkRGB.jpg", frameRGB);
+            //imwrite("checkRGB.jpg", frameRGB);
 
             Mat track_motion = Mat::zeros(frameRGB.size(), CV_8UC4);	//Creating a matrix with zeros (black) for detection
             Mat converted_to_HSV;	//Declaring a matrix to store BGR to HSV converted image
             cvtColor(frameRGB, converted_to_HSV, COLOR_BGR2HSV);	//Converting BGR image to HSV
-            imwrite("checkHSV.jpg", converted_to_HSV);
+            //imwrite("checkHSV.jpg", converted_to_HSV);
 
             Mat adjusted_frame;	//Declaring a matrix for detected object color
             inRange(converted_to_HSV, Scalar(hue_low, sat_low, val_low), Scalar(hue_high, sat_high, val_high), adjusted_frame);	//Applying range of HSV values to detect
-            imwrite("checkDetect.jpg", adjusted_frame);
+            //imwrite("checkDetect.jpg", adjusted_frame);
 
             Moments detecting_object = moments(adjusted_frame);	//Creating an object from the detected color frame
             double vertical_moment = detecting_object.m01;	//Getting value of vertical position of the object
@@ -151,11 +151,11 @@ GstFlowReturn ImageRecognition::new_sample (GstElement *sink, AllElements *eleme
                 vertical_last = posY;	//Getting a new vertical position value
             }
 
-            g_print("Position of the object is: %d, %d \n", horizontal_last, vertical_last);	//Showing tracked co-ordinated values
-            g_print("Radians of the object from center is: %f, %f \n", distX, distY);	//Showing distance from object center to frame center, needed for motor controller
+            //g_print("Position of the object is: %d, %d \n", horizontal_last, vertical_last);	//Showing tracked co-ordinated values
+            //g_print("Radians of the object from center is: %f, %f \n", distX, distY);	//Showing distance from object center to frame center, needed for motor controller
 
             /* Write location data to files */
-            std::fstream file;
+            /*std::fstream file;
 
             file.open("PosX.txt", std::ios::out | std::ios::app);
             std::string message = std::to_string(horizontal_last); //Taking input from each frame to write to PosX.txt file
@@ -166,9 +166,10 @@ GstFlowReturn ImageRecognition::new_sample (GstElement *sink, AllElements *eleme
             message = std::to_string(vertical_last); //Taking input from each frame to write to PosY.txt file
             file<< message << "," << std::endl;
             file.close();
+            */
 
         }
-        g_print("Found frame \n \n");
+        //g_print("Found frame \n \n");
         return GST_FLOW_OK;
     }
     gst_buffer_unmap ((buffer), &map);
