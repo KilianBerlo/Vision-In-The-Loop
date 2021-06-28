@@ -158,10 +158,32 @@ int main()
 	pan_model.Initialize(u_pan, y_pan, 0.0);
 	tilt_model.Initialize(u_tilt, y_tilt, 0.0);
 
+	float prev_tilt = 0;
+	float prev_pan = 0;
+
 	while(1)
 	{
-		// Just a 100ms delay. Everything is interrupt based!
-		usleep(100000);
+		float tilt = tilt_motor.getAngle();
+
+		if (tilt != prev_tilt)
+		{
+			prev_tilt = tilt;
+			Serial::message message;
+			message.motor = 0;
+			message.setAngle(tilt);
+			uart.sendData(message);
+		}
+
+		float pan = pan_motor.getAngle();
+
+		if (pan != prev_pan)
+		{
+			prev_pan = pan;
+			Serial::message message;
+			message.motor = 1;
+			message.setAngle(pan);
+			uart.sendData(message);
+		}
 	}
 
 	return 0;
