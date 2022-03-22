@@ -18,7 +18,7 @@ Languages, libraries and versions used in the project:
 - C
 - GStreamer 1.0
 - GStreamer App 1.0
-- OpenCV 4.5.5
+- OpenCV2
 - VHDL
 - 20-Sim
 
