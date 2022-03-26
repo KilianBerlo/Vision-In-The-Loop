@@ -23,7 +23,8 @@ Languages, libraries and versions used in the project:
 - 20-Sim
 
 
-## Contact
-Kilian van Berlo - s2613352 - k.vanberlo@student.utwente.nl
+## Authors:
+- Glen te Hofsté
+- Kilian van Berlo - s2613352 - k.vanberlo@student.utwente.nl
 
 Project Link: https://github.com/KilianBerlo/Vision-In-The-Loop
